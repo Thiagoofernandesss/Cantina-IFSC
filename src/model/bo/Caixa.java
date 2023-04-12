@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 public class Caixa {
 
     private int id;
-    private DateTimeFormatter dataHoraAbbertura;
+    private DateTimeFormatter dataHoraAbertura;
     private DateTimeFormatter dataHoraFechamento;
     private float valorAbertura;
     private float valorFechamento;
@@ -25,7 +25,7 @@ public class Caixa {
 
     public Caixa(int id, DateTimeFormatter dataHoraAbbertura, DateTimeFormatter dataHoraFechamento, float valorAbertura, float valorFechamento, String observaccao, char status) {
         this.id = id;
-        this.dataHoraAbbertura = dataHoraAbbertura;
+        this.dataHoraAbertura = dataHoraAbbertura;
         this.dataHoraFechamento = dataHoraFechamento;
         this.valorAbertura = valorAbertura;
         this.valorFechamento = valorFechamento;
@@ -38,7 +38,7 @@ public class Caixa {
     }
 
     public DateTimeFormatter getDataHoraAbbertura() {
-        return dataHoraAbbertura;
+        return dataHoraAbertura;
     }
 
     public DateTimeFormatter getDataHoraFechamento() {
@@ -66,7 +66,7 @@ public class Caixa {
     }
 
     public void setDataHoraAbbertura(DateTimeFormatter dataHoraAbbertura) {
-        this.dataHoraAbbertura = dataHoraAbbertura;
+        this.dataHoraAbertura = dataHoraAbbertura;
     }
 
     public void setDataHoraFechamento(DateTimeFormatter dataHoraFechamento) {
