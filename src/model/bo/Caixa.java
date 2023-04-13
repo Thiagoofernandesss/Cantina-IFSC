@@ -19,19 +19,40 @@ public class Caixa {
     private float valorFechamento;
     private String observaccao;
     private char status;
+    
+    private Funcionario funcionario;
 
     public Caixa() {
     }
 
-    public Caixa(int id, DateTimeFormatter dataHoraAbbertura, DateTimeFormatter dataHoraFechamento, float valorAbertura, float valorFechamento, String observaccao, char status) {
+    public Caixa(int id, DateTimeFormatter dataHoraAbertura, DateTimeFormatter dataHoraFechamento, float valorAbertura, float valorFechamento, String observaccao, char status, Funcionario funcionario) {
         this.id = id;
-        this.dataHoraAbertura = dataHoraAbbertura;
+        this.dataHoraAbertura = dataHoraAbertura;
         this.dataHoraFechamento = dataHoraFechamento;
         this.valorAbertura = valorAbertura;
         this.valorFechamento = valorFechamento;
         this.observaccao = observaccao;
         this.status = status;
+        this.funcionario = funcionario;
     }
+
+    public DateTimeFormatter getDataHoraAbertura() {
+        return dataHoraAbertura;
+    }
+
+    public void setDataHoraAbertura(DateTimeFormatter dataHoraAbertura) {
+        this.dataHoraAbertura = dataHoraAbertura;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+
 
     public int getId() {
         return id;
@@ -91,7 +112,14 @@ public class Caixa {
 
     @Override
     public String toString() {
-        return this.getId() + ", " + this.getDataHoraAbbertura() + ", " + this.getDataHoraFechamento() + ", " + this.getValorAbertura() + ", " + this.getValorFechamento() + ", " + this.getObservaccao() + ", " + this.getStatus();
+        return this.getId() + ", " 
+                + this.getDataHoraAbbertura() + ", " 
+                + this.getDataHoraFechamento() + ", " 
+                + this.getValorAbertura() + ", " 
+                + this.getValorFechamento() + ", " 
+                + this.getObservaccao() + ", " 
+                + this.getStatus() + ", "
+                + this.funcionario.getUsuario();
 
     }
 

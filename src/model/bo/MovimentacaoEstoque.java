@@ -18,18 +18,65 @@ public class MovimentacaoEstoque {
     private float qtdMovimentada;
     private String observacaoMovimento;
     private char status;
+    
+    private ItemVenda itemVenda;
+    private ItemCompra itemCompra;
+    private Produto produto;
+    private Funcionario funcionario;
+    
+    
 
     public MovimentacaoEstoque() {
     }
 
-    public MovimentacaoEstoque(int id, DateTimeFormatter dataHoraMovimento, char flagTipoMovimento, float qtdMovimentada, String observacaoMovimento, char status) {
+    public MovimentacaoEstoque(int id, DateTimeFormatter dataHoraMovimento, char flagTipoMovimento, float qtdMovimentada, String observacaoMovimento, char status, ItemVenda itemVenda, ItemCompra itemCompra, Produto produto, Funcionario funcionario) {
         this.id = id;
         this.dataHoraMovimento = dataHoraMovimento;
         this.flagTipoMovimento = flagTipoMovimento;
         this.qtdMovimentada = qtdMovimentada;
         this.observacaoMovimento = observacaoMovimento;
         this.status = status;
+        this.itemVenda = itemVenda;
+        this.itemCompra = itemCompra;
+        this.produto = produto;
+        this.funcionario = funcionario;
     }
+
+    public ItemCompra getItemCompra() {
+        return itemCompra;
+    }
+
+    public void setItemCompra(ItemCompra itemCompra) {
+        this.itemCompra = itemCompra;
+    }
+
+
+
+    public ItemVenda getItemVenda() {
+        return itemVenda;
+    }
+
+    public void setItemVenda(ItemVenda itemVenda) {
+        this.itemVenda = itemVenda;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+
 
     public int getId() {
         return id;
@@ -81,7 +128,15 @@ public class MovimentacaoEstoque {
 
     @Override
     public String toString() {
-        return this.getId() + ", " + this.getDataHoraMovimento() + ", " + this.getFlagTipoMovimento() + ", " + this.getQtdMovimentada() + ", " + this.getObservacaoMovimento() + ", " + this.getStatus();
+        return this.getId() + ", " 
+                + this.getDataHoraMovimento() + ", " 
+                + this.getFlagTipoMovimento() + ", " 
+                + this.getQtdMovimentada() + ", " 
+                + this.getObservacaoMovimento() + ", " 
+                + this.getStatus() + ", "
+                + this.produto.getId() + ", "
+                + this.produto.getDescricao() + ", "
+                + this.funcionario.getUsuario();
 
     }
 

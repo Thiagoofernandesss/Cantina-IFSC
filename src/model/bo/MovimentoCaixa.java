@@ -19,16 +19,37 @@ public class MovimentoCaixa {
     private char flagTipoMovimento;
     private char status;
 
+    private Contas contas;
+    private Caixa caixa;
+
     public MovimentoCaixa() {
     }
 
-    public MovimentoCaixa(int id, DateTimeFormatter dataHorarioMovimento, float valorMovimento, String observacao, char flagTipoMovimento, char status) {
+    public MovimentoCaixa(int id, DateTimeFormatter dataHorarioMovimento, float valorMovimento, String observacao, char flagTipoMovimento, char status, Contas contas, Caixa caixa) {
         this.id = id;
         this.dataHorarioMovimento = dataHorarioMovimento;
         this.valorMovimento = valorMovimento;
         this.observacao = observacao;
         this.flagTipoMovimento = flagTipoMovimento;
         this.status = status;
+        this.contas = contas;
+        this.caixa = caixa;
+    }
+
+    public Contas getContas() {
+        return contas;
+    }
+
+    public void setContas(Contas contas) {
+        this.contas = contas;
+    }
+
+    public Caixa getCaixa() {
+        return caixa;
+    }
+
+    public void setCaixa(Caixa caixa) {
+        this.caixa = caixa;
     }
 
     public int getId() {
@@ -81,7 +102,15 @@ public class MovimentoCaixa {
 
     @Override
     public String toString() {
-        return this.getId() + ", " + this.getDataHorarioMovimento() + ", " + this.getValorMovimento() + ", " + this.getObservacao() + ", " + this.getFlagTipoMovimento() + ", " + this.getStatus();
+        return this.getId() + ", "
+                + this.getDataHorarioMovimento() + ", "
+                + this.getValorMovimento() + ", "
+                + this.getObservacao() + ", "
+                + this.getFlagTipoMovimento() + ", "
+                + this.getStatus() + ", "
+                + this.caixa.getFuncionario().getUsuario() +", "
+                + this.contas.getId() + ", "
+                + this.caixa.getId();
 
     }
 

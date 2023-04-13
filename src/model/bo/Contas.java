@@ -25,10 +25,13 @@ public class Contas {
     private char flagTipoConta;
     private char status;
 
+    private Venda venda;
+    private Compra compra;
+
     public Contas() {
     }
 
-    public Contas(int id, DateTimeFormatter dataHoraEmissao, Date dataVencimento, Date dataQuitação, float valorEmitido, float valorDesconto, float valorAcrescimo, float valorQuitado, float observacao, char flagTipoConta, char status) {
+    public Contas(int id, DateTimeFormatter dataHoraEmissao, Date dataVencimento, Date dataQuitação, float valorEmitido, float valorDesconto, float valorAcrescimo, float valorQuitado, float observacao, char flagTipoConta, char status, Venda venda, Compra compra) {
         this.id = id;
         this.dataHoraEmissao = dataHoraEmissao;
         this.dataVencimento = dataVencimento;
@@ -40,6 +43,24 @@ public class Contas {
         this.observacao = observacao;
         this.flagTipoConta = flagTipoConta;
         this.status = status;
+        this.venda = venda;
+        this.compra = compra;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
     }
 
     public int getId() {
@@ -132,7 +153,23 @@ public class Contas {
 
     @Override
     public String toString() {
-        return this.getId() + ", " + this.getDataHoraEmissao() + ", " + this.getDataVencimento() + ", " + this.getDataQuitação() + ", " + this.getValorEmitido() + ", " + this.getValorDesconto() + ", " + this.getValorAcrescimo() + ", " + this.getValorQuitado() + ", " + this.getObservacao() + ", " + this.getFlagTipoConta() + ", " + this.getStatus();
+        return this.getId() + ", "
+                + this.getDataHoraEmissao() + ", "
+                + this.getDataVencimento() + ", "
+                + this.getDataQuitação() + ", "
+                + this.getValorEmitido() + ", "
+                + this.getValorDesconto() + ", "
+                + this.getValorAcrescimo() + ", "
+                + this.getValorQuitado() + ", "
+                + this.getObservacao() + ", "
+                + this.getFlagTipoConta() + ", "
+                + this.getStatus() + ", "
+                + this.venda.getId() + ", "
+                + this.venda.getFuncionario().getUsuario() + ", "
+                + this.venda.getCarteirinha().getId() + ", "
+                + this.compra.getId() + ", "
+                + this.compra.getFornecedor() + ", "
+                + this.compra.getNumeroNF();
 
     }
 
