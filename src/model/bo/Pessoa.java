@@ -8,7 +8,7 @@ package model.bo;
  *
  * @author Thiago
  */
-public class Pessoa {
+public abstract class Pessoa {
 
     private int id;
     private String nome;
@@ -17,11 +17,15 @@ public class Pessoa {
     private String email;
     private char status;
     private String complementoEndereco;
+    
+    private Endereco endereco;
+    
+    
 
     public Pessoa() {
     }
 
-    public Pessoa(int id, String nome, String fone1, String fone2, String email, char status, String complementoEndereco) {
+    public Pessoa(int id, String nome, String fone1, String fone2, String email, char status, String complementoEndereco, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.fone1 = fone1;
@@ -29,7 +33,18 @@ public class Pessoa {
         this.email = email;
         this.status = status;
         this.complementoEndereco = complementoEndereco;
+        this.endereco = endereco;
     }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+
 
     public int getId() {
         return id;
@@ -89,8 +104,14 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return this.getId() + ", " + this.getNome() + ", " + this.getFone1() + ", " + this.getFone2() + ", " + this.getEmail() + ", " + this.getStatus() + ", " + this.getComplementoEndereco();
-
+        return this.getId() + ", " 
+                + this.getNome() + ", " 
+                + this.getFone1() + ", " 
+                + this.getFone2() + ", " 
+                + this.getEmail() + ", " 
+                + this.getStatus() + ", " 
+                + this.getComplementoEndereco() + ", "
+                + this.getEndereco().toString();
     }
 
 }

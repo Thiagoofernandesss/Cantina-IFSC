@@ -49,7 +49,9 @@ public class Cidade {
 
     @Override
     public String toString() {
-        return this.getId() + ", " + this.getDescricao() + ", " + this.getUf();
+        return this.getId() + ", " 
+                + this.getDescricao() + ", " 
+                + this.getUf();
 
     }
 

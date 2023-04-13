@@ -14,16 +14,39 @@ public class Endereco {
     private String cep;
     private String logradouro;
     private char status;
+    
+    private Bairro bairro;
+    private Cidade cidade;
 
     public Endereco() {
     }
 
-    public Endereco(int id, String cep, String logradouro, char status) {
+    public Endereco(int id, String cep, String logradouro, char status, Bairro bairro, Cidade cidade) {
         this.id = id;
         this.cep = cep;
         this.logradouro = logradouro;
         this.status = status;
+        this.bairro = bairro;
+        this.cidade = cidade;
     }
+
+    public Bairro getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+
 
     public int getId() {
         return id;
@@ -59,7 +82,12 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return this.getId() + ", " + this.getCep() + ", " + this.getLogradouro() + ", " + this.getStatus();
+        return this.getId() + ", " 
+                + this.getCep() + ", " 
+                + this.getLogradouro() + ", " 
+                + this.getStatus() +", " 
+                + this.cidade.getDescricao() 
+                + this.bairro.getDescricao();
 
     }
 

@@ -8,7 +8,7 @@ package model.bo;
  *
  * @author Thiago
  */
-public class Cliente extends Pessoa{
+public class Cliente extends Pessoa {
 
     private String cpf;
     private String rg;
@@ -18,7 +18,8 @@ public class Cliente extends Pessoa{
     public Cliente() {
     }
 
-    public Cliente(String cpf, String rg, String matricula, String dataNascimento) {
+    public Cliente(String cpf, String rg, String matricula, String dataNascimento, int id, String nome, String fone1, String fone2, String email, char status, String complementoEndereco, Endereco endereco) {
+        super(id, nome, fone1, fone2, email, status, complementoEndereco, endereco);
         this.cpf = cpf;
         this.rg = rg;
         this.matricula = matricula;
@@ -59,7 +60,11 @@ public class Cliente extends Pessoa{
 
     @Override
     public String toString() {
-        return this.getCpf() + ", " + this.getRg() + ", " + this.getMatricula() + ", " + this.getDataNascimento();
+        return super.toString() + ", "
+                + this.getCpf() + ", "
+                + this.getRg() + ", "
+                + this.getMatricula() + ", "
+                + this.getDataNascimento() + ", ";
 
     }
 
