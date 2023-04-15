@@ -136,6 +136,12 @@ public class MovimentacaoEstoque {
                 + this.getStatus() + ", "
                 + this.produto.getId() + ", "
                 + this.produto.getDescricao() + ", "
+                + this.itemCompra.getId() + ", "
+                + this.itemCompra.getQtdProduto() + ", "
+                + this.itemCompra.getValorUnitario() + ", "
+                + this.itemVenda.getId() + ", "
+                + this.itemVenda.getQtdProduto() + ", "
+                + this.itemVenda.getValorUnitario() +", "
                 + this.funcionario.getUsuario();
 
     }

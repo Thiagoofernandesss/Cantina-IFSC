@@ -39,7 +39,8 @@ public class Bairro {
 
     @Override
     public String toString() {
-        return this.getId() + ", " + this.getDescricao();
+        return this.getId() + ", " 
+                + this.getDescricao();
     }
 
 }

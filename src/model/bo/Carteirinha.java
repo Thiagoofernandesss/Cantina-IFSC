@@ -75,8 +75,8 @@ public class Carteirinha {
                 + this.getCodigoBarra() + ", " 
                 + this.getDataGeracao() + ", " 
                 + this.getDataCancelamento() + ", "
-                + this.cliente.getNome()
-                + this.cliente.getMatricula();
+                + this.cliente.getMatricula() + ", "
+                + this.cliente.getNome();
 
     }
 

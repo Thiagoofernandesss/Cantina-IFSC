@@ -59,7 +59,10 @@ public class Produto {
 
     @Override
     public String toString() {
-        return this.getId() + ", " + this.getDescricao() + ", " + this.getCodigoBarra() + ", " + this.getStatus();
+        return this.getId() + ", " 
+                + this.getDescricao() + ", " 
+                + this.getCodigoBarra() 
+                + ", " + this.getStatus();
 
     }
 

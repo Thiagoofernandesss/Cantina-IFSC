@@ -25,7 +25,7 @@ public class Venda {
     public Venda() {
     }
 
-    //Criar outro construtor??
+
     public Venda(int id, DateTimeFormatter dataHoraVenda, float valorDesconto, char flagTipoDesconto, String observacao, char status, Carteirinha carteirinha, Funcionario funcionario) {
         this.id = id;
         this.dataHoraVenda = dataHoraVenda;
