@@ -9,12 +9,12 @@ package view;
  *
  * @author aluno
  */
-public class TemplateBusca extends javax.swing.JDialog {
+public class BuscaBairro extends javax.swing.JDialog {
 
     /**
      * Creates new form TemplateBusca2023
      */
-    public TemplateBusca(java.awt.Frame parent, boolean modal) {
+    public BuscaBairro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -49,11 +49,11 @@ public class TemplateBusca extends javax.swing.JDialog {
         jPanelTitulo.setBackground(new java.awt.Color(228, 228, 228));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabelTitulo.setBackground(new java.awt.Color(235, 235, 235));
+        jLabelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(0, 87, 172));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Titulo");
+        jLabelTitulo.setText("Bairros");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -72,7 +72,7 @@ public class TemplateBusca extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jPanelBotoes.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelBotoes.setBackground(new java.awt.Color(228, 228, 228));
         jPanelBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonCarregar.setBackground(new java.awt.Color(249, 213, 100));
@@ -81,6 +81,8 @@ public class TemplateBusca extends javax.swing.JDialog {
         jButtonCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeCarregar.png"))); // NOI18N
         jButtonCarregar.setText("Carregar");
         jButtonCarregar.setBorder(null);
+        jButtonCarregar.setMaximumSize(new java.awt.Dimension(99, 26));
+        jButtonCarregar.setMinimumSize(new java.awt.Dimension(99, 26));
 
         jButtonSair.setBackground(new java.awt.Color(255, 210, 210));
         jButtonSair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -112,7 +114,7 @@ public class TemplateBusca extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelFiltro.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelFiltro.setBackground(new java.awt.Color(228, 228, 228));
         jPanelFiltro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonFiltrar.setBackground(new java.awt.Color(152, 211, 255));
@@ -121,6 +123,8 @@ public class TemplateBusca extends javax.swing.JDialog {
         jButtonFiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/IconeFiltrar.png"))); // NOI18N
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
+        jButtonFiltrar.setMaximumSize(new java.awt.Dimension(99, 26));
+        jButtonFiltrar.setMinimumSize(new java.awt.Dimension(99, 26));
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
@@ -146,23 +150,37 @@ public class TemplateBusca extends javax.swing.JDialog {
         jPanelDados2.setBackground(new java.awt.Color(228, 228, 228));
         jPanelDados2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jTableDados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jTableDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1"
+                "ID", "Descrição"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTableDados);
+        if (jTableDados.getColumnModel().getColumnCount() > 0) {
+            jTableDados.getColumnModel().getColumn(0).setResizable(false);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(45);
+            jTableDados.getColumnModel().getColumn(1).setResizable(false);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(400);
+        }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
         jPanelDados2.setLayout(jPanelDados2Layout);
@@ -249,7 +267,7 @@ public class TemplateBusca extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TemplateBusca dialog = new TemplateBusca(new javax.swing.JFrame(), true);
+                BuscaBairro dialog = new BuscaBairro(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

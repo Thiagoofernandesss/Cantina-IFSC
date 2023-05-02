@@ -36,8 +36,8 @@ public class TemplateCadastro extends javax.swing.JFrame {
         jButtonNovo = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
-        jButtonSair = new javax.swing.JButton();
         jButtonConsultar = new javax.swing.JButton();
+        jButtonSair = new javax.swing.JButton();
         jPanelTitulo = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
 
@@ -46,8 +46,10 @@ public class TemplateCadastro extends javax.swing.JFrame {
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusTraversalPolicyProvider(true);
+        setPreferredSize(new java.awt.Dimension(651, 299));
+        setResizable(false);
 
-        jPanelFundo.setBackground(new java.awt.Color(0, 133, 180));
+        jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));
         jPanelFundo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, null, null, new java.awt.Color(255, 204, 204)));
 
         jPanelDados.setBackground(new java.awt.Color(235, 235, 235));
@@ -64,13 +66,16 @@ public class TemplateCadastro extends javax.swing.JFrame {
             .addGap(0, 469, Short.MAX_VALUE)
         );
 
+        jPanelBotoes.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jButtonNovo.setBackground(new java.awt.Color(184, 225, 255));
-        jButtonNovo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonNovo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonNovo.setForeground(new java.awt.Color(78, 185, 255));
-        jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeNovo2.png"))); // NOI18N
+        jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeNovo.png"))); // NOI18N
         jButtonNovo.setText("Novo");
         jButtonNovo.setBorder(null);
-        jButtonNovo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jButtonNovo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonNovo.setMaximumSize(new java.awt.Dimension(71, 28));
         jButtonNovo.setMinimumSize(new java.awt.Dimension(71, 28));
         jButtonNovo.setPreferredSize(new java.awt.Dimension(87, 28));
@@ -81,53 +86,54 @@ public class TemplateCadastro extends javax.swing.JFrame {
         });
 
         jButtonSalvar.setBackground(new java.awt.Color(218, 255, 218));
-        jButtonSalvar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonSalvar.setForeground(new java.awt.Color(0, 137, 0));
-        jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeSalvar.png"))); // NOI18N
+        jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSalvar.png"))); // NOI18N
         jButtonSalvar.setText("Salvar");
         jButtonSalvar.setBorder(null);
         jButtonSalvar.setEnabled(false);
-        jButtonSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jButtonSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonSalvar.setPreferredSize(new java.awt.Dimension(87, 28));
 
         jButtonCancelar.setBackground(new java.awt.Color(255, 255, 215));
-        jButtonCancelar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCancelar.setForeground(new java.awt.Color(204, 204, 0));
-        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeCancelar.png"))); // NOI18N
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeCancelar.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setBorder(null);
         jButtonCancelar.setEnabled(false);
-        jButtonCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jButtonCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonCancelar.setMaximumSize(new java.awt.Dimension(71, 28));
         jButtonCancelar.setMinimumSize(new java.awt.Dimension(71, 28));
 
+        jButtonConsultar.setBackground(new java.awt.Color(249, 213, 100));
+        jButtonConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonConsultar.setForeground(new java.awt.Color(130, 98, 0));
+        jButtonConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconePesquisar.png"))); // NOI18N
+        jButtonConsultar.setText("Consultar");
+        jButtonConsultar.setBorder(null);
+        jButtonConsultar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButtonConsultar.setMaximumSize(new java.awt.Dimension(87, 28));
+        jButtonConsultar.setMinimumSize(new java.awt.Dimension(87, 28));
+        jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConsultarActionPerformed(evt);
+            }
+        });
+
         jButtonSair.setBackground(new java.awt.Color(255, 210, 210));
-        jButtonSair.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButtonSair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonSair.setForeground(new java.awt.Color(255, 0, 0));
-        jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeDelete.png"))); // NOI18N
+        jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSair.png"))); // NOI18N
         jButtonSair.setText("Sair");
         jButtonSair.setBorder(null);
-        jButtonSair.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jButtonSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonSair.setMaximumSize(new java.awt.Dimension(71, 28));
         jButtonSair.setMinimumSize(new java.awt.Dimension(71, 28));
         jButtonSair.setPreferredSize(new java.awt.Dimension(87, 28));
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSairActionPerformed(evt);
-            }
-        });
-
-        jButtonConsultar.setBackground(new java.awt.Color(249, 213, 100));
-        jButtonConsultar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonConsultar.setForeground(new java.awt.Color(130, 98, 0));
-        jButtonConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconePesquisar.png"))); // NOI18N
-        jButtonConsultar.setText("Consultar");
-        jButtonConsultar.setBorder(null);
-        jButtonConsultar.setMaximumSize(new java.awt.Dimension(87, 28));
-        jButtonConsultar.setMinimumSize(new java.awt.Dimension(87, 28));
-        jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConsultarActionPerformed(evt);
             }
         });
 
@@ -142,33 +148,33 @@ public class TemplateCadastro extends javax.swing.JFrame {
                 .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
+                .addComponent(jButtonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(211, 211, 211))
+                .addGap(133, 133, 133))
         );
         jPanelBotoesLayout.setVerticalGroup(
             jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBotoesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanelTitulo.setBackground(new java.awt.Color(228, 228, 228));
+        jPanelTitulo.setBackground(new java.awt.Color(235, 235, 235));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(0, 87, 172));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Cadastro Cliente");
+        jLabelTitulo.setText("Titulo");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -176,7 +182,7 @@ public class TemplateCadastro extends javax.swing.JFrame {
             jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTituloLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelTituloLayout.setVerticalGroup(
@@ -193,11 +199,11 @@ public class TemplateCadastro extends javax.swing.JFrame {
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelDados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 684, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanelFundoLayout.setVerticalGroup(
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +214,7 @@ public class TemplateCadastro extends javax.swing.JFrame {
                 .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,7 +225,7 @@ public class TemplateCadastro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

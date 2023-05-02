@@ -9,12 +9,12 @@ package view;
  *
  * @author aluno
  */
-public class TemplateBusca extends javax.swing.JDialog {
+public class BuscaEndereco extends javax.swing.JDialog {
 
     /**
      * Creates new form TemplateBusca2023
      */
-    public TemplateBusca(java.awt.Frame parent, boolean modal) {
+    public BuscaEndereco(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -53,7 +53,7 @@ public class TemplateBusca extends javax.swing.JDialog {
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(0, 87, 172));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Titulo");
+        jLabelTitulo.setText("Endereços");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -151,18 +151,39 @@ public class TemplateBusca extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Title 1"
+                "ID", "CEP", "Logradouro", "Status", "Cidade", "Bairro"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTableDados);
+        if (jTableDados.getColumnModel().getColumnCount() > 0) {
+            jTableDados.getColumnModel().getColumn(0).setResizable(false);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(45);
+            jTableDados.getColumnModel().getColumn(1).setResizable(false);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(60);
+            jTableDados.getColumnModel().getColumn(2).setResizable(false);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(80);
+            jTableDados.getColumnModel().getColumn(3).setResizable(false);
+            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(40);
+            jTableDados.getColumnModel().getColumn(4).setResizable(false);
+            jTableDados.getColumnModel().getColumn(4).setPreferredWidth(70);
+            jTableDados.getColumnModel().getColumn(5).setResizable(false);
+            jTableDados.getColumnModel().getColumn(5).setPreferredWidth(70);
+        }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
         jPanelDados2.setLayout(jPanelDados2Layout);
@@ -249,7 +270,7 @@ public class TemplateBusca extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TemplateBusca dialog = new TemplateBusca(new javax.swing.JFrame(), true);
+                BuscaEndereco dialog = new BuscaEndereco(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

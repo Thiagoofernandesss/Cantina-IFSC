@@ -9,12 +9,12 @@ package view;
  *
  * @author aluno
  */
-public class TemplateBusca extends javax.swing.JDialog {
+public class BuscaProduto extends javax.swing.JDialog {
 
     /**
      * Creates new form TemplateBusca2023
      */
-    public TemplateBusca(java.awt.Frame parent, boolean modal) {
+    public BuscaProduto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -53,7 +53,7 @@ public class TemplateBusca extends javax.swing.JDialog {
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(0, 87, 172));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Titulo");
+        jLabelTitulo.setText("Produtos");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -151,18 +151,24 @@ public class TemplateBusca extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Title 1"
+                "ID", "Descrição", "Código de Barras", "Status"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(jTableDados);
+        if (jTableDados.getColumnModel().getColumnCount() > 0) {
+            jTableDados.getColumnModel().getColumn(0).setMinWidth(45);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(45);
+            jTableDados.getColumnModel().getColumn(0).setMaxWidth(45);
+            jTableDados.getColumnModel().getColumn(1).setMinWidth(440);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(440);
+            jTableDados.getColumnModel().getColumn(1).setMaxWidth(440);
+            jTableDados.getColumnModel().getColumn(2).setMinWidth(100);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTableDados.getColumnModel().getColumn(2).setMaxWidth(100);
+            jTableDados.getColumnModel().getColumn(3).setMinWidth(45);
+            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(45);
+            jTableDados.getColumnModel().getColumn(3).setMaxWidth(45);
+        }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
         jPanelDados2.setLayout(jPanelDados2Layout);
@@ -249,7 +255,7 @@ public class TemplateBusca extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TemplateBusca dialog = new TemplateBusca(new javax.swing.JFrame(), true);
+                BuscaProduto dialog = new BuscaProduto(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

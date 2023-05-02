@@ -9,12 +9,12 @@ package view;
  *
  * @author aluno
  */
-public class TemplateBusca extends javax.swing.JDialog {
+public class BuscaFuncionario extends javax.swing.JDialog {
 
     /**
      * Creates new form TemplateBusca2023
      */
-    public TemplateBusca(java.awt.Frame parent, boolean modal) {
+    public BuscaFuncionario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -53,7 +53,7 @@ public class TemplateBusca extends javax.swing.JDialog {
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(0, 87, 172));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Titulo");
+        jLabelTitulo.setText("Funcionários");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -151,15 +151,15 @@ public class TemplateBusca extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Title 1"
+                "ID", "Nome", "CPF", "RG", "Fone", "Fone", "CEP", "Cidade", "Bairro", "Rua", "Complemento", "Usurário", "Senha", "Status"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTableDados);
@@ -249,7 +249,7 @@ public class TemplateBusca extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TemplateBusca dialog = new TemplateBusca(new javax.swing.JFrame(), true);
+                BuscaFuncionario dialog = new BuscaFuncionario(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
