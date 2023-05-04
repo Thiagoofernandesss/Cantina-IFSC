@@ -85,6 +85,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
         jLabelLogradouro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelLogradouro.setText("Logradouro");
 
+        jCheckBoxStatus.setBackground(new java.awt.Color(235, 235, 235));
         jCheckBoxStatus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jCheckBoxStatus.setText("Inativo");
 
@@ -310,7 +311,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 266, Short.MAX_VALUE)
         );
 
         pack();

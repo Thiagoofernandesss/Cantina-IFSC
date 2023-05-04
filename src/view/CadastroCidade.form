@@ -62,7 +62,7 @@
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="jPanelDados" alignment="0" max="32767" attributes="0"/>
                       <Component id="jPanelTitulo" max="32767" attributes="0"/>
-                      <Component id="jPanelBotoes" alignment="0" pref="634" max="32767" attributes="0"/>
+                      <Component id="jPanelBotoes" alignment="0" pref="638" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -348,6 +348,9 @@
                   <Dimension value="[71, 28]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonSair">
               <Properties>

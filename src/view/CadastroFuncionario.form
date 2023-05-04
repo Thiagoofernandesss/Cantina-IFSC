@@ -35,7 +35,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanelFundo" min="-2" pref="375" max="-2" attributes="0"/>
+          <Component id="jPanelFundo" pref="399" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -61,10 +61,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jPanelBotoes" pref="618" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jPanelTitulo" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jPanelDados" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jPanelTitulo" alignment="0" pref="618" max="32767" attributes="0"/>
+                      <Component id="jPanelDados" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -244,11 +242,13 @@
                           <Component id="jLabelLograouro" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPasswordFieldSenhaUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPasswordFieldSenhaUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
