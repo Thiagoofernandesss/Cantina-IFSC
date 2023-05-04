@@ -42,6 +42,7 @@ public class BuscaCidade extends javax.swing.JDialog {
         jTableDados = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("BuscaCidade");
         setResizable(false);
 
         jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));

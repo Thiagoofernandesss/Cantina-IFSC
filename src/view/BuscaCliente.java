@@ -42,6 +42,7 @@ public class BuscaCliente extends javax.swing.JDialog {
         jTableDados = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("BuscaCliente");
         setResizable(false);
 
         jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));

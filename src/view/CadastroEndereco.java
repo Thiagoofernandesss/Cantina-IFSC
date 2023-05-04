@@ -18,6 +18,9 @@ public class CadastroEndereco extends javax.swing.JFrame {
      */
     public CadastroEndereco() {
         initComponents();
+        utilities.Utilities.ativa(true, jPanelBotoes);
+        utilities.Utilities.limpaComponentes(false, jPanelDados);
+
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
@@ -53,7 +56,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
         jLabelTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Formulario de teste");
+        setTitle("CadastroEndereco");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusTraversalPolicyProvider(true);
@@ -158,6 +161,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
         jButtonNovo.setForeground(new java.awt.Color(78, 185, 255));
         jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeNovo.png"))); // NOI18N
         jButtonNovo.setText("Novo");
+        jButtonNovo.setActionCommand("0");
         jButtonNovo.setBorder(null);
         jButtonNovo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonNovo.setMaximumSize(new java.awt.Dimension(87, 28));
@@ -174,29 +178,40 @@ public class CadastroEndereco extends javax.swing.JFrame {
         jButtonSalvar.setForeground(new java.awt.Color(0, 137, 0));
         jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSalvar.png"))); // NOI18N
         jButtonSalvar.setText("Salvar");
+        jButtonSalvar.setActionCommand("1");
         jButtonSalvar.setBorder(null);
-        jButtonSalvar.setEnabled(false);
         jButtonSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonSalvar.setMaximumSize(new java.awt.Dimension(87, 28));
         jButtonSalvar.setMinimumSize(new java.awt.Dimension(87, 28));
         jButtonSalvar.setPreferredSize(new java.awt.Dimension(87, 28));
+        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalvarActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setBackground(new java.awt.Color(255, 255, 215));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCancelar.setForeground(new java.awt.Color(204, 204, 0));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeCancelar.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setActionCommand("1");
         jButtonCancelar.setBorder(null);
-        jButtonCancelar.setEnabled(false);
         jButtonCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonCancelar.setMaximumSize(new java.awt.Dimension(87, 28));
         jButtonCancelar.setMinimumSize(new java.awt.Dimension(87, 28));
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jButtonConsultar.setBackground(new java.awt.Color(249, 213, 100));
         jButtonConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonConsultar.setForeground(new java.awt.Color(130, 98, 0));
         jButtonConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconePesquisar.png"))); // NOI18N
         jButtonConsultar.setText("Consultar");
+        jButtonConsultar.setActionCommand("0");
         jButtonConsultar.setBorder(null);
         jButtonConsultar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonConsultar.setMaximumSize(new java.awt.Dimension(87, 28));
@@ -212,6 +227,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
         jButtonSair.setForeground(new java.awt.Color(255, 0, 0));
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSair.png"))); // NOI18N
         jButtonSair.setText("Sair");
+        jButtonSair.setActionCommand("0");
         jButtonSair.setBorder(null);
         jButtonSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonSair.setMaximumSize(new java.awt.Dimension(87, 28));
@@ -300,7 +316,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
                 .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,7 +327,9 @@ public class CadastroEndereco extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 266, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -320,6 +338,9 @@ public class CadastroEndereco extends javax.swing.JFrame {
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
+        utilities.Utilities.ativa(false, jPanelBotoes);
+        utilities.Utilities.limpaComponentes(true, jPanelDados);
+
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
@@ -329,6 +350,19 @@ public class CadastroEndereco extends javax.swing.JFrame {
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonConsultarActionPerformed
+
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        // TODO add your handling code here:
+        utilities.Utilities.ativa(true, jPanelBotoes);
+        utilities.Utilities.limpaComponentes(false, jPanelDados);
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        utilities.Utilities.ativa(true, jPanelBotoes);
+        utilities.Utilities.limpaComponentes(false, jPanelDados);
+
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments

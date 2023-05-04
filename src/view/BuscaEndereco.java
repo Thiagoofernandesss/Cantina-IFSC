@@ -42,6 +42,9 @@ public class BuscaEndereco extends javax.swing.JDialog {
         jTableDados = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("BuscaEndereco");
+        setMaximumSize(new java.awt.Dimension(651, 299));
+        setMinimumSize(new java.awt.Dimension(651, 299));
         setResizable(false);
 
         jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));

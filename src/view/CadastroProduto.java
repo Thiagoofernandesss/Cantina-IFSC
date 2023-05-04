@@ -18,6 +18,9 @@ public class CadastroProduto extends javax.swing.JFrame {
      */
     public CadastroProduto() {
         initComponents();
+        utilities.Utilities.ativa(true, jPanelBotoes);
+        utilities.Utilities.limpaComponentes(false, jPanelDados);
+        
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
@@ -48,19 +51,22 @@ public class CadastroProduto extends javax.swing.JFrame {
         jPanelTitulo = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Formulario de teste");
-        setAlwaysOnTop(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("CadastroProduto");
         setBackground(new java.awt.Color(255, 255, 255));
-        setFocusTraversalPolicyProvider(true);
+        setMaximumSize(new java.awt.Dimension(651, 299));
+        setMinimumSize(new java.awt.Dimension(651, 299));
         setPreferredSize(new java.awt.Dimension(651, 299));
         setResizable(false);
 
         jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));
         jPanelFundo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, null, null, new java.awt.Color(255, 204, 204)));
+        jPanelFundo.setMaximumSize(new java.awt.Dimension(636, 202));
+        jPanelFundo.setMinimumSize(new java.awt.Dimension(636, 202));
 
         jPanelDados.setBackground(new java.awt.Color(235, 235, 235));
         jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanelDados.setRequestFocusEnabled(false);
 
         jLabelId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -96,7 +102,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                         .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(403, 403, 403)
                         .addComponent(jCheckBoxStatus)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelDadosLayout.setVerticalGroup(
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,6 +129,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         jButtonNovo.setForeground(new java.awt.Color(78, 185, 255));
         jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeNovo.png"))); // NOI18N
         jButtonNovo.setText("Novo");
+        jButtonNovo.setActionCommand("0");
         jButtonNovo.setBorder(null);
         jButtonNovo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonNovo.setMaximumSize(new java.awt.Dimension(71, 28));
@@ -139,27 +146,38 @@ public class CadastroProduto extends javax.swing.JFrame {
         jButtonSalvar.setForeground(new java.awt.Color(0, 137, 0));
         jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSalvar.png"))); // NOI18N
         jButtonSalvar.setText("Salvar");
+        jButtonSalvar.setActionCommand("1");
         jButtonSalvar.setBorder(null);
-        jButtonSalvar.setEnabled(false);
         jButtonSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonSalvar.setPreferredSize(new java.awt.Dimension(87, 28));
+        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalvarActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setBackground(new java.awt.Color(255, 255, 215));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonCancelar.setForeground(new java.awt.Color(204, 204, 0));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeCancelar.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setActionCommand("1");
         jButtonCancelar.setBorder(null);
-        jButtonCancelar.setEnabled(false);
         jButtonCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonCancelar.setMaximumSize(new java.awt.Dimension(71, 28));
         jButtonCancelar.setMinimumSize(new java.awt.Dimension(71, 28));
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jButtonConsultar.setBackground(new java.awt.Color(249, 213, 100));
         jButtonConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonConsultar.setForeground(new java.awt.Color(130, 98, 0));
         jButtonConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconePesquisar.png"))); // NOI18N
         jButtonConsultar.setText("Consultar");
+        jButtonConsultar.setActionCommand("0");
         jButtonConsultar.setBorder(null);
         jButtonConsultar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonConsultar.setMaximumSize(new java.awt.Dimension(87, 28));
@@ -175,6 +193,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         jButtonSair.setForeground(new java.awt.Color(255, 0, 0));
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSair.png"))); // NOI18N
         jButtonSair.setText("Sair");
+        jButtonSair.setActionCommand("0");
         jButtonSair.setBorder(null);
         jButtonSair.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonSair.setMaximumSize(new java.awt.Dimension(71, 28));
@@ -249,10 +268,9 @@ public class CadastroProduto extends javax.swing.JFrame {
             .addGroup(jPanelFundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 620, Short.MAX_VALUE)
-                    .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelFundoLayout.setVerticalGroup(
@@ -264,7 +282,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                 .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(435, 435, 435))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -275,7 +293,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -284,6 +302,8 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
+        utilities.Utilities.ativa(false, jPanelBotoes);
+        utilities.Utilities.limpaComponentes(true, jPanelDados);
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
@@ -293,6 +313,19 @@ public class CadastroProduto extends javax.swing.JFrame {
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonConsultarActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        utilities.Utilities.ativa(true, jPanelBotoes);
+        utilities.Utilities.limpaComponentes(false, jPanelDados);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        // TODO add your handling code here:
+        utilities.Utilities.ativa(true, jPanelBotoes);
+        utilities.Utilities.limpaComponentes(false, jPanelDados);
+
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     /**
      * @param args the command line arguments
