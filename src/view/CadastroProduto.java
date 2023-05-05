@@ -54,10 +54,8 @@ public class CadastroProduto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CadastroProduto");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(651, 299));
-        setMinimumSize(new java.awt.Dimension(651, 299));
-        setPreferredSize(new java.awt.Dimension(651, 299));
-        setResizable(false);
+        setMaximumSize(new java.awt.Dimension(636, 202));
+        setMinimumSize(new java.awt.Dimension(636, 202));
 
         jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));
         jPanelFundo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, null, null, new java.awt.Color(255, 204, 204)));
