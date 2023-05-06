@@ -21,7 +21,6 @@ public class CadastroVenda extends javax.swing.JFrame {
         utilities.Utilities.ativa(true, jPanelBotoes);
         utilities.Utilities.limpaComponentes(false, jPanelDados);
         
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -65,13 +64,14 @@ public class CadastroVenda extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CadastroVenda");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(700, 595));
-        setMinimumSize(new java.awt.Dimension(700, 595));
+        setMaximumSize(new java.awt.Dimension(763, 350));
+        setMinimumSize(new java.awt.Dimension(763, 350));
+        setResizable(false);
 
         jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));
         jPanelFundo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, null, null, new java.awt.Color(255, 204, 204)));
-        jPanelFundo.setMaximumSize(new java.awt.Dimension(709, 327));
-        jPanelFundo.setMinimumSize(new java.awt.Dimension(709, 327));
+        jPanelFundo.setMaximumSize(new java.awt.Dimension(763, 350));
+        jPanelFundo.setMinimumSize(new java.awt.Dimension(763, 350));
 
         jPanelDados.setBackground(new java.awt.Color(235, 235, 235));
         jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -380,13 +380,11 @@ public class CadastroVenda extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

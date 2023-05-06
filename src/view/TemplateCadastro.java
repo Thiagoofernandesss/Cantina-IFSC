@@ -21,7 +21,6 @@ public class TemplateCadastro extends javax.swing.JFrame {
         utilities.Utilities.ativa(true, jPanelBotoes);
         utilities.Utilities.limpaComponentes(false, jPanelDados);
         
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -220,7 +219,7 @@ public class TemplateCadastro extends javax.swing.JFrame {
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 684, Short.MAX_VALUE))
+                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 692, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelFundoLayout.setVerticalGroup(

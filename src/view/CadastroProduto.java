@@ -21,7 +21,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         utilities.Utilities.ativa(true, jPanelBotoes);
         utilities.Utilities.limpaComponentes(false, jPanelDados);
         
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**

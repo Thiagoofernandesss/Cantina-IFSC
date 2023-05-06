@@ -21,7 +21,6 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
         utilities.Utilities.ativa(true, jPanelBotoes);
         utilities.Utilities.limpaComponentes(false, jPanelDados);
         
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -350,7 +349,7 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
         jPanelFundoLayout.setVerticalGroup(
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFundoLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -72,7 +72,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanelDados" max="32767" attributes="0"/>
-                      <Component id="jPanelBotoes" pref="0" max="32767" attributes="0"/>
+                      <Component id="jPanelBotoes" pref="642" max="32767" attributes="0"/>
                       <Component id="jPanelTitulo" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>

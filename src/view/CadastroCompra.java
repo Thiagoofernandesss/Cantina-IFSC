@@ -21,7 +21,6 @@ public class CadastroCompra extends javax.swing.JFrame {
         utilities.Utilities.ativa(true, jPanelBotoes);
         utilities.Utilities.limpaComponentes(false, jPanelDados);
         
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -380,7 +379,7 @@ public class CadastroCompra extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanelTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 661, Short.MAX_VALUE)
+                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 707, Short.MAX_VALUE)
                     .addComponent(jPanelDados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
