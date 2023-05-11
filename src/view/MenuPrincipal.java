@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.ControllerCadastroBairro;
 import javax.swing.JOptionPane;
 
 /**
@@ -168,6 +169,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSairSistema.png"))); // NOI18N
         jMenuItemSair.setText("Sair");
         jMenuItemSair.setName(""); // NOI18N
+        jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSairActionPerformed(evt);
+            }
+        });
         jMenuCadastros.add(jMenuItemSair);
 
         jMenuBar1.add(jMenuCadastros);
@@ -240,6 +246,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBairroActionPerformed
         // TODO add your handling code here:
         CadastroBairro cadastroBairro = new CadastroBairro();
+        controller.ControllerCadastroBairro controllerCadastroBairro = new ControllerCadastroBairro(cadastroBairro);
         
         //inserir a classe do controller
         cadastroBairro.setVisible(true);
@@ -292,6 +299,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPagarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemPagarActionPerformed
+
+    private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jMenuItemSairActionPerformed
 
     /**
      * @param args the command line arguments

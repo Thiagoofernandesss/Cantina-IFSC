@@ -5,7 +5,11 @@
  */
 package view;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,10 +22,57 @@ public class CadastroBairro extends javax.swing.JFrame {
      */
     public CadastroBairro() {
         initComponents();
-        utilities.Utilities.ativa(true, jPanelBotoes);
-        utilities.Utilities.limpaComponentes(false, jPanelDados);
+
         
     }
+
+        public javax.swing.JButton getjButtonCancelar() {
+        return jButtonCancelar;
+    }
+
+    public javax.swing.JButton getjButtonConsultar() {
+        return jButtonConsultar;
+    }
+
+    public javax.swing.JButton getjButtonNovo() {
+        return jButtonNovo;
+    }
+
+    public javax.swing.JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public javax.swing.JButton getjButtonSalvar() {
+        return jButtonSalvar;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    public void setjTextField1(JTextField jTextField1) {
+        this.jTextField1 = jTextField1;
+    }
+
+    public JTextField getjTextFieldId() {
+        return jTextFieldId;
+    }
+
+    public void setjTextFieldId(JTextField jTextFieldId) {
+        this.jTextFieldId = jTextFieldId;
+    }
+
+    public JPanel getjPanelBotoes() {
+        return jPanelBotoes;
+    }
+
+    public JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -292,8 +343,8 @@ public class CadastroBairro extends javax.swing.JFrame {
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
-            utilities.Utilities.ativa(false, jPanelBotoes);
-            utilities.Utilities.limpaComponentes(true, jPanelDados);
+            //utilities.Utilities.ativa(false, jPanelBotoes);
+           //utilities.Utilities.limpaComponentes(true, jPanelDados);
 
 
     }//GEN-LAST:event_jButtonNovoActionPerformed
@@ -312,16 +363,16 @@ public class CadastroBairro extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
-            utilities.Utilities.ativa(true, jPanelBotoes);
-            utilities.Utilities.limpaComponentes(false, jPanelDados);
+            //utilities.Utilities.ativa(true, jPanelBotoes);
+            //utilities.Utilities.limpaComponentes(false, jPanelDados);
 
 
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         // TODO add your handling code here:
-            utilities.Utilities.ativa(true, jPanelBotoes);
-            utilities.Utilities.limpaComponentes(false, jPanelDados);
+            //utilities.Utilities.ativa(true, jPanelBotoes);
+            //utilities.Utilities.limpaComponentes(false, jPanelDados);
 
 
     }//GEN-LAST:event_jButtonSalvarActionPerformed
@@ -384,4 +435,6 @@ public class CadastroBairro extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldId;
     // End of variables declaration//GEN-END:variables
+
+
 }
