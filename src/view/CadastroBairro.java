@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.ControllerBuscaBairro;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,10 +24,9 @@ public class CadastroBairro extends javax.swing.JFrame {
     public CadastroBairro() {
         initComponents();
 
-        
     }
 
-        public javax.swing.JButton getjButtonCancelar() {
+    public javax.swing.JButton getjButtonCancelar() {
         return jButtonCancelar;
     }
 
@@ -47,11 +47,11 @@ public class CadastroBairro extends javax.swing.JFrame {
     }
 
     public JTextField getjTextField1() {
-        return jTextField1;
+        return jTextFieldDescricao;
     }
 
     public void setjTextField1(JTextField jTextField1) {
-        this.jTextField1 = jTextField1;
+        this.jTextFieldDescricao = jTextField1;
     }
 
     public JTextField getjTextFieldId() {
@@ -69,10 +69,6 @@ public class CadastroBairro extends javax.swing.JFrame {
     public JPanel getjPanelDados() {
         return jPanelDados;
     }
-    
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,7 +84,7 @@ public class CadastroBairro extends javax.swing.JFrame {
         jLabelId = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
         jLabelDescricao = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldDescricao = new javax.swing.JTextField();
         jPanelBotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
@@ -121,9 +117,9 @@ public class CadastroBairro extends javax.swing.JFrame {
         jLabelDescricao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelDescricao.setText("Descricao");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldDescricaoActionPerformed(evt);
             }
         });
 
@@ -139,7 +135,7 @@ public class CadastroBairro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(304, Short.MAX_VALUE))
         );
         jPanelDadosLayout.setVerticalGroup(
@@ -151,7 +147,7 @@ public class CadastroBairro extends javax.swing.JFrame {
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDescricao))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -343,8 +339,6 @@ public class CadastroBairro extends javax.swing.JFrame {
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
-            //utilities.Utilities.ativa(false, jPanelBotoes);
-           //utilities.Utilities.limpaComponentes(true, jPanelDados);
 
 
     }//GEN-LAST:event_jButtonNovoActionPerformed
@@ -355,24 +349,21 @@ public class CadastroBairro extends javax.swing.JFrame {
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldDescricaoActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
-            //utilities.Utilities.ativa(true, jPanelBotoes);
-            //utilities.Utilities.limpaComponentes(false, jPanelDados);
 
 
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         // TODO add your handling code here:
-            //utilities.Utilities.ativa(true, jPanelBotoes);
-            //utilities.Utilities.limpaComponentes(false, jPanelDados);
 
 
     }//GEN-LAST:event_jButtonSalvarActionPerformed
@@ -432,9 +423,8 @@ public class CadastroBairro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelFundo;
     private javax.swing.JPanel jPanelTitulo;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldDescricao;
     private javax.swing.JTextField jTextFieldId;
     // End of variables declaration//GEN-END:variables
-
 
 }

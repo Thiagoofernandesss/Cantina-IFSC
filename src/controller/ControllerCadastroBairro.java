@@ -39,7 +39,8 @@ public class ControllerCadastroBairro implements ActionListener {
             utilities.Utilities.ativa(false, this.cadastroBairro.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(true, this.cadastroBairro.getjPanelDados());
 
-        } else if (e.getSource() == this.cadastroBairro.getjButtonSair()) { 
+        } else if (e.getSource() == this.cadastroBairro.getjButtonSair()) {
+            this.cadastroBairro.dispose();
 
         } else if (e.getSource() == this.cadastroBairro.getjButtonCancelar()) {
             utilities.Utilities.ativa(true, this.cadastroBairro.getjPanelBotoes());
@@ -49,7 +50,7 @@ public class ControllerCadastroBairro implements ActionListener {
             utilities.Utilities.ativa(true, cadastroBairro.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, cadastroBairro.getjPanelDados());
 
-        } else if(e.getSource() == this.cadastroBairro.getjButtonConsultar()){
+        } else if (e.getSource() == this.cadastroBairro.getjButtonConsultar()) {
             BuscaBairro buscaBairro = new BuscaBairro(null, true);
             //Inserir o controller da busca de bairros
             buscaBairro.setVisible(true);

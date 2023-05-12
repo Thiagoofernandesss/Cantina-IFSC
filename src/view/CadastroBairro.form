@@ -121,7 +121,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextFieldId" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="282" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDescricao" min="-2" pref="282" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="304" max="32767" attributes="0"/>
                   </Group>
@@ -137,7 +137,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="19" max="32767" attributes="0"/>
@@ -165,9 +165,9 @@
                 <Property name="text" type="java.lang.String" value="Descricao"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="jTextFieldDescricao">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDescricaoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
