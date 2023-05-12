@@ -52,6 +52,8 @@ public class ControllerCadastroBairro implements ActionListener {
 
         } else if (e.getSource() == this.cadastroBairro.getjButtonConsultar()) {
             BuscaBairro buscaBairro = new BuscaBairro(null, true);
+            ControllerBuscaBairro controllerBuscaBairro = new ControllerBuscaBairro(buscaBairro);
+                    
             //Inserir o controller da busca de bairros
             buscaBairro.setVisible(true);
 

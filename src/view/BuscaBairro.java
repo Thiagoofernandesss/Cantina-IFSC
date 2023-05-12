@@ -122,6 +122,7 @@ public class BuscaBairro extends javax.swing.JDialog {
         jButtonSair.setForeground(new java.awt.Color(255, 0, 0));
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSair.png"))); // NOI18N
         jButtonSair.setText("Sair");
+        jButtonSair.setActionCommand("0");
         jButtonSair.setBorder(null);
         jButtonSair.setMaximumSize(new java.awt.Dimension(99, 26));
         jButtonSair.setMinimumSize(new java.awt.Dimension(99, 26));
