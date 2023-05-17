@@ -5,7 +5,12 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,10 +23,110 @@ public class CadastroVenda extends javax.swing.JFrame {
      */
     public CadastroVenda() {
         initComponents();
-        utilities.Utilities.ativa(true, jPanelBotoes);
-        utilities.Utilities.limpaComponentes(false, jPanelDados);
         
     }
+
+    public JButton getjButtonAdicionarCarteirinha() {
+        return jButtonAdicionarCarteirinha;
+    }
+
+    public JButton getjButtonCancelar() {
+        return jButtonCancelar;
+    }
+
+    public JButton getjButtonConsultar() {
+        return jButtonConsultar;
+    }
+
+    public JButton getjButtonNovo() {
+        return jButtonNovo;
+    }
+
+    public JButton getjButtonPesquisarCarteirinha() {
+        return jButtonPesquisarCarteirinha;
+    }
+
+    public JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public JButton getjButtonSalvar() {
+        return jButtonSalvar;
+    }
+
+    public JComboBox<String> getjComboBoxTipoDesconto() {
+        return jComboBoxTipoDesconto;
+    }
+
+    public void setjComboBoxTipoDesconto(JComboBox<String> jComboBoxTipoDesconto) {
+        this.jComboBoxTipoDesconto = jComboBoxTipoDesconto;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldDataHoraVenda() {
+        return jFormattedTextFieldDataHoraVenda;
+    }
+
+    public void setjFormattedTextFieldDataHoraVenda(JFormattedTextField jFormattedTextFieldDataHoraVenda) {
+        this.jFormattedTextFieldDataHoraVenda = jFormattedTextFieldDataHoraVenda;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldValorDesconto() {
+        return jFormattedTextFieldValorDesconto;
+    }
+
+    public void setjFormattedTextFieldValorDesconto(JFormattedTextField jFormattedTextFieldValorDesconto) {
+        this.jFormattedTextFieldValorDesconto = jFormattedTextFieldValorDesconto;
+    }
+
+    public JTextField getjTextFieldCodigoCarteirinha() {
+        return jTextFieldCodigoCarteirinha;
+    }
+
+    public void setjTextFieldCodigoCarteirinha(JTextField jTextFieldCodigoCarteirinha) {
+        this.jTextFieldCodigoCarteirinha = jTextFieldCodigoCarteirinha;
+    }
+
+    public JTextField getjTextFieldId() {
+        return jTextFieldId;
+    }
+
+    public void setjTextFieldId(JTextField jTextFieldId) {
+        this.jTextFieldId = jTextFieldId;
+    }
+
+    public JTextField getjTextFieldNomeCliente() {
+        return jTextFieldNomeCliente;
+    }
+
+    public void setjTextFieldNomeCliente(JTextField jTextFieldNomeCliente) {
+        this.jTextFieldNomeCliente = jTextFieldNomeCliente;
+    }
+
+    public JTextField getjTextFieldObservacao() {
+        return jTextFieldObservacao;
+    }
+
+    public void setjTextFieldObservacao(JTextField jTextFieldObservacao) {
+        this.jTextFieldObservacao = jTextFieldObservacao;
+    }
+
+    public JTextField getjTextFieldStatus() {
+        return jTextFieldStatus;
+    }
+
+    public void setjTextFieldStatus(JTextField jTextFieldStatus) {
+        this.jTextFieldStatus = jTextFieldStatus;
+    }
+
+    public JPanel getjPanelBotoes() {
+        return jPanelBotoes;
+    }
+
+    public JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,7 +173,7 @@ public class CadastroVenda extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(763, 350));
         setResizable(false);
 
-        jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));
+        jPanelFundo.setBackground(new java.awt.Color(147, 216, 67));
         jPanelFundo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, null, null, new java.awt.Color(255, 204, 204)));
         jPanelFundo.setMaximumSize(new java.awt.Dimension(763, 350));
         jPanelFundo.setMinimumSize(new java.awt.Dimension(763, 350));
@@ -212,7 +317,7 @@ public class CadastroVenda extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jPanelBotoes.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelBotoes.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonNovo.setBackground(new java.awt.Color(184, 225, 255));
@@ -307,11 +412,11 @@ public class CadastroVenda extends javax.swing.JFrame {
                 .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addGap(148, 148, 148)
                 .addComponent(jButtonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133))
+                .addGap(51, 51, 51))
         );
         jPanelBotoesLayout.setVerticalGroup(
             jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,12 +431,12 @@ public class CadastroVenda extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelTitulo.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(0, 87, 172));
+        jLabelTitulo.setForeground(new java.awt.Color(78, 124, 0));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitulo.setText("Cadastro Venda");
 
@@ -361,7 +466,7 @@ public class CadastroVenda extends javax.swing.JFrame {
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 747, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelFundoLayout.setVerticalGroup(
@@ -384,7 +489,9 @@ public class CadastroVenda extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -393,8 +500,7 @@ public class CadastroVenda extends javax.swing.JFrame {
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
-        utilities.Utilities.ativa(false, jPanelBotoes);
-        utilities.Utilities.limpaComponentes(true, jPanelDados);
+        
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
@@ -407,14 +513,12 @@ public class CadastroVenda extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
-        utilities.Utilities.ativa(true, jPanelBotoes);
-        utilities.Utilities.limpaComponentes(false, jPanelDados);
+        
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         // TODO add your handling code here:
-        utilities.Utilities.ativa(true, jPanelBotoes);
-        utilities.Utilities.limpaComponentes(false, jPanelDados);
+        
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jFormattedTextFieldValorDescontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldValorDescontoActionPerformed

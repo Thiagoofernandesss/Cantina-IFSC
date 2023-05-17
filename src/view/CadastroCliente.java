@@ -244,7 +244,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(626, 376));
         setResizable(false);
 
-        jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));
+        jPanelFundo.setBackground(new java.awt.Color(147, 216, 67));
         jPanelFundo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, null, null, new java.awt.Color(255, 204, 204)));
         jPanelFundo.setMaximumSize(new java.awt.Dimension(626, 413));
         jPanelFundo.setMinimumSize(new java.awt.Dimension(626, 413));
@@ -378,6 +378,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         }
 
         jButtonPesquisarCep.setText("...");
+        jButtonPesquisarCep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisarCepActionPerformed(evt);
+            }
+        });
 
         jButtonAdicionarCep.setText("+");
 
@@ -539,7 +544,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jLabelNascimento.getAccessibleContext().setAccessibleDescription("Data Nascimento"); // NOI18N
 
-        jPanelBotoes.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelBotoes.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonNovo.setBackground(new java.awt.Color(184, 225, 255));
@@ -652,12 +657,12 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelTitulo.setBackground(new java.awt.Color(228, 228, 228));
+        jPanelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(0, 87, 172));
+        jLabelTitulo.setForeground(new java.awt.Color(78, 124, 0));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitulo.setText("Cadastro Cliente");
 
@@ -759,6 +764,10 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jButtonSalvarActionPerformed
+
+    private void jButtonPesquisarCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarCepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPesquisarCepActionPerformed
 
     /**
      * @param args the command line arguments

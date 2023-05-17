@@ -5,7 +5,11 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,7 +24,83 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
         initComponents();
         utilities.Utilities.ativa(true, jPanelBotoes);
         utilities.Utilities.limpaComponentes(false, jPanelDados);
-        
+
+    }
+
+    public JButton getjButtonCancelar() {
+        return jButtonCancelar;
+    }
+
+    public JButton getjButtonConsultar() {
+        return jButtonConsultar;
+    }
+
+    public JButton getjButtonNovo() {
+        return jButtonNovo;
+    }
+
+    public JButton getjButtonAdicionarCPF() {
+        return jButtonAdicionarCPF;
+    }
+
+    public JButton getjButtonPesquisarCPF() {
+        return jButtonPesquisarCPF;
+    }
+
+    public JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public JButton getjButtonSalvar() {
+        return jButtonSalvar;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldCPF() {
+        return jFormattedTextFieldCPF;
+    }
+
+    public void setjFormattedTextFieldCPF(JFormattedTextField jFormattedTextFieldCPF) {
+        this.jFormattedTextFieldCPF = jFormattedTextFieldCPF;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldDataCancelamento() {
+        return jFormattedTextFieldDataCancelamento;
+    }
+
+    public void setjFormattedTextFieldDataCancelamento(JFormattedTextField jFormattedTextFieldDataCancelamento) {
+        this.jFormattedTextFieldDataCancelamento = jFormattedTextFieldDataCancelamento;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldDataGeracao() {
+        return jFormattedTextFieldDataGeracao;
+    }
+
+    public void setjFormattedTextFieldDataGeracao(JFormattedTextField jFormattedTextFieldDataGeracao) {
+        this.jFormattedTextFieldDataGeracao = jFormattedTextFieldDataGeracao;
+    }
+
+    public JTextField getjTextFieldCodBarra() {
+        return jTextFieldCodBarra;
+    }
+
+    public void setjTextFieldCodBarra(JTextField jTextFieldCodBarra) {
+        this.jTextFieldCodBarra = jTextFieldCodBarra;
+    }
+
+    public JTextField getjTextFieldID() {
+        return jTextFieldID;
+    }
+
+    public void setjTextFieldID(JTextField jTextFieldID) {
+        this.jTextFieldID = jTextFieldID;
+    }
+
+    public JPanel getjPanelBotoes() {
+        return jPanelBotoes;
+    }
+
+    public JPanel getjPanelDados() {
+        return jPanelDados;
     }
 
     /**
@@ -38,8 +118,8 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
         jTextFieldID = new javax.swing.JTextField();
         jFormattedTextFieldCPF = new javax.swing.JFormattedTextField();
         jLabelCPF = new javax.swing.JLabel();
-        jButtonPesquisarCep = new javax.swing.JButton();
-        jButtonAdicionarCep = new javax.swing.JButton();
+        jButtonPesquisarCPF = new javax.swing.JButton();
+        jButtonAdicionarCPF = new javax.swing.JButton();
         jLabelCodBarra = new javax.swing.JLabel();
         jTextFieldCodBarra = new javax.swing.JTextField();
         jLabelDataGeracao = new javax.swing.JLabel();
@@ -62,7 +142,7 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(651, 229));
         setResizable(false);
 
-        jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));
+        jPanelFundo.setBackground(new java.awt.Color(147, 216, 67));
         jPanelFundo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, null, null, new java.awt.Color(255, 204, 204)));
         jPanelFundo.setMaximumSize(new java.awt.Dimension(651, 229));
         jPanelFundo.setMinimumSize(new java.awt.Dimension(651, 229));
@@ -95,9 +175,9 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
         jLabelCPF.setMaximumSize(new java.awt.Dimension(13, 16));
         jLabelCPF.setMinimumSize(new java.awt.Dimension(13, 16));
 
-        jButtonPesquisarCep.setText("...");
+        jButtonPesquisarCPF.setText("...");
 
-        jButtonAdicionarCep.setText("+");
+        jButtonAdicionarCPF.setText("+");
 
         jLabelCodBarra.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelCodBarra.setText("Cod. Barra");
@@ -149,9 +229,9 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
                                 .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonPesquisarCep)
+                                .addComponent(jButtonPesquisarCPF)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonAdicionarCep))
+                                .addComponent(jButtonAdicionarCPF))
                             .addComponent(jTextFieldCodBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -176,8 +256,8 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonAdicionarCep)
-                        .addComponent(jButtonPesquisarCep)
+                        .addComponent(jButtonAdicionarCPF)
+                        .addComponent(jButtonPesquisarCPF)
                         .addComponent(jLabelDataGeracao)
                         .addComponent(jFormattedTextFieldDataGeracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -192,7 +272,7 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelBotoes.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelBotoes.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanelBotoes.setMaximumSize(new java.awt.Dimension(810, 46));
         jPanelBotoes.setMinimumSize(new java.awt.Dimension(810, 46));
@@ -219,7 +299,7 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
         jButtonSalvar.setForeground(new java.awt.Color(0, 137, 0));
         jButtonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSalvar.png"))); // NOI18N
         jButtonSalvar.setText("Salvar");
-        jButtonSalvar.setActionCommand("10");
+        jButtonSalvar.setActionCommand("1");
         jButtonSalvar.setBorder(null);
         jButtonSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonSalvar.setPreferredSize(new java.awt.Dimension(87, 28));
@@ -234,7 +314,7 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
         jButtonCancelar.setForeground(new java.awt.Color(204, 204, 0));
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeCancelar.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
-        jButtonCancelar.setActionCommand("10");
+        jButtonCancelar.setActionCommand("1");
         jButtonCancelar.setBorder(null);
         jButtonCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jButtonCancelar.setMaximumSize(new java.awt.Dimension(71, 28));
@@ -308,12 +388,12 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanelTitulo.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(0, 87, 172));
+        jLabelTitulo.setForeground(new java.awt.Color(78, 124, 0));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitulo.setText("Cadastro Carteirinha");
 
@@ -349,7 +429,7 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
         jPanelFundoLayout.setVerticalGroup(
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFundoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(8, Short.MAX_VALUE)
                 .addComponent(jPanelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -383,8 +463,7 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
-        utilities.Utilities.ativa(false, jPanelBotoes);
-        utilities.Utilities.limpaComponentes(true, jPanelDados);
+
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jFormattedTextFieldCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCPFActionPerformed
@@ -393,14 +472,12 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
-        utilities.Utilities.ativa(true, jPanelBotoes);
-        utilities.Utilities.limpaComponentes(false, jPanelDados);
+
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         // TODO add your handling code here:
-        utilities.Utilities.ativa(true, jPanelBotoes);
-        utilities.Utilities.limpaComponentes(false, jPanelDados);
+
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     /**
@@ -446,11 +523,11 @@ public class CadastroCarteirinha extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdicionarCep;
+    private javax.swing.JButton jButtonAdicionarCPF;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonConsultar;
     private javax.swing.JButton jButtonNovo;
-    private javax.swing.JButton jButtonPesquisarCep;
+    private javax.swing.JButton jButtonPesquisarCPF;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPF;

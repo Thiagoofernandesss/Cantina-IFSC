@@ -7,6 +7,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.WindowConstants;
+import view.BuscaCidade;
 import view.CadastroCidade;
 
 /**
@@ -50,9 +51,10 @@ public class ControllerCadastroCidade implements ActionListener {
             utilities.Utilities.limpaComponentes(false, cadastroCidade.getjPanelDados());
 
         } else if(e.getSource() == this.cadastroCidade.getjButtonConsultar()){
-            CadastroCidade cadastroCidade = new CadastroCidade();
+            BuscaCidade buscaCidade = new BuscaCidade(null, true);
+            ControllerBuscaCidade controllerBuscaCidade = new ControllerBuscaCidade(buscaCidade);
             //Inserir o controller da busca de bairros
-            cadastroCidade.setVisible(true);
+            buscaCidade.setVisible(true);
 
         }
     }

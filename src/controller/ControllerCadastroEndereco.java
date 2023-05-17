@@ -6,7 +6,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import view.BuscaBairro;
+import view.BuscaEndereco;
 import view.CadastroEndereco;
 
 /**
@@ -52,9 +52,10 @@ public class ControllerCadastroEndereco implements ActionListener{
             utilities.Utilities.limpaComponentes(false, cadastroEndereco.getjPanelDados());
 
         } else if (e.getSource() == this.cadastroEndereco.getjButtonConsultar()) {
-            BuscaBairro buscaBairro = new BuscaBairro(null, true);
+            BuscaEndereco buscaEndereco = new BuscaEndereco(null, true);
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(buscaEndereco);
             //Inserir o controller da busca de bairros
-            buscaBairro.setVisible(true);
+            buscaEndereco.setVisible(true);
 
         }
     }

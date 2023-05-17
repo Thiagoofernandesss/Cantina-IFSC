@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author aluno
@@ -18,6 +22,36 @@ public class BuscaCompra extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+
+    public JButton getjButtonCarregar() {
+        return jButtonCarregar;
+    }
+
+    public JButton getjButtonFiltrar() {
+        return jButtonFiltrar;
+    }
+
+    public JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public JPanel getjPanelBotoes() {
+        return jPanelBotoes;
+    }
+
+    public JPanel getjPanelDados2() {
+        return jPanelDados2;
+    }
+
+    public JTextField getjTextFieldFiltrar() {
+        return jTextFieldFiltrar;
+    }
+
+    public void setjTextFieldFiltrar(JTextField jTextFieldFiltrar) {
+        this.jTextFieldFiltrar = jTextFieldFiltrar;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,16 +77,17 @@ public class BuscaCompra extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("BuscaCompra");
+        setAlwaysOnTop(true);
         setResizable(false);
 
-        jPanelFundo.setBackground(new java.awt.Color(0, 97, 138));
+        jPanelFundo.setBackground(new java.awt.Color(147, 216, 67));
 
-        jPanelTitulo.setBackground(new java.awt.Color(228, 228, 228));
+        jPanelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelTitulo.setBackground(new java.awt.Color(235, 235, 235));
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabelTitulo.setForeground(new java.awt.Color(0, 87, 172));
+        jLabelTitulo.setForeground(new java.awt.Color(78, 124, 0));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitulo.setText("Busca Compra");
 
@@ -73,7 +108,7 @@ public class BuscaCompra extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jPanelBotoes.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelBotoes.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBotoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonCarregar.setBackground(new java.awt.Color(249, 213, 100));
@@ -81,6 +116,7 @@ public class BuscaCompra extends javax.swing.JDialog {
         jButtonCarregar.setForeground(new java.awt.Color(130, 98, 0));
         jButtonCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeCarregar.png"))); // NOI18N
         jButtonCarregar.setText("Carregar");
+        jButtonCarregar.setActionCommand("0");
         jButtonCarregar.setBorder(null);
 
         jButtonSair.setBackground(new java.awt.Color(255, 210, 210));
@@ -88,6 +124,7 @@ public class BuscaCompra extends javax.swing.JDialog {
         jButtonSair.setForeground(new java.awt.Color(255, 0, 0));
         jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeSair.png"))); // NOI18N
         jButtonSair.setText("Sair");
+        jButtonSair.setActionCommand("0");
         jButtonSair.setBorder(null);
         jButtonSair.setMaximumSize(new java.awt.Dimension(99, 26));
         jButtonSair.setMinimumSize(new java.awt.Dimension(99, 26));
@@ -222,9 +259,9 @@ public class BuscaCompra extends javax.swing.JDialog {
                 .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelDados2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

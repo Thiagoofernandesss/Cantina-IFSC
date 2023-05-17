@@ -6,10 +6,15 @@
 package view;
 
 import controller.ControllerCadastroBairro;
+import controller.ControllerCadastroCarteirinha;
 import controller.ControllerCadastroCidade;
 import controller.ControllerCadastroCliente;
+import controller.ControllerCadastroCompra;
 import controller.ControllerCadastroEndereco;
 import controller.ControllerCadastroFornecedor;
+import controller.ControllerCadastroFuncionario;
+import controller.ControllerCadastroProduto;
+import controller.ControllerCadastroVenda;
 import javax.swing.JOptionPane;
 
 /**
@@ -186,6 +191,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuCaixa.setText("Caixa");
 
         jMenuItemPagar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItemPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconePagar.png"))); // NOI18N
         jMenuItemPagar.setText("Pagar");
         jMenuItemPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +201,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuCaixa.add(jMenuItemPagar);
 
         jMenuItemReceber.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItemReceber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeReceber.png"))); // NOI18N
         jMenuItemReceber.setText("Receber");
+        jMenuItemReceber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemReceberActionPerformed(evt);
+            }
+        });
         jMenuCaixa.add(jMenuItemReceber);
 
         jMenuMovimentos.add(jMenuCaixa);
@@ -260,6 +272,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFuncionarioActionPerformed
         // TODO add your handling code here:
         CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
+        controller.ControllerCadastroFuncionario controllerCadastroFuncionario = new ControllerCadastroFuncionario(cadastroFuncionario);
         
         //inserir a classe do controller
         cadastroFuncionario.setVisible(true);
@@ -288,6 +301,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemCarteirinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCarteirinhaActionPerformed
         // TODO add your handling code here:
         CadastroCarteirinha cadastroCarteirinha = new CadastroCarteirinha();
+        controller.ControllerCadastroCarteirinha controllerCadastroCarteirinha = new ControllerCadastroCarteirinha(cadastroCarteirinha);
         
         //inserir a classe do controller
         cadastroCarteirinha.setVisible(true);
@@ -296,6 +310,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProdutoActionPerformed
         // TODO add your handling code here:
         CadastroProduto cadastroProduto = new CadastroProduto();
+        ControllerCadastroProduto controllerCadastroProduto = new ControllerCadastroProduto(cadastroProduto);
         
         //inserir a classe do controller
         cadastroProduto.setVisible(true);
@@ -303,12 +318,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPagarActionPerformed
         // TODO add your handling code here:
+        CadastroCompra cadastroCompra = new CadastroCompra();
+        ControllerCadastroCompra controllerCadastroCompra = new ControllerCadastroCompra(cadastroCompra);
+        
+        cadastroCompra.setVisible(true);
     }//GEN-LAST:event_jMenuItemPagarActionPerformed
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jMenuItemSairActionPerformed
+
+    private void jMenuItemReceberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemReceberActionPerformed
+        // TODO add your handling code here:
+        CadastroVenda cadastroVenda = new CadastroVenda();
+        ControllerCadastroVenda controllerCadastroVenda = new ControllerCadastroVenda(cadastroVenda);
+        cadastroVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuItemReceberActionPerformed
 
     /**
      * @param args the command line arguments

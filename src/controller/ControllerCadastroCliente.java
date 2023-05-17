@@ -7,7 +7,9 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.BuscaCliente;
+import view.BuscaEndereco;
 import view.CadastroCliente;
+import view.CadastroEndereco;
 
 /**
  *
@@ -25,6 +27,8 @@ public class ControllerCadastroCliente implements ActionListener {
         this.cadastroCliente.getjButtonCancelar().addActionListener(this);
         this.cadastroCliente.getjButtonSalvar().addActionListener(this);
         this.cadastroCliente.getjButtonConsultar().addActionListener(this);
+        this.cadastroCliente.getjButtonPesquisarCep().addActionListener(this);
+        this.cadastroCliente.getjButtonAdicionarCep().addActionListener(this);
 
         utilities.Utilities.ativa(true, this.cadastroCliente.getjPanelBotoes());
         utilities.Utilities.limpaComponentes(false, this.cadastroCliente.getjPanelDados());
@@ -50,9 +54,20 @@ public class ControllerCadastroCliente implements ActionListener {
 
         } else if (e.getSource() == this.cadastroCliente.getjButtonConsultar()) {
             BuscaCliente buscaCliente = new BuscaCliente(null, true);
+            ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(buscaCliente);
             //Inserir o controller da busca de bairros
             buscaCliente.setVisible(true);
 
+        } else if (e.getSource() == this.cadastroCliente.getjButtonPesquisarCep()) {
+            BuscaEndereco buscaEndereco = new BuscaEndereco(null, true);
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(buscaEndereco);
+            buscaEndereco.setVisible(true);
+            
+        } else if (e.getSource() == this.cadastroCliente.getjButtonAdicionarCep()) {
+            CadastroEndereco cadastroEndereco = new CadastroEndereco();
+            ControllerCadastroEndereco controllerCadastroEndereco = new ControllerCadastroEndereco(cadastroEndereco);
+            cadastroEndereco.setVisible(true);
+            
         }
     }
 

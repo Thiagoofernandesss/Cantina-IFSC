@@ -13,12 +13,12 @@ import javax.swing.JTextField;
  *
  * @author aluno
  */
-public class BuscaEndereco extends javax.swing.JDialog {
+public class BuscaCarteirinha extends javax.swing.JDialog {
 
     /**
      * Creates new form TemplateBusca2023
      */
-    public BuscaEndereco(java.awt.Frame parent, boolean modal) {
+    public BuscaCarteirinha(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -35,20 +35,20 @@ public class BuscaEndereco extends javax.swing.JDialog {
         return jButtonSair;
     }
 
-    public JTextField getjTextFieldFiltrar() {
-        return jTextFieldFiltrar;
-    }
-
-    public void setjTextFieldFiltrar(JTextField jTextFieldFiltrar) {
-        this.jTextFieldFiltrar = jTextFieldFiltrar;
-    }
-
     public JPanel getjPanelBotoes() {
         return jPanelBotoes;
     }
 
     public JPanel getjPanelDados2() {
         return jPanelDados2;
+    }
+
+    public JTextField getjTextFieldFiltrar() {
+        return jTextFieldFiltrar;
+    }
+
+    public void setjTextFieldFiltrar(JTextField jTextFieldFiltrar) {
+        this.jTextFieldFiltrar = jTextFieldFiltrar;
     }
     
     
@@ -75,11 +75,8 @@ public class BuscaEndereco extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDados = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("BuscaEndereco");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
-        setMaximumSize(new java.awt.Dimension(651, 299));
-        setMinimumSize(new java.awt.Dimension(651, 299));
         setResizable(false);
 
         jPanelFundo.setBackground(new java.awt.Color(147, 216, 67));
@@ -91,7 +88,7 @@ public class BuscaEndereco extends javax.swing.JDialog {
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(78, 124, 0));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Endereços");
+        jLabelTitulo.setText("Carteirinhas");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -191,38 +188,29 @@ public class BuscaEndereco extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "CEP", "Logradouro", "Status", "Cidade", "Bairro"
+                "ID", "CPF", "Data Geração", "Data Cancelamento", "Cód Barra"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
         jScrollPane1.setViewportView(jTableDados);
         if (jTableDados.getColumnModel().getColumnCount() > 0) {
             jTableDados.getColumnModel().getColumn(0).setResizable(false);
-            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(45);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(50);
             jTableDados.getColumnModel().getColumn(1).setResizable(false);
-            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(60);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(80);
             jTableDados.getColumnModel().getColumn(2).setResizable(false);
-            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(80);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(60);
             jTableDados.getColumnModel().getColumn(3).setResizable(false);
-            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(40);
+            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(60);
             jTableDados.getColumnModel().getColumn(4).setResizable(false);
             jTableDados.getColumnModel().getColumn(4).setPreferredWidth(70);
-            jTableDados.getColumnModel().getColumn(5).setResizable(false);
-            jTableDados.getColumnModel().getColumn(5).setPreferredWidth(70);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
@@ -256,9 +244,9 @@ public class BuscaEndereco extends javax.swing.JDialog {
                 .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelDados2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -310,7 +298,7 @@ public class BuscaEndereco extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                BuscaEndereco dialog = new BuscaEndereco(new javax.swing.JFrame(), true);
+                BuscaCarteirinha dialog = new BuscaCarteirinha(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

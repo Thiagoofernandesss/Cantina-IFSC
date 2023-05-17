@@ -47,7 +47,7 @@
     <Container class="javax.swing.JPanel" name="jPanelFundo">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="8a" green="61" red="0" type="rgb"/>
+          <Color blue="43" green="d8" red="93" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -81,7 +81,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="8" max="32767" attributes="0"/>
                   <Component id="jPanelTitulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanelDados" min="-2" max="-2" attributes="0"/>
@@ -139,9 +139,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jFormattedTextFieldCPF" min="-2" pref="136" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonPesquisarCep" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonPesquisarCPF" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonAdicionarCep" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonAdicionarCPF" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jTextFieldCodBarra" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
                               </Group>
@@ -177,8 +177,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButtonAdicionarCep" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonPesquisarCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonAdicionarCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonPesquisarCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelDataGeracao" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jFormattedTextFieldDataGeracao" alignment="3" max="-2" attributes="0"/>
                           </Group>
@@ -239,12 +239,12 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonPesquisarCep">
+            <Component class="javax.swing.JButton" name="jButtonPesquisarCPF">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonAdicionarCep">
+            <Component class="javax.swing.JButton" name="jButtonAdicionarCPF">
               <Properties>
                 <Property name="text" type="java.lang.String" value="+"/>
               </Properties>
@@ -307,7 +307,7 @@
         <Container class="javax.swing.JPanel" name="jPanelBotoes">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="eb" green="eb" red="eb" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -406,7 +406,7 @@
                   <Image iconType="3" name="/imagens/Icones/iconeSalvar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
-                <Property name="actionCommand" type="java.lang.String" value="10"/>
+                <Property name="actionCommand" type="java.lang.String" value="1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -434,7 +434,7 @@
                   <Image iconType="3" name="/imagens/Icones/iconeCancelar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
-                <Property name="actionCommand" type="java.lang.String" value="10"/>
+                <Property name="actionCommand" type="java.lang.String" value="1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -520,7 +520,7 @@
         <Container class="javax.swing.JPanel" name="jPanelTitulo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="eb" green="eb" red="eb" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -559,7 +559,7 @@
                   <Font name="Times New Roman" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ac" green="57" red="0" type="rgb"/>
+                  <Color blue="0" green="7c" red="4e" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Cadastro Carteirinha"/>

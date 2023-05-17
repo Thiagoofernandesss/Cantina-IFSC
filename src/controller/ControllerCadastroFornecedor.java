@@ -6,7 +6,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import view.BuscaEndereco;
 import view.BuscaFornecedor;
+import view.CadastroEndereco;
 import view.CadastroFornecedor;
 
 /**
@@ -25,6 +27,8 @@ public class ControllerCadastroFornecedor implements ActionListener {
         this.cadastroFornecedor.getjButtonCancelar().addActionListener(this);
         this.cadastroFornecedor.getjButtonSalvar().addActionListener(this);
         this.cadastroFornecedor.getjButtonConsultar().addActionListener(this);
+        this.cadastroFornecedor.getjButtonPesquisarCep().addActionListener(this);
+        this.cadastroFornecedor.getjButtonAdcionarCep().addActionListener(this);
         
         utilities.Utilities.ativa(true, this.cadastroFornecedor.getjPanelBotoes());
         utilities.Utilities.limpaComponentes(false, this.cadastroFornecedor.getjPanelDados());
@@ -51,9 +55,18 @@ public class ControllerCadastroFornecedor implements ActionListener {
 
         } else if (e.getSource() == this.cadastroFornecedor.getjButtonConsultar()) {
             BuscaFornecedor buscaFornecedor= new BuscaFornecedor(null, true);
-            //Inserir o controller da busca de bairros
+            ControllerBuscaFornecedor controllerBuscaFornecedor = new ControllerBuscaFornecedor(buscaFornecedor);
             buscaFornecedor.setVisible(true);
 
+        } else if (e.getSource() == this.cadastroFornecedor.getjButtonPesquisarCep()){
+            BuscaEndereco buscaEndereco = new BuscaEndereco(null, true);
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(buscaEndereco);
+            buscaEndereco.setVisible(true);
+            
+        } else if(e.getSource() == this.cadastroFornecedor.getjButtonAdcionarCep()){
+            CadastroEndereco cadastroEndereco = new CadastroEndereco();
+           ControllerCadastroEndereco controllerCadastroEndereco = new ControllerCadastroEndereco(cadastroEndereco);
+            cadastroEndereco.setVisible(true);
         }
     }
     
