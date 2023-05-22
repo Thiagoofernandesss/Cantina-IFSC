@@ -66,7 +66,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanelBotoes" pref="0" max="32767" attributes="0"/>
+                      <Component id="jPanelBotoes" pref="735" max="32767" attributes="0"/>
                       <Component id="jPanelDados" max="32767" attributes="0"/>
                       <Component id="jPanelTitulo" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -134,20 +134,22 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextFieldCidade" pref="32" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldBairro" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldCodigoCidade" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldBairro" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jTextField1" pref="194" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonPesquisarCidade" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jTextFieldDescricaoCidade" pref="182" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jButtonBuscaCidade" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonAdicionarCidade" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButtonPesquisarBairro" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jTextFieldDescricaoBairro" pref="182" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jButtonBuscaBairro" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButtonAdicionarBairro" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -168,26 +170,31 @@
                           <Component id="jCheckBoxStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCep" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextFieldCep" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jButtonAdicionarCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonPesquisarCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonBuscaCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jFormattedTextFieldCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCodigoCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldDescricaoCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jButtonAdicionarBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonPesquisarBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonBuscaBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldDescricaoBairro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -262,7 +269,7 @@
                 <Property name="text" type="java.lang.String" value="Bairro"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldCidade">
+            <Component class="javax.swing.JTextField" name="jTextFieldCodigoCidade">
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldBairro">
             </Component>
@@ -271,7 +278,7 @@
                 <Property name="text" type="java.lang.String" value="+"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonPesquisarCidade">
+            <Component class="javax.swing.JButton" name="jButtonBuscaCidade">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
@@ -281,14 +288,19 @@
                 <Property name="text" type="java.lang.String" value="+"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonPesquisarBairro">
+            <Component class="javax.swing.JButton" name="jButtonBuscaBairro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="jTextFieldDescricaoCidade">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldDescricaoBairro">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -110,6 +110,7 @@ public class CadastroCidade extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Formulario de teste");
+        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setFocusTraversalPolicyProvider(true);
         setMaximumSize(new java.awt.Dimension(654, 223));

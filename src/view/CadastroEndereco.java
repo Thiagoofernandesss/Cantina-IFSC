@@ -30,6 +30,22 @@ public class CadastroEndereco extends javax.swing.JFrame {
         return jButtonCancelar;
     }
 
+    public JButton getjButtonAdicionarBairro() {
+        return jButtonAdicionarBairro;
+    }
+
+    public JButton getjButtonAdicionarCidade() {
+        return jButtonAdicionarCidade;
+    }
+
+    public JButton getjButtonBuscaBairro() {
+        return jButtonBuscaBairro;
+    }
+
+    public JButton getjButtonBuscaCidade() {
+        return jButtonBuscaCidade;
+    }
+
     public JButton getjButtonConsultar() {
         return jButtonConsultar;
     }
@@ -79,11 +95,11 @@ public class CadastroEndereco extends javax.swing.JFrame {
     }
 
     public JTextField getjTextFieldCidade() {
-        return jTextFieldCidade;
+        return jTextFieldCodigoCidade;
     }
 
     public void setjTextFieldCidade(JTextField jTextFieldCidade) {
-        this.jTextFieldCidade = jTextFieldCidade;
+        this.jTextFieldCodigoCidade = jTextFieldCidade;
     }
 
     public JTextField getjTextFieldId() {
@@ -101,8 +117,6 @@ public class CadastroEndereco extends javax.swing.JFrame {
     public void setjTextFieldLogradouro(JTextField jTextFieldLogradouro) {
         this.jTextFieldLogradouro = jTextFieldLogradouro;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,13 +138,14 @@ public class CadastroEndereco extends javax.swing.JFrame {
         jCheckBoxStatus = new javax.swing.JCheckBox();
         jLabelCidade = new javax.swing.JLabel();
         jLabelBairro = new javax.swing.JLabel();
-        jTextFieldCidade = new javax.swing.JTextField();
+        jTextFieldCodigoCidade = new javax.swing.JTextField();
         jTextFieldBairro = new javax.swing.JTextField();
         jButtonAdicionarCidade = new javax.swing.JButton();
-        jButtonPesquisarCidade = new javax.swing.JButton();
+        jButtonBuscaCidade = new javax.swing.JButton();
         jButtonAdicionarBairro = new javax.swing.JButton();
-        jButtonPesquisarBairro = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jButtonBuscaBairro = new javax.swing.JButton();
+        jTextFieldDescricaoCidade = new javax.swing.JTextField();
+        jTextFieldDescricaoBairro = new javax.swing.JTextField();
         jPanelBotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
@@ -185,13 +200,15 @@ public class CadastroEndereco extends javax.swing.JFrame {
 
         jButtonAdicionarCidade.setText("+");
 
-        jButtonPesquisarCidade.setText("...");
+        jButtonBuscaCidade.setText("...");
 
         jButtonAdicionarBairro.setText("+");
 
-        jButtonPesquisarBairro.setText("...");
+        jButtonBuscaBairro.setText("...");
 
-        jTextField1.setText("jTextField1");
+        jTextFieldDescricaoCidade.setEnabled(false);
+
+        jTextFieldDescricaoBairro.setEnabled(false);
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -222,18 +239,20 @@ public class CadastroEndereco extends javax.swing.JFrame {
                                 .addComponent(jLabelBairro)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                            .addComponent(jTextFieldBairro))
-                        .addGap(10, 10, 10)
+                            .addComponent(jTextFieldCodigoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonPesquisarCidade)
+                            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                .addComponent(jTextFieldDescricaoCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonBuscaCidade)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonAdicionarCidade))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
-                                .addComponent(jButtonPesquisarBairro)
+                            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                .addComponent(jTextFieldDescricaoBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonBuscaBairro)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonAdicionarBairro)))
                         .addGap(29, 29, 29))))
@@ -247,24 +266,27 @@ public class CadastroEndereco extends javax.swing.JFrame {
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBoxStatus))
                 .addGap(18, 18, 18)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCep)
-                    .addComponent(jFormattedTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCidade)
-                    .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonAdicionarCidade)
-                        .addComponent(jButtonPesquisarCidade))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonBuscaCidade))
+                    .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelCep)
+                        .addComponent(jFormattedTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelCidade)
+                        .addComponent(jTextFieldCodigoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldDescricaoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelLogradouro)
-                    .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelBairro)
-                    .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonAdicionarBairro)
-                        .addComponent(jButtonPesquisarBairro)))
+                        .addComponent(jButtonBuscaBairro))
+                    .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelLogradouro)
+                        .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelBairro)
+                        .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldDescricaoBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -417,7 +439,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
             .addGroup(jPanelFundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 735, Short.MAX_VALUE)
                     .addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -521,11 +543,11 @@ public class CadastroEndereco extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarBairro;
     private javax.swing.JButton jButtonAdicionarCidade;
+    private javax.swing.JButton jButtonBuscaBairro;
+    private javax.swing.JButton jButtonBuscaCidade;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonConsultar;
     private javax.swing.JButton jButtonNovo;
-    private javax.swing.JButton jButtonPesquisarBairro;
-    private javax.swing.JButton jButtonPesquisarCidade;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JCheckBox jCheckBoxStatus;
@@ -540,9 +562,10 @@ public class CadastroEndereco extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelFundo;
     private javax.swing.JPanel jPanelTitulo;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldBairro;
-    private javax.swing.JTextField jTextFieldCidade;
+    private javax.swing.JTextField jTextFieldCodigoCidade;
+    private javax.swing.JTextField jTextFieldDescricaoBairro;
+    private javax.swing.JTextField jTextFieldDescricaoCidade;
     private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldLogradouro;
     // End of variables declaration//GEN-END:variables

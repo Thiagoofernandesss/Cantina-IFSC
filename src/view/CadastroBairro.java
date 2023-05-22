@@ -96,6 +96,7 @@ public class CadastroBairro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CadastroBairro");
+        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(684, 208));
         setMinimumSize(new java.awt.Dimension(684, 208));
