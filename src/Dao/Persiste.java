@@ -11,4 +11,14 @@ package Dao;
  */
 public class Persiste {
     
+    /*
+    Criar 
+    Cidade
+    Endere
+    Bairo
+    Cliente
+    
+    
+    */
+    
 }
