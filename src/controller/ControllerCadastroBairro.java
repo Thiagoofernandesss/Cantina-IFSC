@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.bo.Bairro;
 import view.BuscaBairro;
 import view.CadastroBairro;
 
@@ -47,6 +48,21 @@ public class ControllerCadastroBairro implements ActionListener {
             utilities.Utilities.limpaComponentes(false, this.cadastroBairro.getjPanelDados());
 
         } else if (e.getSource() == this.cadastroBairro.getjButtonSalvar()) {
+            
+            Bairro bairro = new Bairro();
+            bairro.setId(Dao.ClasseDados.listaBairro.size()+1);
+            bairro.setDescricao(this.cadastroBairro.getjTextFieldDescricao().getText());
+            Dao.ClasseDados.listaBairro.add(bairro);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             utilities.Utilities.ativa(true, cadastroBairro.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, cadastroBairro.getjPanelDados());
 

@@ -18,7 +18,7 @@ public class BairroDao {
     private static  BairroDao instance;
     private List<Bairro> bairros;
 
-    public BairroDao() {
+    private BairroDao() {
         bairros = new ArrayList<>();
     }
     

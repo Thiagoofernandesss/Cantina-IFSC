@@ -25,6 +25,8 @@ public class CadastroBairro extends javax.swing.JFrame {
         initComponents();
 
     }
+    
+    
 
     public javax.swing.JButton getjButtonCancelar() {
         return jButtonCancelar;
@@ -69,6 +71,12 @@ public class CadastroBairro extends javax.swing.JFrame {
     public JPanel getjPanelDados() {
         return jPanelDados;
     }
+
+    public JTextField getjTextFieldDescricao() {
+        return jTextFieldDescricao;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

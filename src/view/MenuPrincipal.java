@@ -28,6 +28,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        Dao.ClasseDados.getInstance();
         setExtendedState(MAXIMIZED_BOTH);
     }
 

@@ -6,6 +6,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.ColorModel;
+import javax.swing.table.DefaultTableModel;
+import model.bo.Bairro;
 import view.BuscaBairro;
 
 /**
@@ -33,6 +36,16 @@ public class ControllerBuscaBairro implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.buscaBairro.getjButtonFiltrar()){
+            //Criando/Carregando uma instancia da classe singleton de dados
+            Dao.ClasseDados.getInstance();
+            
+            //Criando um objeto do tipo TableModel
+            DefaultTableModel tabela =(DefaultTableModel) this.buscaBairro.getjTableDados().getModel();
+            for (Bairro bairroAtual : Dao.ClasseDados.listaBairro) {
+                tabela.addRow(new Object[]{bairroAtual.getId(),
+                                           bairroAtual.getDescricao()});
+                
+            }
         
         }else if(e.getSource() == this.buscaBairro.getjButtonCarregar()){
         

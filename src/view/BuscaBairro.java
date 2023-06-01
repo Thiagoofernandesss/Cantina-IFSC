@@ -7,6 +7,7 @@ package view;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -50,6 +51,12 @@ public class BuscaBairro extends javax.swing.JDialog {
     public void setjTextFieldFiltrar(JTextField jTextFieldFiltrar) {
         this.jTextFieldFiltrar = jTextFieldFiltrar;
     }
+
+    public JTable getjTableDados() {
+        return jTableDados;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
