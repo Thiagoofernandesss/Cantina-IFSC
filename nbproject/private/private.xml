@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Thiago/OneDrive/Documentos%20Pessoais/Documentos/MeusProjetos/Cantina-IFSC/src/view/CadastroEndereco.java</file>
+            <file>file:/C:/Users/Thiago/OneDrive/Documentos%20Pessoais/Documentos/MeusProjetos/Cantina-IFSC/src/view/CadastroCidade.java</file>
+            <file>file:/C:/Users/Thiago/OneDrive/Documentos%20Pessoais/Documentos/MeusProjetos/Cantina-IFSC/src/controller/ControllerCadastroEndereco.java</file>
+            <file>file:/C:/Users/Thiago/OneDrive/Documentos%20Pessoais/Documentos/MeusProjetos/Cantina-IFSC/src/controller/ControllerCadastroCidade.java</file>
+            <file>file:/C:/Users/Thiago/OneDrive/Documentos%20Pessoais/Documentos/MeusProjetos/Cantina-IFSC/src/view/BuscaEndereco.java</file>
+            <file>file:/C:/Users/Thiago/OneDrive/Documentos%20Pessoais/Documentos/MeusProjetos/Cantina-IFSC/src/view/BuscaCidade.java</file>
+            <file>file:/C:/Users/Thiago/OneDrive/Documentos%20Pessoais/Documentos/MeusProjetos/Cantina-IFSC/src/controller/ControllerBuscaEndereco.java</file>
+            <file>file:/C:/Users/Thiago/OneDrive/Documentos%20Pessoais/Documentos/MeusProjetos/Cantina-IFSC/src/controller/ControllerBuscaCidade.java</file>
+        </group>
     </open-files>
 </project-private>
