@@ -6,6 +6,8 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
+import model.bo.Cidade;
 import view.BuscaCidade;
 
 /**
@@ -30,6 +32,17 @@ public class ControllerBuscaCidade implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.buscaCidade.getjButtonFiltrar()){
+            //Criando/Carregando uma instancia da classe singleton de dados
+            
+            Dao.ClasseDados.getInstance();
+        
+            //Criando um objeto do tipo TableModel
+            DefaultTableModel tabela = (DefaultTableModel) this.buscaCidade.getjTableDados().getModel();
+        
+            for (Cidade cidadeAtual : Dao.ClasseDados.cidades) {
+                tabela.addRow(new Object[]{cidadeAtual.getId(), cidadeAtual.getDescricao(), cidadeAtual.getUf()});
+                
+            }
         
         }else if(e.getSource() == this.buscaCidade.getjButtonCarregar()){
         

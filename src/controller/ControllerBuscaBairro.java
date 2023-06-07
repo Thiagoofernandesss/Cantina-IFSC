@@ -41,7 +41,7 @@ public class ControllerBuscaBairro implements ActionListener{
             
             //Criando um objeto do tipo TableModel
             DefaultTableModel tabela =(DefaultTableModel) this.buscaBairro.getjTableDados().getModel();
-            for (Bairro bairroAtual : Dao.ClasseDados.listaBairro) {
+            for (Bairro bairroAtual : Dao.ClasseDados.bairros) {
                 tabela.addRow(new Object[]{bairroAtual.getId(),
                                            bairroAtual.getDescricao()});
                 

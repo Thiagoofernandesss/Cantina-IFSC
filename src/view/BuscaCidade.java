@@ -7,6 +7,7 @@ package view;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -22,6 +23,11 @@ public class BuscaCidade extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+
+    public JTable getjTableDados() {
+        return jTableDados;
+    }
+    
 
     public JButton getjButtonCarregar() {
         return jButtonCarregar;
@@ -40,7 +46,7 @@ public class BuscaCidade extends javax.swing.JDialog {
     }
 
     public JPanel getjPanelDados2() {
-        return jPanelDados2;
+        return jPanelDados;
     }
 
     public JTextField getjTextFieldFiltrar() {
@@ -72,7 +78,7 @@ public class BuscaCidade extends javax.swing.JDialog {
         jPanelFiltro = new javax.swing.JPanel();
         jTextFieldFiltrar = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
-        jPanelDados2 = new javax.swing.JPanel();
+        jPanelDados = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDados = new javax.swing.JTable();
 
@@ -186,8 +192,8 @@ public class BuscaCidade extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelDados2.setBackground(new java.awt.Color(228, 228, 228));
-        jPanelDados2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanelDados.setBackground(new java.awt.Color(228, 228, 228));
+        jPanelDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jTableDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -222,14 +228,14 @@ public class BuscaCidade extends javax.swing.JDialog {
             jTableDados.getColumnModel().getColumn(2).setPreferredWidth(45);
         }
 
-        javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
-        jPanelDados2.setLayout(jPanelDados2Layout);
-        jPanelDados2Layout.setHorizontalGroup(
-            jPanelDados2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
+        jPanelDados.setLayout(jPanelDadosLayout);
+        jPanelDadosLayout.setHorizontalGroup(
+            jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
         );
-        jPanelDados2Layout.setVerticalGroup(
-            jPanelDados2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelDadosLayout.setVerticalGroup(
+            jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
         );
 
@@ -242,7 +248,7 @@ public class BuscaCidade extends javax.swing.JDialog {
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelFiltro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelDados2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelDados, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -254,7 +260,7 @@ public class BuscaCidade extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelDados2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -325,7 +331,7 @@ public class BuscaCidade extends javax.swing.JDialog {
     private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabelBairro;
     private javax.swing.JPanel jPanelBotoes;
-    private javax.swing.JPanel jPanelDados2;
+    private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelFiltro;
     private javax.swing.JPanel jPanelFundo;
     private javax.swing.JPanel jPanelTitulo;
@@ -333,4 +339,8 @@ public class BuscaCidade extends javax.swing.JDialog {
     private javax.swing.JTable jTableDados;
     private javax.swing.JTextField jTextFieldFiltrar;
     // End of variables declaration//GEN-END:variables
+
+    public Object getjComboBoxUf() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

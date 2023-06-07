@@ -7,6 +7,7 @@ package view;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -22,6 +23,12 @@ public class BuscaProduto extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+
+    public JTable getjTableDados() {
+        return jTableDados;
+    }
+    
+    
 
     public JButton getjButtonCarregar() {
         return jButtonCarregar;

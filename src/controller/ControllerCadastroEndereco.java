@@ -4,8 +4,13 @@
  */
 package controller;
 
+import Dao.ClasseDados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JTextField;
+import model.bo.Bairro;
+import model.bo.Cidade;
+import model.bo.Endereco;
 import view.BuscaBairro;
 import view.BuscaCidade;
 import view.BuscaEndereco;
@@ -53,6 +58,17 @@ public class ControllerCadastroEndereco implements ActionListener {
             utilities.Utilities.limpaComponentes(false, this.cadastroEndereco.getjPanelDados());
             
         } else if (e.getSource() == this.cadastroEndereco.getjButtonSalvar()) {
+            
+            Endereco endereco = new Endereco();
+            endereco.setId(Dao.ClasseDados.enderecos.size()+1);
+            endereco.setCep(this.cadastroEndereco.getjFormattedTextFieldCep().getText());
+            endereco.setLogradouro(this.cadastroEndereco.getjTextFieldLogradouro().getText());
+            endereco.setStatus(this.cadastroEndereco.getjCheckBoxStatus().isSelected());
+            Dao.ClasseDados.enderecos.add(endereco);
+            
+            //Status Cidade e baiiro
+            
+            
             utilities.Utilities.ativa(true, cadastroEndereco.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, cadastroEndereco.getjPanelDados());
             

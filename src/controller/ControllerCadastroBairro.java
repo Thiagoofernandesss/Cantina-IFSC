@@ -50,17 +50,9 @@ public class ControllerCadastroBairro implements ActionListener {
         } else if (e.getSource() == this.cadastroBairro.getjButtonSalvar()) {
             
             Bairro bairro = new Bairro();
-            bairro.setId(Dao.ClasseDados.listaBairro.size()+1);
+            bairro.setId(Dao.ClasseDados.bairros.size()+1);
             bairro.setDescricao(this.cadastroBairro.getjTextFieldDescricao().getText());
-            Dao.ClasseDados.listaBairro.add(bairro);
-            
-            
-            
-            
-            
-            
-            
-            
+            Dao.ClasseDados.bairros.add(bairro);
             
             
             utilities.Utilities.ativa(true, cadastroBairro.getjPanelBotoes());

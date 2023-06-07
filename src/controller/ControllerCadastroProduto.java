@@ -6,6 +6,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.bo.Produto;
 import view.BuscaProduto;
 import view.CadastroProduto;
 
@@ -46,6 +47,16 @@ public class ControllerCadastroProduto implements ActionListener{
             utilities.Utilities.limpaComponentes(false, this.cadastroProduto.getjPanelDados());
 
         } else if (e.getSource() == this.cadastroProduto.getjButtonSalvar()) {
+            
+            Produto produto = new Produto();
+            produto.setId(Dao.ClasseDados.produtos.size()+1);
+            produto.setDescricao(this.cadastroProduto.getjTextFieldDescricao().getText());
+            produto.setCodigoBarra(this.cadastroProduto.getjTextFieldCodigoBarras().getText());            
+            produto.setStatus(this.cadastroProduto.getjCheckBoxStatus().isSelected());
+            
+            Dao.ClasseDados.produtos.add(produto);
+            
+            
             utilities.Utilities.ativa(true, cadastroProduto.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, cadastroProduto.getjPanelDados());
 

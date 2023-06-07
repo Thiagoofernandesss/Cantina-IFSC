@@ -7,6 +7,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.WindowConstants;
+import model.bo.Cidade;
 import view.BuscaCidade;
 import view.CadastroCidade;
 
@@ -47,6 +48,13 @@ public class ControllerCadastroCidade implements ActionListener {
             utilities.Utilities.limpaComponentes(false, this.cadastroCidade.getjPanelDados());
 
         } else if (e.getSource() == this.cadastroCidade.getjButtonSalvar()) {
+            Cidade cidade = new Cidade();
+            cidade.setId(Dao.ClasseDados.cidades.size()+1);
+            cidade.setDescricao(this.cadastroCidade.getjTextFieldDescricao().getText());
+            cidade.setUf((String) this.cadastroCidade.getjComboBoxUf().getSelectedItem());
+            Dao.ClasseDados.cidades.add(cidade);
+            
+            
             utilities.Utilities.ativa(true, cadastroCidade.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, cadastroCidade.getjPanelDados());
 

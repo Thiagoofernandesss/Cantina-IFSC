@@ -54,7 +54,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanelTitulo" max="32767" attributes="0"/>
                       <Component id="jPanelFiltro" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jPanelDados2" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jPanelDados" alignment="1" max="32767" attributes="0"/>
                       <Component id="jPanelBotoes" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -69,7 +69,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanelFiltro" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jPanelDados2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanelDados" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanelBotoes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -290,7 +290,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanelDados2">
+        <Container class="javax.swing.JPanel" name="jPanelDados">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e4" green="e4" red="e4" type="rgb"/>

@@ -31,9 +31,6 @@ public class Cidade {
         return descricao;
     }
 
-    public String getUf() {
-        return uf;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -46,6 +43,11 @@ public class Cidade {
     public void setUf(String uf) {
         this.uf = uf;
     }
+
+    public String getUf() {
+        return uf;
+    }
+    
 
     @Override
     public String toString() {

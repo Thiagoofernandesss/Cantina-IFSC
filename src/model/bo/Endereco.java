@@ -79,6 +79,16 @@ public class Endereco {
     public void setStatus(char status) {
         this.status = status;
     }
+    
+    public void setStatus(boolean status){
+        if (status == true){
+            this.status = 'I';
+        } else{
+            this.status = 'A';
+        }
+    }
+    
+    
 
     @Override
     public String toString() {

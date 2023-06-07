@@ -26,6 +26,20 @@ public class CadastroEndereco extends javax.swing.JFrame {
 
     }
 
+    public void setjTextFieldCodigoCidade(JTextField jTextFieldCodigoCidade) {
+        this.jTextFieldCodigoCidade = jTextFieldCodigoCidade;
+    }
+
+    public void setjTextFieldDescricaoBairro(JTextField jTextFieldDescricaoBairro) {
+        this.jTextFieldDescricaoBairro = jTextFieldDescricaoBairro;
+    }
+
+    public void setjTextFieldDescricaoCidade(JTextField jTextFieldDescricaoCidade) {
+        this.jTextFieldDescricaoCidade = jTextFieldDescricaoCidade;
+    }
+    
+    
+
     public JButton getjButtonCancelar() {
         return jButtonCancelar;
     }
@@ -117,6 +131,8 @@ public class CadastroEndereco extends javax.swing.JFrame {
     public void setjTextFieldLogradouro(JTextField jTextFieldLogradouro) {
         this.jTextFieldLogradouro = jTextFieldLogradouro;
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -197,6 +213,12 @@ public class CadastroEndereco extends javax.swing.JFrame {
 
         jLabelBairro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelBairro.setText("Bairro");
+
+        jTextFieldCodigoCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCodigoCidadeActionPerformed(evt);
+            }
+        });
 
         jButtonAdicionarCidade.setText("+");
 
@@ -497,6 +519,10 @@ public class CadastroEndereco extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jTextFieldCodigoCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCodigoCidadeActionPerformed
 
     /**
      * @param args the command line arguments

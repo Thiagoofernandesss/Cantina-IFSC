@@ -6,6 +6,8 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
+import model.bo.Endereco;
 import view.BuscaEndereco;
 
 /**
@@ -34,6 +36,16 @@ public class ControllerBuscaEndereco implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.buscaEndereco.getjButtonFiltrar()){
+            Dao.ClasseDados.getInstance();
+            
+            DefaultTableModel tabela = (DefaultTableModel) this.buscaEndereco.getjTableDados().getModel();
+            for (Endereco enderecoAtual : Dao.ClasseDados.enderecos) {
+                tabela.addRow(new Object[]{enderecoAtual.getId(),
+                                            enderecoAtual.getLogradouro(),
+                                            enderecoAtual.getCep(),
+                                            enderecoAtual.getStatus()});
+                
+            }
         
         }else if(e.getSource() == this.buscaEndereco.getjButtonCarregar()){
         

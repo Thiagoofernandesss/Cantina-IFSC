@@ -54,8 +54,21 @@ public class Produto {
     }
 
     public void setStatus(char status) {
-        this.status = status;
+        this.status = status;    
     }
+    
+    public void setStatus(boolean status){
+        if(status == true){
+            this.status = 'I';
+        } else{
+            this.status = 'A';
+        }
+    
+    }
+    
+    
+
+
 
     @Override
     public String toString() {
@@ -64,6 +77,10 @@ public class Produto {
                 + this.getCodigoBarra() 
                 + ", " + this.getStatus();
 
+    }
+
+    public void getCodigoBarra(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
