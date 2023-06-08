@@ -64,6 +64,7 @@ public class ControllerCadastroEndereco implements ActionListener {
             endereco.setCep(this.cadastroEndereco.getjFormattedTextFieldCep().getText());
             endereco.setLogradouro(this.cadastroEndereco.getjTextFieldLogradouro().getText());
             endereco.setStatus(this.cadastroEndereco.getjCheckBoxStatus().isSelected());
+            
             Dao.ClasseDados.enderecos.add(endereco);
             
             //Status Cidade e baiiro
