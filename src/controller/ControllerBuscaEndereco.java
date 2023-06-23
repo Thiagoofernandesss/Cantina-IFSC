@@ -14,44 +14,48 @@ import view.BuscaEndereco;
  *
  * @author Thiago
  */
-public class ControllerBuscaEndereco implements ActionListener{
-    
+public class ControllerBuscaEndereco implements ActionListener {
+
     BuscaEndereco buscaEndereco;
 
     public ControllerBuscaEndereco(BuscaEndereco buscaEndereco) {
         this.buscaEndereco = buscaEndereco;
-        
+
         this.buscaEndereco.getjButtonFiltrar().addActionListener(this);
         this.buscaEndereco.getjButtonCarregar().addActionListener(this);
         this.buscaEndereco.getjButtonSair().addActionListener(this);
-        
+
         utilities.Utilities.ativa(true, this.buscaEndereco.getjPanelBotoes());
-        
-        
 
     }
-    
-    
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.buscaEndereco.getjButtonFiltrar()){
-            Dao.ClasseDados.getInstance();
+        if (e.getSource() == this.buscaEndereco.getjButtonFiltrar()) {
             
+            Dao.ClasseDados.getInstance();
+
             DefaultTableModel tabela = (DefaultTableModel) this.buscaEndereco.getjTableDados().getModel();
+
             for (Endereco enderecoAtual : Dao.ClasseDados.enderecos) {
                 tabela.addRow(new Object[]{enderecoAtual.getId(),
-                                            enderecoAtual.getLogradouro(),
-                                            enderecoAtual.getCep(),
-                                            enderecoAtual.getStatus()});
-                
+                    enderecoAtual.getCep(),
+                    enderecoAtual.getLogradouro(),
+                    enderecoAtual.getStatus(),
+                    enderecoAtual.getCidade().getDescricao(),
+                    enderecoAtual.getBairro().getDescricao()});
+
             }
-        
-        }else if(e.getSource() == this.buscaEndereco.getjButtonCarregar()){
-        
-        }else if(e.getSource() == this.buscaEndereco.getjButtonSair()){
+
+        } else if (e.getSource() == this.buscaEndereco.getjButtonCarregar()) {
+            controller.ControllerCadastroEndereco.codigo = (int) this.buscaEndereco.getjTableDados().
+                    getValueAt(this.buscaEndereco.getjTableDados().getSelectedRow(), 0);
+            this.buscaEndereco.dispose();
+            
+
+        } else if (e.getSource() == this.buscaEndereco.getjButtonSair()) {
             this.buscaEndereco.dispose();
         }
     }
-    
+
 }

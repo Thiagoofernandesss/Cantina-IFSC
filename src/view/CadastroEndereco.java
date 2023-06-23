@@ -25,6 +25,38 @@ public class CadastroEndereco extends javax.swing.JFrame {
         initComponents();
 
     }
+    
+    
+
+    public void setjTextFieldCodigoBairro(JTextField jTextFieldCodigoBairro) {
+        this.jTextFieldCodigoBairro = jTextFieldCodigoBairro;
+    }
+
+    public CadastroEndereco(JTextField jTextFieldDescricaoBairro) {
+        this.jTextFieldDescricaoBairro = jTextFieldDescricaoBairro;
+    }
+    
+    
+
+    public JTextField getjTextFieldCodigoBairro() {
+        return jTextFieldCodigoBairro;
+    }
+    
+    
+
+    public JTextField getjTextFieldCodigoCidade() {
+        return jTextFieldCodigoCidade;
+    }
+
+    public JTextField getjTextFieldDescricaoBairro() {
+        return jTextFieldDescricaoBairro;
+    }
+
+    public JTextField getjTextFieldDescricaoCidade() {
+        return jTextFieldDescricaoCidade;
+    }
+    
+    
 
     public void setjTextFieldCodigoCidade(JTextField jTextFieldCodigoCidade) {
         this.jTextFieldCodigoCidade = jTextFieldCodigoCidade;
@@ -101,11 +133,11 @@ public class CadastroEndereco extends javax.swing.JFrame {
     }
 
     public JTextField getjTextFieldBairro() {
-        return jTextFieldBairro;
+        return jTextFieldCodigoBairro;
     }
 
     public void setjTextFieldBairro(JTextField jTextFieldBairro) {
-        this.jTextFieldBairro = jTextFieldBairro;
+        this.jTextFieldCodigoBairro = jTextFieldBairro;
     }
 
     public JTextField getjTextFieldCidade() {
@@ -155,7 +187,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
         jLabelCidade = new javax.swing.JLabel();
         jLabelBairro = new javax.swing.JLabel();
         jTextFieldCodigoCidade = new javax.swing.JTextField();
-        jTextFieldBairro = new javax.swing.JTextField();
+        jTextFieldCodigoBairro = new javax.swing.JTextField();
         jButtonAdicionarCidade = new javax.swing.JButton();
         jButtonBuscaCidade = new javax.swing.JButton();
         jButtonAdicionarBairro = new javax.swing.JButton();
@@ -200,6 +232,11 @@ public class CadastroEndereco extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldCep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldCepActionPerformed(evt);
+            }
+        });
 
         jLabelLogradouro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelLogradouro.setText("Logradouro");
@@ -220,6 +257,12 @@ public class CadastroEndereco extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldCodigoBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCodigoBairroActionPerformed(evt);
+            }
+        });
+
         jButtonAdicionarCidade.setText("+");
 
         jButtonBuscaCidade.setText("...");
@@ -227,10 +270,6 @@ public class CadastroEndereco extends javax.swing.JFrame {
         jButtonAdicionarBairro.setText("+");
 
         jButtonBuscaBairro.setText("...");
-
-        jTextFieldDescricaoCidade.setEnabled(false);
-
-        jTextFieldDescricaoBairro.setEnabled(false);
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -262,7 +301,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldCodigoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                            .addComponent(jTextFieldCodigoBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
@@ -307,7 +346,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
                         .addComponent(jLabelLogradouro)
                         .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelBairro)
-                        .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldCodigoBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextFieldDescricaoBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -524,6 +563,14 @@ public class CadastroEndereco extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCodigoCidadeActionPerformed
 
+    private void jTextFieldCodigoBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoBairroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCodigoBairroActionPerformed
+
+    private void jFormattedTextFieldCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldCepActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -588,7 +635,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelDados;
     private javax.swing.JPanel jPanelFundo;
     private javax.swing.JPanel jPanelTitulo;
-    private javax.swing.JTextField jTextFieldBairro;
+    private javax.swing.JTextField jTextFieldCodigoBairro;
     private javax.swing.JTextField jTextFieldCodigoCidade;
     private javax.swing.JTextField jTextFieldDescricaoBairro;
     private javax.swing.JTextField jTextFieldDescricaoCidade;

@@ -42,7 +42,6 @@ public class ControllerCadastroBairro implements ActionListener {
             utilities.Utilities.limpaComponentes(true, this.cadastroBairro.getjPanelDados());
             //Deseligando o ID no braço, PROVISÓRIO
             this.cadastroBairro.getjTextFieldId().setEditable(false);
-            
 
         } else if (e.getSource() == this.cadastroBairro.getjButtonSair()) {
             this.cadastroBairro.dispose();
@@ -54,40 +53,47 @@ public class ControllerCadastroBairro implements ActionListener {
         } else if (e.getSource() == this.cadastroBairro.getjButtonSalvar()) {
             
             Bairro bairro = new Bairro();
-            bairro.setId(Dao.ClasseDados.bairros.size()+1);
+            bairro.setId(Dao.ClasseDados.bairros.size() + 1);
             bairro.setDescricao(this.cadastroBairro.getjTextFieldDescricao().getText());
-            if(this.cadastroBairro.getjTextFieldId().getText().equalsIgnoreCase("")){
+            if (this.cadastroBairro.getjTextFieldId().getText().equalsIgnoreCase("")) {
                 Dao.ClasseDados.bairros.add(bairro);
-            }else{
+            } else{
+                int id = Integer.parseInt(this.cadastroBairro.getjTextFieldId().getText());
                 
-            
+                for (Bairro bairroAtual : Dao.ClasseDados.bairros) {
+                    if(bairroAtual.getId() == id){
+                        bairroAtual.setDescricao(this.cadastroBairro.getjTextFieldDescricao().getText());
+                        break;
+                    }
+                    
+                }
+                
             }
-            
-            
-            
+
             utilities.Utilities.ativa(true, cadastroBairro.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, cadastroBairro.getjPanelDados());
 
         } else if (e.getSource() == this.cadastroBairro.getjButtonConsultar()) {
             codigo = 0;
-            
+
             BuscaBairro buscaBairro = new BuscaBairro(null, true);
             ControllerBuscaBairro controllerBuscaBairro = new ControllerBuscaBairro(buscaBairro);
-                    
+
             //Inserir o controller da busca de bairros
             buscaBairro.setVisible(true);
-            
-            if(codigo !=0){
+
+            if (codigo != 0) {
                 Bairro bairro = new Bairro();
-                bairro = Dao.ClasseDados.bairros.get(codigo-1);
-                
+                bairro = Dao.ClasseDados.bairros.get(codigo - 1);
+
                 utilities.Utilities.ativa(false, cadastroBairro.getjPanelBotoes());
                 utilities.Utilities.limpaComponentes(true, cadastroBairro.getjPanelDados());
+
+                this.cadastroBairro.getjTextFieldId().setText(bairro.getId() + "");
+                this.cadastroBairro.getjTextFieldDescricao().setText(bairro.getDescricao() +"");
                 
-                this.cadastroBairro.getjTextFieldId().setText(bairro.getId()+"");
-                this.cadastroBairro.getjTextFieldDescricao().setText(bairro.getDescricao());
                 this.cadastroBairro.getjTextFieldId().setEditable(false);
-            
+
             }
 
         }

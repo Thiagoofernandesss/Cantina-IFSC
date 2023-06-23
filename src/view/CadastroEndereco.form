@@ -135,7 +135,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jTextFieldCodigoCidade" min="-2" pref="56" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldBairro" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldCodigoBairro" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -193,7 +193,7 @@
                               <Component id="jLabelLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCodigoBairro" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldDescricaoBairro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -231,6 +231,9 @@
                   <Format format="##### - ### " subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldCepActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelLogradouro">
               <Properties>
@@ -274,7 +277,10 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCodigoCidadeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldBairro">
+            <Component class="javax.swing.JTextField" name="jTextFieldCodigoBairro">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCodigoBairroActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonAdicionarCidade">
               <Properties>
@@ -297,14 +303,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldDescricaoCidade">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldDescricaoBairro">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

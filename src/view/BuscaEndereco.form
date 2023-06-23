@@ -323,19 +323,19 @@
                         <Column editable="false" title="ID" type="java.lang.Integer"/>
                         <Column editable="false" title="CEP" type="java.lang.String"/>
                         <Column editable="false" title="Logradouro" type="java.lang.Object"/>
-                        <Column editable="false" title="Status" type="java.lang.Boolean"/>
+                        <Column editable="false" title="Status" type="java.lang.Short"/>
                         <Column editable="false" title="Cidade" type="java.lang.String"/>
                         <Column editable="false" title="Bairro" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="45" resizable="false">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="10" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="60" resizable="false">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="40" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -345,7 +345,7 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="40" resizable="false">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="20" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>

@@ -123,6 +123,12 @@ public class CadastroBairro extends javax.swing.JFrame {
         jLabelId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelId.setText("ID");
 
+        jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIdActionPerformed(evt);
+            }
+        });
+
         jLabelDescricao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelDescricao.setText("Descricao");
 
@@ -374,6 +380,10 @@ public class CadastroBairro extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButtonSalvarActionPerformed
+
+    private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdActionPerformed
 
     /**
      * @param args the command line arguments

@@ -7,6 +7,7 @@ package utilities;
 
 import java.awt.Component;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
@@ -51,6 +52,8 @@ public class Utilities {
                 ((JTextArea)componente).setText("");
             } else if (componente instanceof JRadioButton){
                 ((JRadioButton) componente).setSelected(ativa);
+            } else if(componente instanceof JCheckBox){
+                ((JCheckBox) componente).setSelected((false));
             }
             componente.setEnabled(ativa);
         }

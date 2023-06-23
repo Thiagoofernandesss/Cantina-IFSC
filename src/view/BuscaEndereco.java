@@ -202,7 +202,7 @@ public class BuscaEndereco extends javax.swing.JDialog {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Short.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
@@ -219,13 +219,13 @@ public class BuscaEndereco extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTableDados);
         if (jTableDados.getColumnModel().getColumnCount() > 0) {
             jTableDados.getColumnModel().getColumn(0).setResizable(false);
-            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(45);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(10);
             jTableDados.getColumnModel().getColumn(1).setResizable(false);
-            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(60);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(40);
             jTableDados.getColumnModel().getColumn(2).setResizable(false);
             jTableDados.getColumnModel().getColumn(2).setPreferredWidth(80);
             jTableDados.getColumnModel().getColumn(3).setResizable(false);
-            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(40);
+            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(20);
             jTableDados.getColumnModel().getColumn(4).setResizable(false);
             jTableDados.getColumnModel().getColumn(4).setPreferredWidth(70);
             jTableDados.getColumnModel().getColumn(5).setResizable(false);

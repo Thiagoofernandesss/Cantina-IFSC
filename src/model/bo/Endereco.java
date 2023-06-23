@@ -14,7 +14,7 @@ public class Endereco {
     private String cep;
     private String logradouro;
     private char status;
-    
+
     private Bairro bairro;
     private Cidade cidade;
 
@@ -29,6 +29,8 @@ public class Endereco {
         this.bairro = bairro;
         this.cidade = cidade;
     }
+    
+    
 
     public Bairro getBairro() {
         return bairro;
@@ -45,8 +47,6 @@ public class Endereco {
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
-
-
 
     public int getId() {
         return id;
@@ -76,27 +76,30 @@ public class Endereco {
         this.logradouro = logradouro;
     }
 
+    public void setStatus(boolean statusInformado) {
+        if(statusInformado == false){
+            this.status = 'A';
+        } else{
+            this.status = 'I';
+        }
+        
+    }
+
     public void setStatus(char status) {
         this.status = status;
     }
     
-    public void setStatus(boolean status){
-        if (status == true){
-            this.status = 'I';
-        } else{
-            this.status = 'A';
-        }
-    }
+    
     
     
 
     @Override
     public String toString() {
-        return this.getId() + ", " 
-                + this.getCep() + ", " 
-                + this.getLogradouro() + ", " 
-                + this.getStatus() +", " 
-                + this.cidade.getDescricao() 
+        return this.getId() + ", "
+                + this.getCep() + ", "
+                + this.getLogradouro() + ", "
+                + this.getStatus() + ", "
+                + this.cidade.getDescricao()
                 + this.bairro.getDescricao();
 
     }

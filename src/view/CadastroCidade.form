@@ -129,10 +129,10 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextFieldId" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="jComboBoxUf" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldDescricao" alignment="0" min="-2" pref="319" max="-2" attributes="0"/>
+                          <Component id="jComboBoxUf" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="237" max="32767" attributes="0"/>
+                      <EmptySpace pref="241" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
