@@ -36,11 +36,18 @@ public class ControllerBuscaProduto implements ActionListener {
             DefaultTableModel tabela = (DefaultTableModel) this.buscaProduto.getjTableDados().getModel();
             
             for (Produto produtoAtual : Dao.ClasseDados.produtos) {
-                tabela.addRow(new Object[]{produtoAtual.getId(), produtoAtual.getDescricao(), produtoAtual.getCodigoBarra(), produtoAtual.getStatus()});
+                tabela.addRow(new Object[]{produtoAtual.getId(), 
+                                            produtoAtual.getDescricao(), 
+                                            produtoAtual.getCodigoBarra(), 
+                                            produtoAtual.getStatus()});
                 
             }
 
         } else if (e.getSource() == this.buscaProduto.getjButtonCarregar()) {
+            
+            controller.ControllerCadastroProduto.codigo = (int) this.buscaProduto.
+                    getjTableDados().getValueAt(this.buscaProduto.getjTableDados().getSelectedRow(), 0);
+            this.buscaProduto.dispose();
 
         } else if (e.getSource() == this.buscaProduto.getjButtonSair()) {
             this.buscaProduto.dispose();

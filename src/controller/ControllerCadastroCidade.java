@@ -41,6 +41,7 @@ public class ControllerCadastroCidade implements ActionListener {
             utilities.Utilities.limpaComponentes(true, this.cadastroCidade.getjPanelDados());
             //Desligando o ID no braço (Provisório)
             this.cadastroCidade.getjTextFieldId().setEditable(false);
+            this.cadastroCidade.getjTextFieldId().setText(Integer.toString(Dao.ClasseDados.cidades.size()+1));//Trazendo proximo Id
 
         } else if (e.getSource() == this.cadastroCidade.getjButtonSair()) {
             this.cadastroCidade.dispose();
@@ -57,7 +58,7 @@ public class ControllerCadastroCidade implements ActionListener {
             cidade.setDescricao(this.cadastroCidade.getjTextFieldDescricao().getText());
             cidade.setUf((String) this.cadastroCidade.getjComboBoxUf().getSelectedItem());
             
-            if(this.cadastroCidade.getjTextFieldId().getText().equalsIgnoreCase("")){
+            if(Dao.ClasseDados.cidades.size() < Integer.parseInt(this.cadastroCidade.getjTextFieldId().getText())){
                 Dao.ClasseDados.cidades.add(cidade);
             }else{
                 int id = Integer.parseInt(this.cadastroCidade.getjTextFieldId().getText());
@@ -92,7 +93,8 @@ public class ControllerCadastroCidade implements ActionListener {
                 
                 this.cadastroCidade.getjTextFieldId().setText(cidade.getId() + "");
                 this.cadastroCidade.getjTextFieldDescricao().setText(cidade.getDescricao()+ "");
-                this.cadastroCidade.getjComboBoxUf().setToolTipText(cidade.getUf() + "");
+                
+                this.cadastroCidade.getjComboBoxUf().setSelectedItem(cidade.getUf());
                 this.cadastroCidade.getjTextFieldId().setEditable(false);
                 
             }

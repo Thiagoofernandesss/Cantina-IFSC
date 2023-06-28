@@ -7,6 +7,7 @@ package view;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -22,6 +23,12 @@ public class BuscaCliente extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+
+    public JTable getjTableDados() {
+        return jTableDados;
+    }
+    
+    
 
     public JButton getjButtonCarregar() {
         return jButtonCarregar;
@@ -189,14 +196,14 @@ public class BuscaCliente extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Nome", "CPF", "RG", "DN", "Matricula", "Fone", "Fone", "Email", "CEP", "Cidade", "Bairro", "Rua", "Complemento", "Status"
+                "ID", "Nome", "Matricula", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -213,17 +220,6 @@ public class BuscaCliente extends javax.swing.JDialog {
             jTableDados.getColumnModel().getColumn(1).setResizable(false);
             jTableDados.getColumnModel().getColumn(2).setResizable(false);
             jTableDados.getColumnModel().getColumn(3).setResizable(false);
-            jTableDados.getColumnModel().getColumn(4).setResizable(false);
-            jTableDados.getColumnModel().getColumn(5).setResizable(false);
-            jTableDados.getColumnModel().getColumn(6).setResizable(false);
-            jTableDados.getColumnModel().getColumn(7).setResizable(false);
-            jTableDados.getColumnModel().getColumn(8).setResizable(false);
-            jTableDados.getColumnModel().getColumn(9).setResizable(false);
-            jTableDados.getColumnModel().getColumn(10).setResizable(false);
-            jTableDados.getColumnModel().getColumn(11).setResizable(false);
-            jTableDados.getColumnModel().getColumn(12).setResizable(false);
-            jTableDados.getColumnModel().getColumn(13).setResizable(false);
-            jTableDados.getColumnModel().getColumn(14).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);

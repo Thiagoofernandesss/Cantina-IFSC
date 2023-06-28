@@ -57,14 +57,18 @@ public class Produto {
         this.status = status;    
     }
     
-    public void setStatus(boolean status){
-        if(status == true){
-            this.status = 'I';
-        } else{
+
+    
+    public void setStatus(boolean statusInformado){
+        if(statusInformado == false){
             this.status = 'A';
+        } else{
+            this.status = 'I';
         }
     
     }
+    
+    
     
     
 

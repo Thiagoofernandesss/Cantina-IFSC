@@ -48,7 +48,10 @@ public class ControllerBuscaBairro implements ActionListener{
             }
         
         }else if(e.getSource() == this.buscaBairro.getjButtonCarregar()){
+            
             controller.ControllerCadastroBairro.codigo = (int) this.buscaBairro.
+                    getjTableDados().getValueAt(this.buscaBairro.getjTableDados().getSelectedRow(), 0);
+            controller.ControllerCadastroEndereco.codigo =(int) this.buscaBairro.
                     getjTableDados().getValueAt(this.buscaBairro.getjTableDados().getSelectedRow(), 0);
             this.buscaBairro.dispose();
             

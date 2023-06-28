@@ -93,9 +93,9 @@ public class ClasseDados {
         cidades.add(cidade3);
         
         //Endereços
-        Endereco endereco1 = new Endereco(1, "88708-695", "Rua João Silva", 'A', bairro1, cidade3);
-        Endereco endereco2 = new Endereco(2, "88708-695", "Rua Adelson Cascaces", 'A', bairro2, cidade2);
-        Endereco endereco3 = new Endereco(3, "88708-695", "Avenida Patricio Lima", 'I', bairro3, cidade1);
+        Endereco endereco1 = new Endereco(1, "88708695", "Rua João Silva", 'A', bairro1, cidade3);
+        Endereco endereco2 = new Endereco(2, "88708696", "Rua Adelson Cascaces", 'A', bairro2, cidade2);
+        Endereco endereco3 = new Endereco(3, "88708697", "Avenida Patricio Lima", 'I', bairro3, cidade1);
         
         
         enderecos.add(endereco1);
@@ -103,14 +103,17 @@ public class ClasseDados {
         enderecos.add(endereco3);
         
         //Clientes
-        Cliente cliente1 = new Cliente("123-248-969-58", "6.659.985", "202218A", "21/12/99", 1, "Thiago", "48 9 9956 - 6532","null",
-                "Thiago123@gmail.com",'A', "Morro da Cruz", endereco1);
+        Cliente cliente1 = new Cliente("12324896958", "6659985", "202218A", "21/12/99", 1, "Thiago Fernandes", "48999566532","48999568795",
+                "Thiago123@gmail.com",'I', "Morro da Cruz", endereco1);
         
-        Cliente cliente2 = new Cliente("123-248-156-58", "6.659.985", "202218A", "21/02/02", 2, "Lara", "48 9 9956 - 8795","null",
+        Cliente cliente2 = new Cliente("12324815658", "6659985", "202218A", "21/02/02", 2, "Lara Raldi", "48 999568795","48999566532",
                 "Lara@gmail.com",'A', "", endereco2);
         
-        Cliente cliente3 = new Cliente("598-158-969-54", "6.989.685", "202218B", "21/09/07", 1, "Luis", "48 9 6736 - 6532","null",
+        Cliente cliente3 = new Cliente("59815896954", "6989685", "202218B", "21/09/07", 3, "Lucca Martins", "48967366532","null",
                 "Luizinho@gmail.com",'A', "Esquina", endereco3);
+        
+        
+        
         
         clientes.add(cliente1);
         clientes.add(cliente2);
@@ -149,7 +152,7 @@ public class ClasseDados {
         carteirinhas.add(carteirinha3);
         
         //Produtos
-        Produto produto1 = new Produto(1, "Rigoles", "123456987", 'A');
+        Produto produto1 = new Produto(1, "Rigoles", "123456987", 'I');
         Produto produto2 = new Produto(2, "Pastel", "123456998", 'A');
         Produto produto3 = new Produto(3, "Coxinha", "123456998", 'A');
         

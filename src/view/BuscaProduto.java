@@ -201,18 +201,18 @@ public class BuscaProduto extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(jTableDados);
         if (jTableDados.getColumnModel().getColumnCount() > 0) {
-            jTableDados.getColumnModel().getColumn(0).setMinWidth(45);
-            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(45);
-            jTableDados.getColumnModel().getColumn(0).setMaxWidth(45);
-            jTableDados.getColumnModel().getColumn(1).setMinWidth(440);
-            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(440);
-            jTableDados.getColumnModel().getColumn(1).setMaxWidth(440);
-            jTableDados.getColumnModel().getColumn(2).setMinWidth(100);
-            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTableDados.getColumnModel().getColumn(2).setMaxWidth(100);
-            jTableDados.getColumnModel().getColumn(3).setMinWidth(45);
-            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(45);
-            jTableDados.getColumnModel().getColumn(3).setMaxWidth(45);
+            jTableDados.getColumnModel().getColumn(0).setMinWidth(70);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(70);
+            jTableDados.getColumnModel().getColumn(0).setMaxWidth(70);
+            jTableDados.getColumnModel().getColumn(1).setMinWidth(300);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(300);
+            jTableDados.getColumnModel().getColumn(1).setMaxWidth(300);
+            jTableDados.getColumnModel().getColumn(2).setMinWidth(200);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(200);
+            jTableDados.getColumnModel().getColumn(2).setMaxWidth(200);
+            jTableDados.getColumnModel().getColumn(3).setMinWidth(70);
+            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(70);
+            jTableDados.getColumnModel().getColumn(3).setMaxWidth(70);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);

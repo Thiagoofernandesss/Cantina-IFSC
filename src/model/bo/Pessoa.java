@@ -97,6 +97,15 @@ public abstract class Pessoa {
     public void setStatus(char status) {
         this.status = status;
     }
+    
+    public void setStatus(boolean statusInformado) {
+        if(statusInformado == false){
+            this.status = 'A';
+        } else{
+            this.status = 'I';
+        }
+        
+    }
 
     public void setComplementoEndereco(String complementoEndereco) {
         this.complementoEndereco = complementoEndereco;

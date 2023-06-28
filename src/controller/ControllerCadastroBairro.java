@@ -10,10 +10,10 @@ import view.CadastroBairro;
  *
  * @author aluno
  */
-public class ControllerCadastroBairro implements ActionListener {
+public class ControllerCadastroBairro implements ActionListener{
 
     //Criando um objeto global do tipo da tela que iremos controlar 
-    CadastroBairro cadastroBairro;
+    private CadastroBairro cadastroBairro;
     public static int codigo;
 
     //Passando a tela que iremos controlar como parametro de inovação
@@ -27,6 +27,7 @@ public class ControllerCadastroBairro implements ActionListener {
         this.cadastroBairro.getjButtonCancelar().addActionListener(this);
         this.cadastroBairro.getjButtonSalvar().addActionListener(this);
         this.cadastroBairro.getjButtonConsultar().addActionListener(this);
+        
 
         //Executando os métodos da clase de utilitários
         //Para ativar/desativar/limpar botões 
@@ -42,6 +43,8 @@ public class ControllerCadastroBairro implements ActionListener {
             utilities.Utilities.limpaComponentes(true, this.cadastroBairro.getjPanelDados());
             //Deseligando o ID no braço, PROVISÓRIO
             this.cadastroBairro.getjTextFieldId().setEditable(false);
+            this.cadastroBairro.getjTextFieldId().setText(Integer.toString(Dao.ClasseDados.bairros.size()+1)); //Trazendo proximo id
+            this.cadastroBairro.getjTextFieldDescricao().requestFocus();
 
         } else if (e.getSource() == this.cadastroBairro.getjButtonSair()) {
             this.cadastroBairro.dispose();
@@ -55,7 +58,7 @@ public class ControllerCadastroBairro implements ActionListener {
             Bairro bairro = new Bairro();
             bairro.setId(Dao.ClasseDados.bairros.size() + 1);
             bairro.setDescricao(this.cadastroBairro.getjTextFieldDescricao().getText());
-            if (this.cadastroBairro.getjTextFieldId().getText().equalsIgnoreCase("")) {
+            if (Dao.ClasseDados.bairros.size() < Integer.parseInt(this.cadastroBairro.getjTextFieldId().getText())) {
                 Dao.ClasseDados.bairros.add(bairro);
             } else{
                 int id = Integer.parseInt(this.cadastroBairro.getjTextFieldId().getText());
