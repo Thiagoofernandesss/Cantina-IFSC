@@ -222,14 +222,19 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
     }
     
     private Endereco buscaIdEndByCep(String cep){
+        Endereco enderecoT = new Endereco();
         for (Endereco enderecoAtual : Dao.ClasseDados.enderecos) {
             if(enderecoAtual.getCep() == cep){
                 return enderecoAtual;
             }
+            enderecoT = enderecoAtual;
+            break;
         }
-        return null;
+        return enderecoT;
          
     }
+    
+    
 
     
 
@@ -242,25 +247,29 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
     @Override
     public void focusLost(FocusEvent e) {
         if(e.getSource() == this.cadastroCliente.getjFormattedTextFieldCEP()){
-            String codigoCEP = this.cadastroCliente.getjFormattedTextFieldCEP().getText();
+            String codigoCEP = this.cadastroCliente.getjFormattedTextFieldCEP().getText().trim();
+            Endereco endereco = buscaIdEndByCep(codigoCEP);
             
             if(codigoCEP.isEmpty()){
                 this.cadastroCliente.getjTextFieldCidade().setText("");
                 this.cadastroCliente.getjTextFieldBairro().setText("");
                 this.cadastroCliente.getjTextFieldLogradouro().setText("");
             }else{
-                Endereco endereco = buscaIdEndByCep(codigoCEP);
-                
-                if(endereco != null){
-                    this.cadastroCliente.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());
-                    this.cadastroCliente.getjTextFieldBairro().setText(endereco.getBairro().getDescricao());
-                    this.cadastroCliente.getjTextFieldLogradouro().setText(endereco.getLogradouro());
+                for (Endereco endereco1Atual : Dao.ClasseDados.enderecos) {
+                    if(endereco1Atual.getCep() == endereco.getCep()){
+                        this.cadastroCliente.getjTextFieldCidade().setText(endereco1Atual.getCidade().getDescricao());
+                            
+                    }
+                        
+                    
                 }
                 
+                
+                
+                
+                
             }
-            
         }
-        
         
     }
 
