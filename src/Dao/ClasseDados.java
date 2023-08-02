@@ -93,9 +93,9 @@ public class ClasseDados {
         cidades.add(cidade3);
         
         //Endereços
-        Endereco endereco1 = new Endereco(1, "88708695", "Rua João Silva", 'A', bairro1, cidade3);
-        Endereco endereco2 = new Endereco(2, "88708696", "Rua Adelson Cascaces", 'A', bairro2, cidade2);
-        Endereco endereco3 = new Endereco(3, "88708697", "Avenida Patricio Lima", 'I', bairro3, cidade1);
+        Endereco endereco1 = new Endereco(1, "88708 - 695", "Rua João Silva", 'A', bairro1, cidade3);
+        Endereco endereco2 = new Endereco(2, "88708 - 696", "Rua Adelson Cascaces", 'A', bairro2, cidade2);
+        Endereco endereco3 = new Endereco(3, "88708 - 697", "Avenida Patricio Lima", 'I', bairro3, cidade1);
         
         
         enderecos.add(endereco1);

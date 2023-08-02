@@ -47,8 +47,8 @@ public class ControllerBuscaCliente implements ActionListener {
             
 
         } else if (e.getSource() == this.buscaCliente.getjButtonCarregar()) {
-            controller.ControllerCadastroCliente.codigo = (int) this.buscaCliente.
-                    getjTableDados().getValueAt(this.buscaCliente.getjTableDados().getSelectedRow(), 0);
+            controller.ControllerCadastroCliente.codigo = (int) this.buscaCliente.getjTableDados().
+                    getValueAt(this.buscaCliente.getjTableDados().getSelectedRow(), 0);
             
             
             this.buscaCliente.dispose();

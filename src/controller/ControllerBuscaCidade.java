@@ -47,11 +47,7 @@ public class ControllerBuscaCidade implements ActionListener {
         }else if(e.getSource() == this.buscaCidade.getjButtonCarregar()){
             controller.ControllerCadastroCidade.codigo = (int) this.buscaCidade.getjTableDados().
                     getValueAt(this.buscaCidade.getjTableDados().getSelectedRow(), 0);
-            
-            
-            
-            
-            
+
             this.buscaCidade.dispose();
         
         }else if(e.getSource() == this.buscaCidade.getjButtonSair()){

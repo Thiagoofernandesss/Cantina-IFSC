@@ -14,6 +14,7 @@ import view.BuscaCliente;
 import view.BuscaEndereco;
 import view.CadastroCliente;
 import view.CadastroEndereco;
+import utilities.Utilities;
 
 /**
  *
@@ -108,41 +109,24 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
             if (this.cadastroCliente.getjFormattedTextFieldFone2().getText().equalsIgnoreCase("")) {
                 cliente.setFone2("");
             }
+            cliente.setComplementoEndereco(this.cadastroCliente.getjTextFieldComplementoEndereco().getText());
             
 
             numeroCEP = this.cadastroCliente.getjFormattedTextFieldCEP().getText();
-            
-            Endereco endereco = buscaIdEndByCep(numeroCEP);
-            
-            if(endereco != null){
+
+            Endereco endereco = getEndByCep(numeroCEP);
+
+            if (endereco != null) {
                 cliente.setEndereco(endereco);
                 this.cadastroCliente.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());
                 this.cadastroCliente.getjTextFieldBairro().setText(endereco.getBairro().getDescricao());
                 this.cadastroCliente.getjTextFieldLogradouro().setText(endereco.getLogradouro());
-            }
-            else{
+            } else {
                 cliente.setEndereco(null);
                 this.cadastroCliente.getjTextFieldCidade().setText("");
                 this.cadastroCliente.getjTextFieldBairro().setText("");
                 this.cadastroCliente.getjTextFieldLogradouro().setText("");
             }
-            
-            /*
-            Endereco endereco = getEnderecoByCep(numeroCEP);
-            
-            if(endereco != null){
-                cliente.setEndereco(endereco);
-                this.cadastroCliente.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());
-                this.cadastroCliente.getjTextFieldBairro().setText(endereco.getBairro().getDescricao());
-                this.cadastroCliente.getjTextFieldLogradouro().setText(endereco.getLogradouro());
-            }else{
-                cliente.setEndereco(null);
-                this.cadastroCliente.getjTextFieldCidade().setText("");
-                this.cadastroCliente.getjTextFieldBairro().setText("");
-                this.cadastroCliente.getjTextFieldLogradouro().setText("");
-            }
-            */
-           
 
             if (Dao.ClasseDados.clientes.size() < Integer.parseInt(this.cadastroCliente.getjTextFieldID().getText())) {
                 Dao.ClasseDados.clientes.add(cliente);
@@ -160,6 +144,7 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
                         clienteAtual.setEmail(this.cadastroCliente.getjTextFieldEmail().getText());
                         clienteAtual.setFone1(this.cadastroCliente.getjFormattedTextFieldFone1().getText());
                         clienteAtual.setFone2(this.cadastroCliente.getjFormattedTextFieldFone2().getText());
+                        clienteAtual.setComplementoEndereco(this.cadastroCliente.getjTextFieldComplementoEndereco().getText());
                         clienteAtual.setEndereco(cliente.getEndereco());
                     }
 
@@ -220,23 +205,25 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
 
         }
     }
-    
-    private Endereco buscaIdEndByCep(String cep){
-        Endereco enderecoT = new Endereco();
+
+    private Endereco getEndByCep(String cep) {
         for (Endereco enderecoAtual : Dao.ClasseDados.enderecos) {
-            if(enderecoAtual.getCep() == cep){
+            if (enderecoAtual.getCep().equals(cep)) {
                 return enderecoAtual;
             }
-            enderecoT = enderecoAtual;
-            break;
         }
-        return enderecoT;
-         
+        return null;
     }
-    
-    
 
-    
+    private Endereco getEndById(int idEnd) {
+        for (Endereco enderecoAtual : Dao.ClasseDados.enderecos) {
+            if (enderecoAtual.getId() == idEnd) {
+                return enderecoAtual;
+            }
+
+        }
+        return null;
+    }
 
     @Override
     public void focusGained(FocusEvent e) {
@@ -246,48 +233,45 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
 
     @Override
     public void focusLost(FocusEvent e) {
-        if(e.getSource() == this.cadastroCliente.getjFormattedTextFieldCEP()){
-            String codigoCEP = this.cadastroCliente.getjFormattedTextFieldCEP().getText().trim();
-            Endereco endereco = buscaIdEndByCep(codigoCEP);
-            
-            if(codigoCEP.isEmpty()){
+        if (e.getSource() == this.cadastroCliente.getjFormattedTextFieldCEP()) {
+            String codigoCEP = (String) this.cadastroCliente.getjFormattedTextFieldCEP().getText().trim();
+
+            if (codigoCEP.isEmpty()) {
+                this.cadastroCliente.getjFormattedTextFieldCEP().setText("");
                 this.cadastroCliente.getjTextFieldCidade().setText("");
                 this.cadastroCliente.getjTextFieldBairro().setText("");
                 this.cadastroCliente.getjTextFieldLogradouro().setText("");
-            }else{
-                for (Endereco endereco1Atual : Dao.ClasseDados.enderecos) {
-                    if(endereco1Atual.getCep() == endereco.getCep()){
-                        this.cadastroCliente.getjTextFieldCidade().setText(endereco1Atual.getCidade().getDescricao());
-                            
-                    }
-                        
-                    
+            } else {
+                Endereco endereco = getEndByCep(codigoCEP);
+
+                if (endereco != null) {
+                    this.cadastroCliente.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());
+                    this.cadastroCliente.getjTextFieldBairro().setText(endereco.getBairro().getDescricao());
+                    this.cadastroCliente.getjTextFieldLogradouro().setText(endereco.getLogradouro());
+                } else {
+                    this.cadastroCliente.getjTextFieldCidade().setText("");
+                    this.cadastroCliente.getjTextFieldBairro().setText("");
+                    this.cadastroCliente.getjTextFieldLogradouro().setText("");
+
                 }
-                
-                
-                
-                
-                
+
             }
+
         }
-        
+
     }
 
     private void buscarCep() {
         BuscaEndereco buscaEndereco = new BuscaEndereco(null, true);
         ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(buscaEndereco);
         buscaEndereco.setVisible(true);
-        
-        if(ControllerCadastroEndereco.codigo != 0){
-            Endereco endereco = buscaIdEndByCep(Integer.toString(ControllerCadastroEndereco.codigo));
-            if(endereco != null){
-                this.cadastroCliente.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());
-                this.cadastroCliente.getjTextFieldBairro().setText(endereco.getBairro().getDescricao());
-                this.cadastroCliente.getjTextFieldLogradouro().setText(endereco.getLogradouro());
-            }
+
+        if (ControllerCadastroEndereco.codigo != 0) {
+            Endereco endereco = getEndById(ControllerCadastroEndereco.codigo);
+            this.cadastroCliente.getjFormattedTextFieldCEP().setText(endereco.getCep());
+            this.cadastroCliente.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());
+            this.cadastroCliente.getjTextFieldBairro().setText(endereco.getBairro().getDescricao());
+            this.cadastroCliente.getjTextFieldLogradouro().setText(endereco.getLogradouro());
         }
-        
-
     }
-
 }
