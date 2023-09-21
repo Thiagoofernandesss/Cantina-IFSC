@@ -6,9 +6,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.ColorModel;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.bo.Bairro;
+import service.BairroService;
 import view.BuscaBairro;
 
 /**
@@ -22,12 +24,13 @@ public class ControllerBuscaBairro implements ActionListener{
     public ControllerBuscaBairro(BuscaBairro buscaBairro) {
         
         this.buscaBairro = buscaBairro;
-        
         this.buscaBairro.getjButtonFiltrar().addActionListener(this);
         this.buscaBairro.getjButtonCarregar().addActionListener(this);
         this.buscaBairro.getjButtonSair().addActionListener(this);
         
-        utilities.Utilities.ativa(true, this.buscaBairro.getjPanelBotoes());
+        //Teste Seguiindo proj. Rober
+        //utilities.Utilities.ativa(true, this.buscaBairro.getjPanelBotoes());
+        
         
     }
     
@@ -36,12 +39,12 @@ public class ControllerBuscaBairro implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.buscaBairro.getjButtonFiltrar()){
-            //Criando/Carregando uma instancia da classe singleton de dados
-            Dao.ClasseDados.getInstance();
+            List<Bairro> listaBairros = new ArrayList<Bairro>();
+            listaBairros = BairroService.carregar();
             
             //Criando um objeto do tipo TableModel
             DefaultTableModel tabela =(DefaultTableModel) this.buscaBairro.getjTableDados().getModel();
-            for (Bairro bairroAtual : Dao.ClasseDados.bairros) {
+            for (Bairro bairroAtual : listaBairros) {
                 tabela.addRow(new Object[]{bairroAtual.getId(),
                                            bairroAtual.getDescricao()});
                 
