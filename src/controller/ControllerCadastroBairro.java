@@ -43,7 +43,6 @@ public class ControllerCadastroBairro implements ActionListener{
             utilities.Utilities.limpaComponentes(true, this.cadastroBairro.getjPanelDados());
             //Deseligando o ID no braço, PROVISÓRIO
             this.cadastroBairro.getjTextFieldId().setEditable(false);
-            this.cadastroBairro.getjTextFieldId().setText(Integer.toString(Dao.ClasseDados.bairros.size()+1)); //Trazendo proximo id
             this.cadastroBairro.getjTextFieldDescricao().requestFocus();
 
         } else if (e.getSource() == this.cadastroBairro.getjButtonSair()) {
@@ -56,21 +55,10 @@ public class ControllerCadastroBairro implements ActionListener{
         } else if (e.getSource() == this.cadastroBairro.getjButtonSalvar()) {
             
             Bairro bairro = new Bairro();
-            bairro.setId(Dao.ClasseDados.bairros.size() + 1);
             bairro.setDescricao(this.cadastroBairro.getjTextFieldDescricao().getText());
-            if (Dao.ClasseDados.bairros.size() < Integer.parseInt(this.cadastroBairro.getjTextFieldId().getText())) {
-                Dao.ClasseDados.bairros.add(bairro);
-            } else{
-                int id = Integer.parseInt(this.cadastroBairro.getjTextFieldId().getText());
-                
-                for (Bairro bairroAtual : Dao.ClasseDados.bairros) {
-                    if(bairroAtual.getId() == id){
-                        bairroAtual.setDescricao(this.cadastroBairro.getjTextFieldDescricao().getText());
-                        break;
-                    }
-                    
-                }
-                
+            
+            if(this.cadastroBairro.getjTextFieldId().getText().equalsIgnoreCase("")){
+                service.BairroService.adicionar(bairro);
             }
 
             utilities.Utilities.ativa(true, cadastroBairro.getjPanelBotoes());
@@ -84,10 +72,12 @@ public class ControllerCadastroBairro implements ActionListener{
 
             //Inserir o controller da busca de bairros
             buscaBairro.setVisible(true);
+            
+            //aqui
 
             if (codigo != 0) {
                 Bairro bairro = new Bairro();
-                bairro = Dao.ClasseDados.bairros.get(codigo - 1);
+                bairro = service.BairroService.carregar(codigo);
 
                 utilities.Utilities.ativa(false, cadastroBairro.getjPanelBotoes());
                 utilities.Utilities.limpaComponentes(true, cadastroBairro.getjPanelDados());

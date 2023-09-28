@@ -21,7 +21,7 @@ public class BairroDao implements InterfaceDao<Bairro> {
     @Override
     public void create(Bairro objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO cantina.bairro(descricao) VALUES (?)";
+        String sqlExecutar = "INSERT INTO cantinaifsc.bairro(descricao) VALUES (?)";
         PreparedStatement pstm = null;
 
         try {
