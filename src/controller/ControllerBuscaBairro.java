@@ -15,7 +15,7 @@ import view.BuscaBairro;
 
 /**
  *
- * @author Thiago
+ * @author Thiago and Gabrieli
  */
 public class ControllerBuscaBairro implements ActionListener{
     
