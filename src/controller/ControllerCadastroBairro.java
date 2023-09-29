@@ -55,10 +55,14 @@ public class ControllerCadastroBairro implements ActionListener{
         } else if (e.getSource() == this.cadastroBairro.getjButtonSalvar()) {
             
             Bairro bairro = new Bairro();
+            
             bairro.setDescricao(this.cadastroBairro.getjTextFieldDescricao().getText());
             
             if(this.cadastroBairro.getjTextFieldId().getText().equalsIgnoreCase("")){
                 service.BairroService.adicionar(bairro);
+            }else{
+                bairro.setId(Integer.parseInt(this.cadastroBairro.getjTextFieldId().getText()));
+                service.BairroService.atualizar(bairro);
             }
 
             utilities.Utilities.ativa(true, cadastroBairro.getjPanelBotoes());
@@ -83,7 +87,7 @@ public class ControllerCadastroBairro implements ActionListener{
                 utilities.Utilities.limpaComponentes(true, cadastroBairro.getjPanelDados());
 
                 this.cadastroBairro.getjTextFieldId().setText(bairro.getId() + "");
-                this.cadastroBairro.getjTextFieldDescricao().setText(bairro.getDescricao() +"");
+                this.cadastroBairro.getjTextFieldDescricao().setText(bairro.getDescricao());
                 
                 this.cadastroBairro.getjTextFieldId().setEditable(false);
 

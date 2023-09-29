@@ -87,18 +87,46 @@ public class BairroDao implements InterfaceDao<Bairro> {
             return bairroParPK;
         }
     }
+    
+    public List<Bairro> retrieve(String parString) {
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "Select bairro.id, bairro.descricao from bairro where descricao like ?";
+        
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        List<Bairro> listaBairro = new ArrayList<>();
 
-    @Override
-    public Bairro retrieve(String parString) {
-        return null;
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+
+            pstm.setString(1, "%" + parString + "%");
+
+            rst = pstm.executeQuery();
+
+            while(rst.next()){
+                Bairro bairro = new Bairro();
+                bairro.setId(rst.getInt("id"));
+                bairro.setDescricao(rst.getString("descricao"));
+                listaBairro.add(bairro);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+            return listaBairro;
+        }
     }
+
+
+
 
     @Override
     public void update(Bairro objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar ="update bairro set bairro.descricao = ? where bairro.id = ?";
+        String sqlExecutar = "update bairro set bairro.descricao = ? where bairro.id = ?";
         PreparedStatement pstm = null;
-        
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getDescricao());

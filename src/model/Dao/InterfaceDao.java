@@ -18,7 +18,7 @@ public interface InterfaceDao<T> {
    // Método abstrato para recuperar um objeto com base em uma chave primária (parPK)
    public abstract T retrieve(int parPK);
    // Método abstrato para recuperar um objeto com base em uma string (parString)
-   public abstract T retrieve(String parString);
+   public abstract List<T> retrieve(String parString);
    // Método abstrato para atualizar um objeto no banco de dados
    public abstract void update(T objeto);
    // Método abstrato para excluir um objeto do banco de dados
