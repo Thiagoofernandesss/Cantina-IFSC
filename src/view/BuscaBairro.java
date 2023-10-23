@@ -53,12 +53,12 @@ public class BuscaBairro extends javax.swing.JDialog {
         this.jTextFieldFiltrar = jTextFieldFiltrar;
     }
 
-    public JComboBox<String> getjComboBoxCadastraBairro() {
-        return jComboBoxCadastraBairro;
+    public JComboBox<String> getjComboBoxBuscaBairroPor() {
+        return jComboBoxBuscaBairroPor;
     }
 
-    public void setjComboBoxCadastraBairro(JComboBox<String> jComboBoxCadastraBairro) {
-        this.jComboBoxCadastraBairro = jComboBoxCadastraBairro;
+    public void setjComboBoxBuscaBairroPor(JComboBox<String> jComboBoxBuscaBairroPor) {
+        this.jComboBoxBuscaBairroPor = jComboBoxBuscaBairroPor;
     }
     
     
@@ -87,7 +87,7 @@ public class BuscaBairro extends javax.swing.JDialog {
         jPanelFiltro = new javax.swing.JPanel();
         jTextFieldFiltrar = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
-        jComboBoxCadastraBairro = new javax.swing.JComboBox<>();
+        jComboBoxBuscaBairroPor = new javax.swing.JComboBox<>();
         jPanelDados2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDados = new javax.swing.JTable();
@@ -186,7 +186,7 @@ public class BuscaBairro extends javax.swing.JDialog {
         jButtonFiltrar.setMaximumSize(new java.awt.Dimension(99, 26));
         jButtonFiltrar.setMinimumSize(new java.awt.Dimension(99, 26));
 
-        jComboBoxCadastraBairro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição" }));
+        jComboBoxBuscaBairroPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição" }));
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
@@ -194,9 +194,9 @@ public class BuscaBairro extends javax.swing.JDialog {
             jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFiltroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBoxCadastraBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxBuscaBairroPor, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -208,7 +208,7 @@ public class BuscaBairro extends javax.swing.JDialog {
                 .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxCadastraBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxBuscaBairroPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -350,7 +350,7 @@ public class BuscaBairro extends javax.swing.JDialog {
     private javax.swing.JButton jButtonCarregar;
     private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBoxCadastraBairro;
+    private javax.swing.JComboBox<String> jComboBoxBuscaBairroPor;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBotoes;
     private javax.swing.JPanel jPanelDados2;

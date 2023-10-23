@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -50,6 +51,15 @@ public class BuscaCompra extends javax.swing.JDialog {
     public void setjTextFieldFiltrar(JTextField jTextFieldFiltrar) {
         this.jTextFieldFiltrar = jTextFieldFiltrar;
     }
+
+    public JComboBox<String> getjComboBoxBuscaCompraPor() {
+        return jComboBoxBuscaCompraPor;
+    }
+
+    public void setjComboBoxBuscaCompraPor(JComboBox<String> jComboBoxBuscaCompraPor) {
+        this.jComboBoxBuscaCompraPor = jComboBoxBuscaCompraPor;
+    }
+    
     
     
 
@@ -71,6 +81,8 @@ public class BuscaCompra extends javax.swing.JDialog {
         jPanelFiltro = new javax.swing.JPanel();
         jTextFieldFiltrar = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
+        jComboBoxBuscaClientesPor = new javax.swing.JComboBox<>();
+        jComboBoxBuscaCompraPor = new javax.swing.JComboBox<>();
         jPanelDados2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDados = new javax.swing.JTable();
@@ -160,16 +172,27 @@ public class BuscaCompra extends javax.swing.JDialog {
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
 
+        jComboBoxBuscaClientesPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nome", "Matricula", "Status" }));
+
+        jComboBoxBuscaCompraPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Data Emissão", "Nota Fiscal", "Fornecedor", "CNPJ", "Status" }));
+
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
         jPanelFiltroLayout.setHorizontalGroup(
             jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFiltroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxBuscaCompraPor, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelFiltroLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jComboBoxBuscaClientesPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanelFiltroLayout.setVerticalGroup(
             jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,8 +200,14 @@ public class BuscaCompra extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxBuscaCompraPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelFiltroLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jComboBoxBuscaClientesPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanelDados2.setBackground(new java.awt.Color(228, 228, 228));
@@ -189,14 +218,14 @@ public class BuscaCompra extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Nota Fiscal", "Data Emissão", "Fornecedor", "CNPJ", "Valor Desconto", "Tipo Desconto", "Status", "Observação"
+                "ID", "Data Emissão", "Nota Fiscal", "Fornecedor", "CNPJ", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -212,20 +241,15 @@ public class BuscaCompra extends javax.swing.JDialog {
             jTableDados.getColumnModel().getColumn(0).setResizable(false);
             jTableDados.getColumnModel().getColumn(0).setPreferredWidth(50);
             jTableDados.getColumnModel().getColumn(1).setResizable(false);
-            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(80);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(100);
             jTableDados.getColumnModel().getColumn(2).setResizable(false);
-            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(80);
             jTableDados.getColumnModel().getColumn(3).setResizable(false);
             jTableDados.getColumnModel().getColumn(3).setPreferredWidth(150);
             jTableDados.getColumnModel().getColumn(4).setResizable(false);
             jTableDados.getColumnModel().getColumn(4).setPreferredWidth(120);
             jTableDados.getColumnModel().getColumn(5).setResizable(false);
-            jTableDados.getColumnModel().getColumn(5).setPreferredWidth(80);
-            jTableDados.getColumnModel().getColumn(6).setResizable(false);
-            jTableDados.getColumnModel().getColumn(6).setPreferredWidth(80);
-            jTableDados.getColumnModel().getColumn(7).setResizable(false);
-            jTableDados.getColumnModel().getColumn(7).setPreferredWidth(60);
-            jTableDados.getColumnModel().getColumn(8).setResizable(false);
+            jTableDados.getColumnModel().getColumn(5).setPreferredWidth(60);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
@@ -329,6 +353,8 @@ public class BuscaCompra extends javax.swing.JDialog {
     private javax.swing.JButton jButtonCarregar;
     private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JComboBox<String> jComboBoxBuscaClientesPor;
+    private javax.swing.JComboBox<String> jComboBoxBuscaCompraPor;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBotoes;
     private javax.swing.JPanel jPanelDados2;

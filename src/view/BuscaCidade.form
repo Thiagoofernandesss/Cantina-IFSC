@@ -239,7 +239,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldFiltrar" min="-2" pref="518" max="-2" attributes="0"/>
+                      <Component id="jComboBoxBuscaCidadesPor" min="-2" pref="135" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTextFieldFiltrar" min="-2" pref="377" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonFiltrar" min="-2" pref="99" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -253,6 +255,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldFiltrar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonFiltrar" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jComboBoxBuscaCidadesPor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -287,6 +290,20 @@
                   <Dimension value="[99, 26]"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBoxBuscaCidadesPor">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="ID"/>
+                    <StringItem index="1" value="Descri&#xe7;&#xe3;o"/>
+                    <StringItem index="2" value="UF"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

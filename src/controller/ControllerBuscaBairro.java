@@ -43,10 +43,10 @@ public class ControllerBuscaBairro implements ActionListener {
             } else {
                 List<Bairro> listaBairros = new ArrayList<Bairro>();
                 
-                if(this.buscaBairro.getjComboBoxCadastraBairro().getSelectedIndex()==0){
+                if(this.buscaBairro.getjComboBoxBuscaBairroPor().getSelectedIndex()==0){
                     listaBairros.add(BairroService.carregar(Integer.parseInt(this.buscaBairro.getjTextFieldFiltrar().getText())));
                     
-                }else if(this.buscaBairro.getjComboBoxCadastraBairro().getSelectedIndex()==1){
+                }else if(this.buscaBairro.getjComboBoxBuscaBairroPor().getSelectedIndex()==1){
                     listaBairros= BairroService.carregar(this.buscaBairro.getjTextFieldFiltrar().getText().trim());
                 
                 }

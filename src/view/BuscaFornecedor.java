@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -50,6 +51,17 @@ public class BuscaFornecedor extends javax.swing.JDialog {
     public JPanel getjPanelDados2() {
         return jPanelDados2;
     }
+
+    public JComboBox<String> getjComboBoxBuscaFornecedoresPor() {
+        return jComboBoxBuscaFornecedoresPor;
+    }
+
+    public void setjComboBoxBuscaFornecedoresPor(JComboBox<String> jComboBoxBuscaFornecedoresPor) {
+        this.jComboBoxBuscaFornecedoresPor = jComboBoxBuscaFornecedoresPor;
+    }
+    
+    
+    
     
     
 
@@ -71,6 +83,7 @@ public class BuscaFornecedor extends javax.swing.JDialog {
         jPanelFiltro = new javax.swing.JPanel();
         jTextFieldFiltrar = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
+        jComboBoxBuscaFornecedoresPor = new javax.swing.JComboBox<>();
         jPanelDados2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDados = new javax.swing.JTable();
@@ -159,13 +172,17 @@ public class BuscaFornecedor extends javax.swing.JDialog {
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
 
+        jComboBoxBuscaFornecedoresPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "CNPJ", "Razão Social", "CEP", "Ins. Estadual", "Status" }));
+
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
         jPanelFiltroLayout.setHorizontalGroup(
             jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFiltroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxBuscaFornecedoresPor, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -176,7 +193,8 @@ public class BuscaFornecedor extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxBuscaFornecedoresPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -188,14 +206,14 @@ public class BuscaFornecedor extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Razão Social", "Nome Fantasia", "Ins. Estadual", "CNPJ", "Email", "Fone 1", "Fone 2", "Cidade", "Rua", "Bairro", "Complemento", "Status", "CEP"
+                "ID", "CNPJ", "Razão Social", "CEP", "Ins. Estadual", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -209,19 +227,17 @@ public class BuscaFornecedor extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTableDados);
         if (jTableDados.getColumnModel().getColumnCount() > 0) {
             jTableDados.getColumnModel().getColumn(0).setResizable(false);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(50);
             jTableDados.getColumnModel().getColumn(1).setResizable(false);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(90);
             jTableDados.getColumnModel().getColumn(2).setResizable(false);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(110);
             jTableDados.getColumnModel().getColumn(3).setResizable(false);
+            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(90);
             jTableDados.getColumnModel().getColumn(4).setResizable(false);
+            jTableDados.getColumnModel().getColumn(4).setPreferredWidth(90);
             jTableDados.getColumnModel().getColumn(5).setResizable(false);
-            jTableDados.getColumnModel().getColumn(6).setResizable(false);
-            jTableDados.getColumnModel().getColumn(7).setResizable(false);
-            jTableDados.getColumnModel().getColumn(8).setResizable(false);
-            jTableDados.getColumnModel().getColumn(9).setResizable(false);
-            jTableDados.getColumnModel().getColumn(10).setResizable(false);
-            jTableDados.getColumnModel().getColumn(11).setResizable(false);
-            jTableDados.getColumnModel().getColumn(12).setResizable(false);
-            jTableDados.getColumnModel().getColumn(13).setResizable(false);
+            jTableDados.getColumnModel().getColumn(5).setPreferredWidth(40);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
@@ -325,6 +341,7 @@ public class BuscaFornecedor extends javax.swing.JDialog {
     private javax.swing.JButton jButtonCarregar;
     private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JComboBox<String> jComboBoxBuscaFornecedoresPor;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBotoes;
     private javax.swing.JPanel jPanelDados2;
