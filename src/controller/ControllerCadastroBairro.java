@@ -60,7 +60,7 @@ public class ControllerCadastroBairro implements ActionListener{
             
             if(this.cadastroBairro.getjTextFieldId().getText().equalsIgnoreCase("")){
                 service.BairroService.adicionar(bairro);
-            }else{
+            }else{      
                 bairro.setId(Integer.parseInt(this.cadastroBairro.getjTextFieldId().getText()));
                 service.BairroService.atualizar(bairro);
             }
