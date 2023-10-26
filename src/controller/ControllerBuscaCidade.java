@@ -49,15 +49,19 @@ public class ControllerBuscaCidade implements ActionListener {
                 }else if(this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedIndex()==1){
                     listaCidades = CidadeService.carregar(this.buscaCidade.getjTextFieldFiltrar().getText().trim());
                 }
+                
+                //Criando um objeto do tipo TableModel
+                DefaultTableModel tabela = (DefaultTableModel) this.buscaCidade.getjTableDados().getModel();
+                tabela.setRowCount(0);
+                for (Cidade cidadeAtual : listaCidades) {
+                    tabela.addRow(new Object[]{cidadeAtual.getId(),
+                        cidadeAtual.getDescricao(), cidadeAtual.getUf()});
+
+                }
             }
             
-            DefaultTableModel tabela = (DefaultTableModel) this.buscaCidade.getjTableDados().getModel();
-            tabela.setRowCount(0);
-            for (Cidade cidadeAtual : listaCidades) {
-                tabela.addRow(new Object[]{cidadeAtual.getId(),cidadeAtual.getDescricao(),cidadeAtual.getUf()});
-                
-                
-            }
+            
+            
         
         }else if(e.getSource() == this.buscaCidade.getjButtonCarregar()){
             controller.ControllerCadastroCidade.codigo = (int) this.buscaCidade.getjTableDados().
