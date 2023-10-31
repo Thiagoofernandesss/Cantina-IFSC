@@ -241,7 +241,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CadastroCliente");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(626, 376));
         setMinimumSize(new java.awt.Dimension(626, 376));
         setResizable(false);
 
