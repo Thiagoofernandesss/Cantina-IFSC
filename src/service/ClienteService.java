@@ -20,9 +20,9 @@ public class ClienteService {
         return clienteDao.retrieve(parPK);
     }
 
-    public static List<Cliente> carregar(String parString) {
+    public static List<Cliente> carregar(String nomeParametro, String parString) {
         ClienteDao clienteDao = new ClienteDao();
-        return clienteDao.retrieve(parString);
+        return clienteDao.retrieve(nomeParametro ,parString);
     }
 
     public static void atualizar(Cliente objeto) {

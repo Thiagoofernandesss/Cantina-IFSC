@@ -37,21 +37,20 @@ public class ControllerBuscaBairro implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.buscaBairro.getjButtonFiltrar()) {
             if (this.buscaBairro.getjTextFieldFiltrar().getText().trim().equalsIgnoreCase("")) {
-                JOptionPane.showMessageDialog(null, "Atenção opção de filtro vazia");
+                JOptionPane.showMessageDialog(null, "Atenção! \n opção de filtro vazia");
                 this.buscaBairro.getjTextFieldFiltrar().requestFocus();
 
             } else {
                 List<Bairro> listaBairros = new ArrayList<Bairro>();
-                
-                if(this.buscaBairro.getjComboBoxBuscaBairroPor().getSelectedIndex()==0){
+
+                if (this.buscaBairro.getjComboBoxBuscaBairroPor().getSelectedIndex() == 0) {
                     listaBairros.add(BairroService.carregar(Integer.parseInt(this.buscaBairro.getjTextFieldFiltrar().getText())));
-                    
-                }else if(this.buscaBairro.getjComboBoxBuscaBairroPor().getSelectedIndex()==1){
-                    listaBairros= BairroService.carregar(this.buscaBairro.getjTextFieldFiltrar().getText().trim());
-                
+
+                } else if (this.buscaBairro.getjComboBoxBuscaBairroPor().getSelectedIndex() == 1) {
+                    listaBairros = BairroService.carregar(this.buscaBairro.getjTextFieldFiltrar().getText().trim());
+
                 }
-   
-                
+
                 //Criando um objeto do tipo TableModel
                 DefaultTableModel tabela = (DefaultTableModel) this.buscaBairro.getjTableDados().getModel();
                 tabela.setRowCount(0);

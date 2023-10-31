@@ -77,7 +77,7 @@ public class ControllerCadastroCidade implements ActionListener {
             
             if(codigo != 0){
                 Cidade cidade = new Cidade();
-                cidade = Dao.ClasseDados.cidades.get(codigo -1);
+                cidade = service.CidadeService.carregar(codigo);
                 utilities.Utilities.ativa(false, cadastroCidade.getjPanelBotoes());
                 utilities.Utilities.limpaComponentes(true, cadastroCidade.getjPanelDados());
                 

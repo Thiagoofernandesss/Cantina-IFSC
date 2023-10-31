@@ -183,6 +183,11 @@ public class BuscaCidade extends javax.swing.JDialog {
         jButtonFiltrar.setMinimumSize(new java.awt.Dimension(99, 26));
 
         jComboBoxBuscaCidadesPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição", "UF" }));
+        jComboBoxBuscaCidadesPor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxBuscaCidadesPorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
@@ -297,6 +302,10 @@ public class BuscaCidade extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBoxBuscaCidadesPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBuscaCidadesPorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxBuscaCidadesPorActionPerformed
 
     /**
      * @param args the command line arguments

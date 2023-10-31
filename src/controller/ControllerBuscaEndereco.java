@@ -6,6 +6,9 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.bo.Endereco;
 import view.BuscaEndereco;
@@ -20,38 +23,54 @@ public class ControllerBuscaEndereco implements ActionListener {
 
     public ControllerBuscaEndereco(BuscaEndereco buscaEndereco) {
         this.buscaEndereco = buscaEndereco;
-
         this.buscaEndereco.getjButtonFiltrar().addActionListener(this);
         this.buscaEndereco.getjButtonCarregar().addActionListener(this);
         this.buscaEndereco.getjButtonSair().addActionListener(this);
-
-        utilities.Utilities.ativa(true, this.buscaEndereco.getjPanelBotoes());
+        this.buscaEndereco.getjComboBoxBuscaEnderecoPor().addActionListener(this);
+        this.buscaEndereco.getjTextFieldFiltrar().addActionListener(this);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.buscaEndereco.getjButtonFiltrar()) {
-            
-            Dao.ClasseDados.getInstance();
+            if (!this.buscaEndereco.getjTextFieldFiltrar().getText().trim().equalsIgnoreCase("")) {
+                List<Endereco> listaEnderecos = new ArrayList<Endereco>();
 
-            DefaultTableModel tabela = (DefaultTableModel) this.buscaEndereco.getjTableDados().getModel();
+                if (this.buscaEndereco.getjComboBoxBuscaEnderecoPor().getSelectedItem().toString().equalsIgnoreCase("id")) {
+                    listaEnderecos.add(service.EnderecoService.carregar(Integer.parseInt(this.buscaEndereco.getjTextFieldFiltrar().getText())));
+                } else if (this.buscaEndereco.getjComboBoxBuscaEnderecoPor().getSelectedItem().toString().equalsIgnoreCase("cidade")) {
+                    listaEnderecos = service.EnderecoService.carregar("cidade.descricao", this.buscaEndereco.getjTextFieldFiltrar().getText());
+                } else if (this.buscaEndereco.getjComboBoxBuscaEnderecoPor().getSelectedItem().toString().equalsIgnoreCase("bairro")) {
+                    listaEnderecos = service.EnderecoService.carregar("bairro.descricao", this.buscaEndereco.getjTextFieldFiltrar().getText());
+                } else {
+                    listaEnderecos = service.EnderecoService.carregar(this.buscaEndereco.getjComboBoxBuscaEnderecoPor().getSelectedItem().toString(),
+                            this.buscaEndereco.getjTextFieldFiltrar().getText());
+                }
 
-            for (Endereco enderecoAtual : Dao.ClasseDados.enderecos) {
-                tabela.addRow(new Object[]{enderecoAtual.getId(),
-                    enderecoAtual.getCep(),
-                    enderecoAtual.getLogradouro(),
-                    enderecoAtual.getStatus(),
-                    enderecoAtual.getCidade().getDescricao(),
-                    enderecoAtual.getBairro().getDescricao()});
+                DefaultTableModel tabela = (DefaultTableModel) this.buscaEndereco.getjTableDados().getModel();
+                tabela.setRowCount(0);
 
+                for (Endereco enderecoAtual : listaEnderecos) {
+                    tabela.addRow(new Object[]{enderecoAtual.getId(),
+                        enderecoAtual.getCep(),
+                        enderecoAtual.getLogradouro(),
+                        enderecoAtual.getStatus(),
+                        enderecoAtual.getCidade().getDescricao(),
+                        enderecoAtual.getBairro().getDescricao()});
+
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Atenção!\nOpção de Filtro Vazia...");
+                this.buscaEndereco.getjTextFieldFiltrar().requestFocus();
+                
             }
 
         } else if (e.getSource() == this.buscaEndereco.getjButtonCarregar()) {
             controller.ControllerCadastroEndereco.codigo = (int) this.buscaEndereco.getjTableDados().
                     getValueAt(this.buscaEndereco.getjTableDados().getSelectedRow(), 0);
             this.buscaEndereco.dispose();
-            
 
         } else if (e.getSource() == this.buscaEndereco.getjButtonSair()) {
             this.buscaEndereco.dispose();

@@ -20,9 +20,9 @@ public class CidadeService {
         return cidadeDao.retrieve(parPK);
     }
 
-    public static List<Cidade> carregar(String parString) {
+    public static List<Cidade> carregar(String nomeParametro, String parString) {
         CidadeDao cidadeDao = new CidadeDao();
-        return cidadeDao.retrieve(parString);
+        return cidadeDao.retrieve(nomeParametro,parString);
     }
 
     public static void atualizar(Cidade objeto) {

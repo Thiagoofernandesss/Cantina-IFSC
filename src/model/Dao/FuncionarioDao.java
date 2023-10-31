@@ -34,8 +34,8 @@ public class FuncionarioDao implements  InterfaceDao<Funcionario>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public List<Funcionario> retrieve(String parString) {
+
+    public List<Funcionario> retrieve(String nomeParametro, String parString) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -46,6 +46,11 @@ public class FuncionarioDao implements  InterfaceDao<Funcionario>{
 
     @Override
     public void delete(Funcionario objeto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<Funcionario> retrieve(String parString) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

@@ -89,6 +89,7 @@ public class BairroDao implements InterfaceDao<Bairro> {
         }
     }
     
+    @Override
     public List<Bairro> retrieve(String parString) {
         Connection conexao = ConnectionFactory.getConnection();
         String sqlExecutar = "Select bairro.id, bairro.descricao from bairro where descricao like ?";
@@ -143,5 +144,7 @@ public class BairroDao implements InterfaceDao<Bairro> {
     @Override
     public void delete(Bairro objeto) {
     }
+
+
 
 }

@@ -23,53 +23,56 @@ public class ControllerBuscaCidade implements ActionListener {
     BuscaCidade buscaCidade;
 
     public ControllerBuscaCidade(BuscaCidade buscaCidade) {
-        
+
         this.buscaCidade = buscaCidade;
         this.buscaCidade.getjButtonFiltrar().addActionListener(this);
         this.buscaCidade.getjButtonCarregar().addActionListener(this);
         this.buscaCidade.getjButtonSair().addActionListener(this);
-
-        //Teste Seguiindo proj. Rober
-        //utilities.Utilities.ativa(true, this.buscaCidade.getjPanelBotoes());
-
+        this.buscaCidade.getjComboBoxBuscaCidadesPor().addActionListener(this);
+        this.buscaCidade.getjTextFieldFiltrar().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.buscaCidade.getjButtonFiltrar()){
-            if(this.buscaCidade.getjTextFieldFiltrar().getText().trim().equalsIgnoreCase("")){
-                JOptionPane.showMessageDialog(null, "Atenção opção de filtro vazia");
-                this.buscaCidade.getjTextFieldFiltrar().requestFocus();
-            }else{
-                List<Cidade> listaCidades = new ArrayList<Cidade>();
-                
-                if(this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedIndex()==0){
-                    listaCidades.add(CidadeService.carregar(Integer.parseInt(this.buscaCidade.getjTextFieldFiltrar().getText())));
-                    
-                }else if(this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedIndex()==1){
-                    listaCidades = CidadeService.carregar(this.buscaCidade.getjTextFieldFiltrar().getText().trim());
+        if (e.getSource() == this.buscaCidade.getjButtonFiltrar()) {
+            if (!this.buscaCidade.getjTextFieldFiltrar().getText().trim().equals("")) {
+                List<Cidade> lisraCidades = new ArrayList<Cidade>();
+
+                if (this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString().equalsIgnoreCase("id")) {
+                    lisraCidades.add(service.CidadeService.carregar(Integer.parseInt(this.buscaCidade.getjTextFieldFiltrar().getText())));
+                } else if (this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString().equalsIgnoreCase("descrição")) {
+                    lisraCidades = service.CidadeService.carregar("cidade.descricao", this.buscaCidade.getjTextFieldFiltrar().getText());
+                } else if (this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString().equalsIgnoreCase("uf")) {
+                    lisraCidades = service.CidadeService.carregar("cidade.uf", this.buscaCidade.getjTextFieldFiltrar().getText());
+                } else {
+                    lisraCidades = service.CidadeService.carregar(this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString(),
+                            this.buscaCidade.getjTextFieldFiltrar().getText());
                 }
-                
-                //Criando um objeto do tipo TableModel
+
+                //Criar um objeto do tipo TableModel
                 DefaultTableModel tabela = (DefaultTableModel) this.buscaCidade.getjTableDados().getModel();
                 tabela.setRowCount(0);
-                for (Cidade cidadeAtual : listaCidades) {
-                    tabela.addRow(new Object[]{cidadeAtual.getId(),
-                        cidadeAtual.getDescricao(), cidadeAtual.getUf()});
+
+                for (Cidade cidadeatual : lisraCidades) {
+                    tabela.addRow(new Object[]{cidadeatual.getId(),
+                        cidadeatual.getDescricao(),
+                        cidadeatual.getUf()
+                    });
 
                 }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Atenção!\nOpção de Filtro Vazia...");
+                this.buscaCidade.getjTextFieldFiltrar().requestFocus();
+
             }
-            
-            
-            
-        
-        }else if(e.getSource() == this.buscaCidade.getjButtonCarregar()){
+
+        } else if (e.getSource() == this.buscaCidade.getjButtonCarregar()) {
             controller.ControllerCadastroCidade.codigo = (int) this.buscaCidade.getjTableDados().
                     getValueAt(this.buscaCidade.getjTableDados().getSelectedRow(), 0);
-
             this.buscaCidade.dispose();
-        
-        }else if(e.getSource() == this.buscaCidade.getjButtonSair()){
+
+        } else if (e.getSource() == this.buscaCidade.getjButtonSair()) {
             this.buscaCidade.dispose();
         }
     }

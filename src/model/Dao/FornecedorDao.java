@@ -33,8 +33,7 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public List<Fornecedor> retrieve(String parString) {
+    public List<Fornecedor> retrieve(String nomeParametro,String parString) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -46,6 +45,11 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
     @Override
     public void delete(Fornecedor objeto) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<Fornecedor> retrieve(String parString) {
+        return null;
     }
     
 }

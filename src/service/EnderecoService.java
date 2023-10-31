@@ -20,9 +20,9 @@ public class EnderecoService {
         return enderecoDao.retrieve(parPK);
     }
 
-    public static List<Endereco> carregar(String parString) {
+    public static List<Endereco> carregar(String nomeParametro, String parString) {
         EnderecoDao enderecoDao = new EnderecoDao();
-        return enderecoDao.retrieve(parString);
+        return enderecoDao.retrieve(nomeParametro ,parString);
     }
 
     public static void atualizar(Endereco objeto) {

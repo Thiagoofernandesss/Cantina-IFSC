@@ -82,9 +82,14 @@ public class CidadeDao implements InterfaceDao<Cidade> {
         }
     }
 
-    public List<Cidade> retrieve(String parString) {
+    public List<Cidade> retrieve(String nomeParametro, String parString) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT cidade.id, cidade.descricao, cidade.uf FROM cidade WHERE descricao LIKE ?";
+        String sqlExecutar = " SELECT cidade.id, "
+                + " cidade.descricao, "
+                + " cidade.uf "
+                + " FROM cidade "
+                + " WHERE " + nomeParametro + " like ?";
+
         PreparedStatement pstm = null;
         ResultSet rst = null;
         List<Cidade> listaCidade = new ArrayList<>();
@@ -92,9 +97,7 @@ public class CidadeDao implements InterfaceDao<Cidade> {
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, "%" + parString + "%");
-
             rst = pstm.executeQuery();
-
             while (rst.next()) {
                 Cidade cidade = new Cidade();
                 cidade.setId(rst.getInt("id"));
@@ -102,7 +105,6 @@ public class CidadeDao implements InterfaceDao<Cidade> {
                 cidade.setUf(rst.getString("uf"));
                 listaCidade.add(cidade);
             }
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
@@ -133,5 +135,10 @@ public class CidadeDao implements InterfaceDao<Cidade> {
     @Override
     public void delete(Cidade objeto) {
         // Implement the delete method if needed
+    }
+
+    @Override
+    public List<Cidade> retrieve(String parString) {
+        return null;
     }
 }

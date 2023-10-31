@@ -29,8 +29,6 @@ public class Endereco {
         this.bairro = bairro;
         this.cidade = cidade;
     }
-    
-    
 
     public Bairro getBairro() {
         return bairro;
@@ -61,6 +59,7 @@ public class Endereco {
     }
 
     public char getStatus() {
+        
         return status;
     }
 
@@ -76,21 +75,17 @@ public class Endereco {
         this.logradouro = logradouro;
     }
 
-    public void setStatus(boolean statusInformado) {
-        if(statusInformado == false){
-            this.status = 'A';
-        } else{
-            this.status = 'I';
-        }
-        
-    }
-
     public void setStatus(char status) {
         this.status = status;
     }
     
-    
-    
+    public void setStatus(boolean status){
+        if(status == false){
+            this.status = 'A';
+        }else{
+            this.status = 'I';
+        }
+    }
     
 
     @Override

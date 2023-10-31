@@ -20,7 +20,7 @@ public class FuncionarioService {
         return funcionarioDao.retrieve(parPK);
     }
 
-    public static List<Funcionario> carregar(String parString) {
+    public static List<Funcionario> carregar(String nomeParametro, String parString) {
         FuncionarioDao funcionarioDao = new FuncionarioDao();
         return funcionarioDao.retrieve(parString);
     }
