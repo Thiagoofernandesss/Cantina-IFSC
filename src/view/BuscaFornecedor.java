@@ -8,6 +8,7 @@ package view;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -58,6 +59,14 @@ public class BuscaFornecedor extends javax.swing.JDialog {
 
     public void setjComboBoxBuscaFornecedoresPor(JComboBox<String> jComboBoxBuscaFornecedoresPor) {
         this.jComboBoxBuscaFornecedoresPor = jComboBoxBuscaFornecedoresPor;
+    }
+
+    public JTable getjTableDados() {
+        return jTableDados;
+    }
+
+    public void setjTableDados(JTable jTableDados) {
+        this.jTableDados = jTableDados;
     }
     
     
@@ -206,14 +215,14 @@ public class BuscaFornecedor extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "CNPJ", "Razão Social", "CEP", "Ins. Estadual", "Status"
+                "ID", "CNPJ", "Razão Social", "Ins. Estadual", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -226,18 +235,20 @@ public class BuscaFornecedor extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jTableDados);
         if (jTableDados.getColumnModel().getColumnCount() > 0) {
-            jTableDados.getColumnModel().getColumn(0).setResizable(false);
+            jTableDados.getColumnModel().getColumn(0).setMinWidth(50);
             jTableDados.getColumnModel().getColumn(0).setPreferredWidth(50);
-            jTableDados.getColumnModel().getColumn(1).setResizable(false);
-            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(90);
-            jTableDados.getColumnModel().getColumn(2).setResizable(false);
-            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(110);
+            jTableDados.getColumnModel().getColumn(0).setMaxWidth(50);
+            jTableDados.getColumnModel().getColumn(1).setMinWidth(200);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(200);
+            jTableDados.getColumnModel().getColumn(1).setMaxWidth(200);
+            jTableDados.getColumnModel().getColumn(2).setMinWidth(200);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(200);
+            jTableDados.getColumnModel().getColumn(2).setMaxWidth(200);
             jTableDados.getColumnModel().getColumn(3).setResizable(false);
             jTableDados.getColumnModel().getColumn(3).setPreferredWidth(90);
-            jTableDados.getColumnModel().getColumn(4).setResizable(false);
-            jTableDados.getColumnModel().getColumn(4).setPreferredWidth(90);
-            jTableDados.getColumnModel().getColumn(5).setResizable(false);
-            jTableDados.getColumnModel().getColumn(5).setPreferredWidth(40);
+            jTableDados.getColumnModel().getColumn(4).setMinWidth(50);
+            jTableDados.getColumnModel().getColumn(4).setPreferredWidth(50);
+            jTableDados.getColumnModel().getColumn(4).setMaxWidth(50);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);

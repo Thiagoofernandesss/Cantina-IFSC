@@ -179,7 +179,12 @@ public class BuscaCliente extends javax.swing.JDialog {
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
 
-        jComboBoxBuscaClientesPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nome", "Matricula", "Status" }));
+        jComboBoxBuscaClientesPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nome", "CPF", "Matrícula", "Status" }));
+        jComboBoxBuscaClientesPor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxBuscaClientesPorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
@@ -213,14 +218,14 @@ public class BuscaCliente extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Nome", "Matricula", "Status"
+                "ID", "Nome", "CPF", "Matricula", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -233,10 +238,18 @@ public class BuscaCliente extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jTableDados);
         if (jTableDados.getColumnModel().getColumnCount() > 0) {
-            jTableDados.getColumnModel().getColumn(0).setResizable(false);
-            jTableDados.getColumnModel().getColumn(1).setResizable(false);
-            jTableDados.getColumnModel().getColumn(2).setResizable(false);
-            jTableDados.getColumnModel().getColumn(3).setResizable(false);
+            jTableDados.getColumnModel().getColumn(0).setMinWidth(50);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(50);
+            jTableDados.getColumnModel().getColumn(0).setMaxWidth(50);
+            jTableDados.getColumnModel().getColumn(1).setMinWidth(270);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(270);
+            jTableDados.getColumnModel().getColumn(1).setMaxWidth(270);
+            jTableDados.getColumnModel().getColumn(3).setMinWidth(90);
+            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(90);
+            jTableDados.getColumnModel().getColumn(3).setMaxWidth(90);
+            jTableDados.getColumnModel().getColumn(4).setMinWidth(50);
+            jTableDados.getColumnModel().getColumn(4).setPreferredWidth(50);
+            jTableDados.getColumnModel().getColumn(4).setMaxWidth(50);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
@@ -292,6 +305,10 @@ public class BuscaCliente extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBoxBuscaClientesPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBuscaClientesPorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxBuscaClientesPorActionPerformed
 
     /**
      * @param args the command line arguments

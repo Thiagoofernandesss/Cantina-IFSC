@@ -8,6 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 import model.bo.Cliente;
 import model.bo.Endereco;
 import view.BuscaCliente;
@@ -25,7 +30,7 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
     private CadastroCliente cadastroCliente;
     public static int codigo;
 
-    public String numeroCEP;
+    //public String numeroCEP;
 
     public ControllerCadastroCliente(CadastroCliente cadastroCliente) {
         this.cadastroCliente = cadastroCliente;
@@ -36,8 +41,13 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
         this.cadastroCliente.getjButtonCancelar().addActionListener(this);
         this.cadastroCliente.getjButtonSalvar().addActionListener(this);
         this.cadastroCliente.getjButtonConsultar().addActionListener(this);
+
         this.cadastroCliente.getjButtonPesquisarCep().addActionListener(this);
         this.cadastroCliente.getjButtonAdicionarCep().addActionListener(this);
+
+        List<Endereco> listaEnderecos = new ArrayList<>();
+
+        listaEnderecos = service.EnderecoService.carregar();
 
         //Adicionando os listeners ao campo de cep
         this.cadastroCliente.getjFormattedTextFieldCEP().addFocusListener(this);
@@ -60,7 +70,6 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
             this.cadastroCliente.getjTextFieldCidade().setEditable(false);
             this.cadastroCliente.getjTextFieldBairro().setEditable(false);
             this.cadastroCliente.getjTextFieldLogradouro().setEditable(false);
-            this.cadastroCliente.getjTextFieldID().setText(Integer.toString(Dao.ClasseDados.clientes.size() + 1));//Trazendo o próximo ID
             this.cadastroCliente.getjTextFieldNome().requestFocus();//Cursor  começando no nome
 
         } else if (e.getSource() == this.cadastroCliente.getjButtonSair()) {
@@ -74,123 +83,116 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
         } else if (e.getSource() == this.cadastroCliente.getjButtonSalvar()) {
             //Ação Botão Salvar
             Cliente cliente = new Cliente();
-            cliente.setId(Dao.ClasseDados.clientes.size() + 1);
-
             cliente.setNome(this.cadastroCliente.getjTextFieldNome().getText());
-            if (this.cadastroCliente.getjTextFieldNome().getText().equalsIgnoreCase("")) {
-                cliente.setNome("Não Informado");
-            }
-            cliente.setStatus(this.cadastroCliente.getjCheckBoxStatus().isSelected());
-            cliente.setDataNascimento(this.cadastroCliente.getjFormattedTextFieldDataNascimento().getText());
-            if (this.cadastroCliente.getjFormattedTextFieldDataNascimento().getText().equalsIgnoreCase("")) {
-                cliente.setDataNascimento("00/00/00");
-            }
-            cliente.setCpf(this.cadastroCliente.getjFormattedTextFieldCPF().getText());
-            if (this.cadastroCliente.getjFormattedTextFieldCPF().getText().equalsIgnoreCase("")) {
-                cliente.setCpf("");
-            }
-            cliente.setRg(this.cadastroCliente.getjFormattedTextFieldRg().getText());
-            if (this.cadastroCliente.getjFormattedTextFieldRg().getText().equalsIgnoreCase("")) {
-                cliente.setRg("");
-            }
-            cliente.setMatricula(this.cadastroCliente.getjTextFieldMatricula().getText());
-            if (this.cadastroCliente.getjTextFieldMatricula().getText().equalsIgnoreCase("")) {
-                cliente.setMatricula("Não Informada");
-            }
-            cliente.setEmail(this.cadastroCliente.getjTextFieldEmail().getText());
-            if (this.cadastroCliente.getjTextFieldEmail().getText().equalsIgnoreCase("")) {
-                cliente.setEmail("Não Informado");
-            }
             cliente.setFone1(this.cadastroCliente.getjFormattedTextFieldFone1().getText());
-            if (this.cadastroCliente.getjFormattedTextFieldFone1().getText().equalsIgnoreCase("")) {
-                cliente.setFone1("");
-            }
             cliente.setFone2(this.cadastroCliente.getjFormattedTextFieldFone2().getText());
-            if (this.cadastroCliente.getjFormattedTextFieldFone2().getText().equalsIgnoreCase("")) {
-                cliente.setFone2("");
-            }
+            cliente.setEmail(this.cadastroCliente.getjTextFieldEmail().getText());
+            cliente.setStatus(this.cadastroCliente.getjCheckBoxStatus().isSelected());
+            cliente.setCpf(this.cadastroCliente.getjFormattedTextFieldCPF().getText());
+            String cpfString = this.cadastroCliente.getjFormattedTextFieldCPF().getText();
+            cliente.setRg(this.cadastroCliente.getjFormattedTextFieldRg().getText());
+            cliente.setMatricula(this.cadastroCliente.getjTextFieldMatricula().getText());
             cliente.setComplementoEndereco(this.cadastroCliente.getjTextFieldComplementoEndereco().getText());
-            
+            //cliente.setDataNascimento(this.cadastroCliente.getjFormattedTextFieldDataNascimento().getText());
 
-            numeroCEP = this.cadastroCliente.getjFormattedTextFieldCEP().getText();
+            String dataNascimentoString = this.cadastroCliente.getjFormattedTextFieldDataNascimento().getText();
+            SimpleDateFormat formatoEntrada = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formatoSaida = new SimpleDateFormat("yyyy-MM-dd");
 
-            Endereco endereco = getEndByCep(numeroCEP);
+            try {
+                java.util.Date dataNascimento = formatoEntrada.parse(dataNascimentoString);
+                String dataNascimentoFormatada = formatoSaida.format(dataNascimento);
 
-            if (endereco != null) {
-                cliente.setEndereco(endereco);
-                this.cadastroCliente.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());
-                this.cadastroCliente.getjTextFieldBairro().setText(endereco.getBairro().getDescricao());
-                this.cadastroCliente.getjTextFieldLogradouro().setText(endereco.getLogradouro());
-            } else {
-                cliente.setEndereco(null);
-                this.cadastroCliente.getjTextFieldCidade().setText("");
-                this.cadastroCliente.getjTextFieldBairro().setText("");
-                this.cadastroCliente.getjTextFieldLogradouro().setText("");
+                cliente.setDataNascimento(dataNascimentoFormatada);
+            } catch (ParseException m) {
+                // Lida com erros de formatação da data, se necessário
             }
 
-            if (Dao.ClasseDados.clientes.size() < Integer.parseInt(this.cadastroCliente.getjTextFieldID().getText())) {
-                Dao.ClasseDados.clientes.add(cliente);
+            cliente.setEndereco(service.EnderecoService.carregar("cep", this.cadastroCliente.getjFormattedTextFieldCEP().getText() + "").get(0));
+
+            if (codigo == 0) {
+                service.ClienteService.adicionar(cliente);
+                utilities.Utilities.ativa(true, this.cadastroCliente.getjPanelBotoes());
+                utilities.Utilities.limpaComponentes(false, this.cadastroCliente.getjPanelDados());
+
+                this.cadastroCliente.getjTextFieldID().setEditable(false); //Desligando id no braço, provisório
+
+                //Desligando os campos de descrições da cidade, do bairro e logradouro
+                this.cadastroCliente.getjTextFieldCidade().setEditable(false);
+                this.cadastroCliente.getjTextFieldBairro().setEditable(false);
+                this.cadastroCliente.getjTextFieldLogradouro().setEditable(false);
             } else {
-                int id = Integer.parseInt(this.cadastroCliente.getjTextFieldID().getText());
+                cliente.setId(codigo);
 
-                for (Cliente clienteAtual : Dao.ClasseDados.clientes) {
-                    if (clienteAtual.getId() == id) {
-                        clienteAtual.setNome(this.cadastroCliente.getjTextFieldNome().getText());
-                        clienteAtual.setStatus(this.cadastroCliente.getjCheckBoxStatus().isSelected());
-                        clienteAtual.setDataNascimento(this.cadastroCliente.getjFormattedTextFieldDataNascimento().getText());
-                        clienteAtual.setCpf(this.cadastroCliente.getjFormattedTextFieldCPF().getText());
-                        clienteAtual.setRg(this.cadastroCliente.getjFormattedTextFieldRg().getText());
-                        clienteAtual.setMatricula(this.cadastroCliente.getjTextFieldMatricula().getText());
-                        clienteAtual.setEmail(this.cadastroCliente.getjTextFieldEmail().getText());
-                        clienteAtual.setFone1(this.cadastroCliente.getjFormattedTextFieldFone1().getText());
-                        clienteAtual.setFone2(this.cadastroCliente.getjFormattedTextFieldFone2().getText());
-                        clienteAtual.setComplementoEndereco(this.cadastroCliente.getjTextFieldComplementoEndereco().getText());
-                        clienteAtual.setEndereco(cliente.getEndereco());
-                    }
+                service.ClienteService.atualizar(cliente);
+                utilities.Utilities.ativa(true, this.cadastroCliente.getjPanelBotoes());
+                utilities.Utilities.limpaComponentes(false, this.cadastroCliente.getjPanelDados());
 
-                }
+                this.cadastroCliente.getjTextFieldID().setEditable(false); //Desligando id no braço, provisório
+
+                //Desligando os campos de descrições da cidade, do bairro e logradouro
+                this.cadastroCliente.getjTextFieldCidade().setEditable(false);
+                this.cadastroCliente.getjTextFieldBairro().setEditable(false);
+                this.cadastroCliente.getjTextFieldLogradouro().setEditable(false);
+
             }
-            utilities.Utilities.ativa(true, this.cadastroCliente.getjPanelBotoes());
-            utilities.Utilities.limpaComponentes(false, this.cadastroCliente.getjPanelDados());
 
         } else if (e.getSource() == this.cadastroCliente.getjButtonConsultar()) {
             codigo = 0;
 
             BuscaCliente buscaCliente = new BuscaCliente(null, true);
             ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(buscaCliente);
-            //Inserir o controller da busca de bairros
+            //Inserir o controller da busca de cliente
             buscaCliente.setVisible(true);
 
             if (codigo != 0) {
-                Cliente cliente = new Cliente();
-                cliente = Dao.ClasseDados.clientes.get(codigo - 1);
 
                 utilities.Utilities.ativa(false, cadastroCliente.getjPanelBotoes());
                 utilities.Utilities.limpaComponentes(true, cadastroCliente.getjPanelDados());
 
+                Cliente cliente = new Cliente();
+                cliente = service.ClienteService.carregar(codigo);
+
                 this.cadastroCliente.getjTextFieldID().setText(cliente.getId() + "");
                 this.cadastroCliente.getjTextFieldNome().setText(cliente.getNome() + "");
-                this.cadastroCliente.getjFormattedTextFieldDataNascimento().setText(cliente.getDataNascimento() + "");
                 this.cadastroCliente.getjFormattedTextFieldCPF().setText(cliente.getCpf() + "");
                 this.cadastroCliente.getjFormattedTextFieldRg().setText(cliente.getRg() + "");
                 this.cadastroCliente.getjTextFieldMatricula().setText(cliente.getMatricula() + "");
                 this.cadastroCliente.getjTextFieldEmail().setText(cliente.getEmail() + "");
                 this.cadastroCliente.getjFormattedTextFieldFone1().setText(cliente.getFone1() + "");
                 this.cadastroCliente.getjFormattedTextFieldFone2().setText(cliente.getFone2() + "");
-
                 this.cadastroCliente.getjFormattedTextFieldCEP().setText(cliente.getEndereco().getCep() + "");
-                this.cadastroCliente.getjTextFieldLogradouro().setText(cliente.getEndereco().getLogradouro());
-                this.cadastroCliente.getjTextFieldBairro().setText(cliente.getEndereco().getBairro().getDescricao());
-                this.cadastroCliente.getjTextFieldCidade().setText(cliente.getEndereco().getCidade().getDescricao());
+
+                String dataNascimentoDoBanco = cliente.getDataNascimento(); // Suponha que você tenha recuperado a data do banco aqui
+                SimpleDateFormat formatoEntrada = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat formatoSaida = new SimpleDateFormat("dd/MM/yyyy");
+
+                try {
+                    java.util.Date dataNascimento = formatoEntrada.parse(dataNascimentoDoBanco);
+                    String dataNascimentoFormatada = formatoSaida.format(dataNascimento);
+                    this.cadastroCliente.getjFormattedTextFieldDataNascimento().setText(dataNascimentoFormatada);
+
+                    // Agora você pode usar dataNascimentoFormatada para exibir a data no formato "dd/MM/yyyy"
+                } catch (ParseException m) {
+                    // Lida com erros de formatação da data, se necessário
+                }
+                
+                
+
+                this.cadastroCliente.getjTextFieldLogradouro().setText(cliente.getEndereco().getLogradouro() + "");
+                this.cadastroCliente.getjTextFieldBairro().setText(cliente.getEndereco().getBairro().getDescricao() + "");
+                this.cadastroCliente.getjTextFieldCidade().setText(cliente.getEndereco().getCidade().getDescricao() + "");
                 this.cadastroCliente.getjTextFieldComplementoEndereco().setText(cliente.getComplementoEndereco() + "");
 
                 if (cliente.getStatus() == 'I') {
                     this.cadastroCliente.getjCheckBoxStatus().setSelected(true);
-                } else {
-                    this.cadastroCliente.getjCheckBoxStatus().setSelected(false);
                 }
 
                 this.cadastroCliente.getjTextFieldID().setEditable(false);
+                //Desligando os campos de descrições da cidade, do bairro e logradouro
+                this.cadastroCliente.getjTextFieldCidade().setEditable(false);
+                this.cadastroCliente.getjTextFieldBairro().setEditable(false);
+                this.cadastroCliente.getjTextFieldLogradouro().setEditable(false);
 
             }
 
@@ -205,9 +207,11 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
 
         }
     }
+    
+    
 
-    private Endereco getEndByCep(String cep) {
-        for (Endereco enderecoAtual : Dao.ClasseDados.enderecos) {
+    public Endereco getEndByCep(String cep) {
+        for (Endereco enderecoAtual : service.EnderecoService.carregar()) {
             if (enderecoAtual.getCep().equals(cep)) {
                 return enderecoAtual;
             }
@@ -215,8 +219,8 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
         return null;
     }
 
-    private Endereco getEndById(int idEnd) {
-        for (Endereco enderecoAtual : Dao.ClasseDados.enderecos) {
+    public Endereco getEndById(int idEnd) {
+        for (Endereco enderecoAtual : service.EnderecoService.carregar()) {
             if (enderecoAtual.getId() == idEnd) {
                 return enderecoAtual;
             }
@@ -224,6 +228,7 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
         }
         return null;
     }
+    
 
     @Override
     public void focusGained(FocusEvent e) {

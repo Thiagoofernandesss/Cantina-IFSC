@@ -27,7 +27,6 @@ import view.CadastroEndereco;
 public class ControllerCadastroEndereco implements ActionListener {
 
     private CadastroEndereco cadastroEndereco;
-
     public static int codigo;
 
     public ControllerCadastroEndereco(CadastroEndereco cadastroEndereco) {
