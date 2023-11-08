@@ -22,7 +22,7 @@ public class FuncionarioService {
 
     public static List<Funcionario> carregar(String nomeParametro, String parString) {
         FuncionarioDao funcionarioDao = new FuncionarioDao();
-        return funcionarioDao.retrieve(parString);
+        return funcionarioDao.retrieve(nomeParametro, parString);
     }
 
     public static void atualizar(Funcionario objeto) {

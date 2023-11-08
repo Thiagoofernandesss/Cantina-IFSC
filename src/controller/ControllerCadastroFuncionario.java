@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.bo.Endereco;
 import model.bo.Funcionario;
+import service.EnderecoService;
 import view.BuscaEndereco;
 import view.BuscaFuncionario;
 import view.CadastroEndereco;
@@ -20,12 +21,12 @@ import view.CadastroFuncionario;
 
 /**
  *
- * @author Thiago
+ * @author Thiago and Gabrieli
  */
 public class ControllerCadastroFuncionario implements ActionListener, FocusListener {
 
     CadastroFuncionario cadastroFuncionario;
-    public static int codigo;
+    public static int codigo, idEndereco;
 
 
     public ControllerCadastroFuncionario(CadastroFuncionario cadastroFuncionario) {
@@ -57,6 +58,7 @@ public class ControllerCadastroFuncionario implements ActionListener, FocusListe
          if (e.getSource() == this.cadastroFuncionario.getjButtonNovo()) {
             utilities.Utilities.ativa(false, this.cadastroFuncionario.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(true, this.cadastroFuncionario.getjPanelDados());
+             
             
             this.cadastroFuncionario.getjTextFieldID().setEditable(false);
             
@@ -85,9 +87,14 @@ public class ControllerCadastroFuncionario implements ActionListener, FocusListe
             String cpfString = this.cadastroFuncionario.getjFormattedTextFieldCPF().getText();
             funcionario.setRg(this.cadastroFuncionario.getjFormattedTextFieldRg().getText());
             funcionario.setComplementoEndereco(this.cadastroFuncionario.getjTextFieldComplementoEndereco().getText());
+            funcionario.setUsuario(this.cadastroFuncionario.getjTextFieldUsuario().getText());
+            funcionario.setSenha(this.cadastroFuncionario.getjPasswordFieldSenhaUsuario().getText());
             
-            funcionario.setEndereco(service.EnderecoService.carregar("cep", this.cadastroFuncionario.getjFormattedTextFieldCEP().getText() + "").get(0));
-
+            Endereco endereco = EnderecoService.carregarCEP(this.cadastroFuncionario.getjFormattedTextFieldCEP().getText());
+            
+            funcionario.setEndereco(endereco);
+            System.out.println(endereco);
+            
             if (codigo == 0) {
                 service.FuncionarioService.adicionar(funcionario);
                 utilities.Utilities.ativa(true, this.cadastroFuncionario.getjPanelBotoes());
@@ -137,7 +144,9 @@ public class ControllerCadastroFuncionario implements ActionListener, FocusListe
                 this.cadastroFuncionario.getjFormattedTextFieldFone1().setText(funcionario.getFone1() + "");
                 this.cadastroFuncionario.getjFormattedTextFieldFone2().setText(funcionario.getFone2() + "");
                 this.cadastroFuncionario.getjFormattedTextFieldCEP().setText(funcionario.getEndereco().getCep() + "");
-                
+                this.cadastroFuncionario.getjTextFieldUsuario().setText(funcionario.getUsuario() + "");
+                this.cadastroFuncionario.getjPasswordFieldSenhaUsuario().setText(funcionario.getSenha() + "");
+
 
                 this.cadastroFuncionario.getjTextFieldLogradouro().setText(funcionario.getEndereco().getLogradouro() + "");
                 this.cadastroFuncionario.getjTextFieldBairro().setText(funcionario.getEndereco().getBairro().getDescricao() + "");
@@ -167,12 +176,13 @@ public class ControllerCadastroFuncionario implements ActionListener, FocusListe
 
     
     public Endereco getEndByCep(String cep) {
+        Endereco teste = new Endereco();
         for (Endereco enderecoAtual : service.EnderecoService.carregar()) {
             if (enderecoAtual.getCep().equals(cep)) {
-                return enderecoAtual;
+                teste= enderecoAtual;
             }
         }
-        return null;
+        return teste;
     }
 
     public Endereco getEndById(int idEnd) {
@@ -188,21 +198,20 @@ public class ControllerCadastroFuncionario implements ActionListener, FocusListe
     
     @Override
     public void focusGained(FocusEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void focusLost(FocusEvent e) {
         if (e.getSource() == this.cadastroFuncionario.getjFormattedTextFieldCEP()) {
-            String codigoCEP = (String) this.cadastroFuncionario.getjFormattedTextFieldCEP().getText().trim();
-
+            String codigoCEP = this.cadastroFuncionario.getjFormattedTextFieldCEP().getText();
             if (codigoCEP.isEmpty()) {
                 this.cadastroFuncionario.getjFormattedTextFieldCEP().setText("");
                 this.cadastroFuncionario.getjTextFieldCidade().setText("");
                 this.cadastroFuncionario.getjTextFieldBairro().setText("");
                 this.cadastroFuncionario.getjTextFieldLogradouro().setText("");
             } else {
-                Endereco endereco = getEndByCep(codigoCEP);
+                Endereco endereco = EnderecoService.carregarCEP(codigoCEP);
 
                 if (endereco != null) {
                     this.cadastroFuncionario.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());
@@ -212,6 +221,7 @@ public class ControllerCadastroFuncionario implements ActionListener, FocusListe
                     this.cadastroFuncionario.getjTextFieldCidade().setText("");
                     this.cadastroFuncionario.getjTextFieldBairro().setText("");
                     this.cadastroFuncionario.getjTextFieldLogradouro().setText("");
+                    
 
                 }
             }

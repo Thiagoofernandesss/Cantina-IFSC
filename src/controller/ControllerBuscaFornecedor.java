@@ -37,7 +37,7 @@ public class ControllerBuscaFornecedor implements ActionListener {
             if (!this.buscaFornecedor.getjTextFieldFiltrar().getText().trim().equalsIgnoreCase("")) {
                 List<Fornecedor> listaFornecedores = new ArrayList<Fornecedor>();
 
-                if (this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedItem().toString().equalsIgnoreCase("id")) {
+                if (this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedIndex() == 0) {
                     listaFornecedores.add(service.FornecedorService.carregar(Integer.parseInt(this.buscaFornecedor.getjTextFieldFiltrar().getText())));
                 }else if(this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedItem().toString().equalsIgnoreCase("Razão Social")){
                     listaFornecedores = service.FornecedorService.carregar("razaoSocial", this.buscaFornecedor.getjTextFieldFiltrar().getText());

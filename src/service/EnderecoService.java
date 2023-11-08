@@ -19,6 +19,11 @@ public class EnderecoService {
         EnderecoDao enderecoDao = new EnderecoDao();
         return enderecoDao.retrieve(parPK);
     }
+    
+    public static Endereco carregarCEP(String parPK) {
+        EnderecoDao enderecoDao = new EnderecoDao();
+        return enderecoDao.retrieveCEP(parPK);
+    }
 
     public static List<Endereco> carregar(String nomeParametro, String parString) {
         EnderecoDao enderecoDao = new EnderecoDao();
