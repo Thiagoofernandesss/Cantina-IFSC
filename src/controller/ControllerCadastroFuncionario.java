@@ -26,7 +26,7 @@ import view.CadastroFuncionario;
 public class ControllerCadastroFuncionario implements ActionListener, FocusListener {
 
     CadastroFuncionario cadastroFuncionario;
-    public static int codigo, idEndereco;
+    public static int codigo;
 
 
     public ControllerCadastroFuncionario(CadastroFuncionario cadastroFuncionario) {
@@ -76,7 +76,7 @@ public class ControllerCadastroFuncionario implements ActionListener, FocusListe
             utilities.Utilities.limpaComponentes(false, this.cadastroFuncionario.getjPanelDados());
 
         } else if (e.getSource() == this.cadastroFuncionario.getjButtonSalvar()) {
-             Funcionario funcionario = new Funcionario();
+            Funcionario funcionario = new Funcionario();
              
             funcionario.setNome(this.cadastroFuncionario.getjTextFieldNome().getText());
             funcionario.setFone1(this.cadastroFuncionario.getjFormattedTextFieldFone1().getText());
@@ -93,7 +93,6 @@ public class ControllerCadastroFuncionario implements ActionListener, FocusListe
             Endereco endereco = EnderecoService.carregarCEP(this.cadastroFuncionario.getjFormattedTextFieldCEP().getText());
             
             funcionario.setEndereco(endereco);
-            System.out.println(endereco);
             
             if (codigo == 0) {
                 service.FuncionarioService.adicionar(funcionario);

@@ -241,7 +241,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CadastroCliente");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(626, 376));
         setMinimumSize(new java.awt.Dimension(626, 376));
         setResizable(false);
 
@@ -373,10 +372,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         jLabelCep.setMinimumSize(new java.awt.Dimension(13, 16));
 
         try {
-            jFormattedTextFieldCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##### - ###")));
+            jFormattedTextFieldCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldCEP.setText("     -   ");
 
         jButtonPesquisarCep.setText("...");
         jButtonPesquisarCep.addActionListener(new java.awt.event.ActionListener() {

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.bo.Cliente;
 import model.bo.Endereco;
+import service.EnderecoService;
 import view.BuscaCliente;
 import view.BuscaEndereco;
 import view.CadastroCliente;
@@ -83,6 +84,7 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
         } else if (e.getSource() == this.cadastroCliente.getjButtonSalvar()) {
             //Ação Botão Salvar
             Cliente cliente = new Cliente();
+            
             cliente.setNome(this.cadastroCliente.getjTextFieldNome().getText());
             cliente.setFone1(this.cadastroCliente.getjFormattedTextFieldFone1().getText());
             cliente.setFone2(this.cadastroCliente.getjFormattedTextFieldFone2().getText());
@@ -108,7 +110,9 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
                 // Lida com erros de formatação da data, se necessário
             }
 
-            cliente.setEndereco(service.EnderecoService.carregar("cep", this.cadastroCliente.getjFormattedTextFieldCEP().getText() + "").get(0));
+            Endereco endereco = EnderecoService.carregarCEP(this.cadastroCliente.getjFormattedTextFieldCEP().getText());
+            
+            cliente.setEndereco(endereco);
 
             if (codigo == 0) {
                 service.ClienteService.adicionar(cliente);

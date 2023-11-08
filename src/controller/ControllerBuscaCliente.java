@@ -33,36 +33,52 @@ public class ControllerBuscaCliente implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.buscaCliente.getjButtonFiltrar()) {
-            if (!this.buscaCliente.getjTextFieldFiltrar().getText().trim().equalsIgnoreCase("")) {
-                List<Cliente> listaClientes = new ArrayList<Cliente>();
+            DefaultTableModel tabela = (DefaultTableModel) this.buscaCliente.getjTableDados().getModel();
+            tabela.setRowCount(0); // Limpa a tabela
 
-                if (this.buscaCliente.getjComboBoxBuscaClientesPor().getSelectedItem().toString().equalsIgnoreCase("id")) {
-                    listaClientes.add(service.ClienteService.carregar(Integer.parseInt(this.buscaCliente.getjTextFieldFiltrar().getText())));
-                }else if(this.buscaCliente.getjComboBoxBuscaClientesPor().getSelectedItem().toString().toLowerCase().equalsIgnoreCase("Matrícula")){
-                    listaClientes = service.ClienteService.carregar("matricula", this.buscaCliente.getjTextFieldFiltrar().getText());
-                }
-                
-                else {
-                    listaClientes = service.ClienteService.carregar(this.buscaCliente.getjComboBoxBuscaClientesPor().getSelectedItem().toString().toLowerCase(),
-                            this.buscaCliente.getjTextFieldFiltrar().getText());
-                }
+            String filtro = this.buscaCliente.getjTextFieldFiltrar().getText().trim();
 
-                //Criando um objeto do tipo table model
-                DefaultTableModel tabela = (DefaultTableModel) this.buscaCliente.getjTableDados().getModel();
-                tabela.setRowCount(0);
-
+            if (filtro.isEmpty()) {
+                // Se o campo de filtro estiver vazio, exibe todos os clientes
+                List<Cliente> listaClientes = service.ClienteService.carregar();
                 for (Cliente clienteAtual : listaClientes) {
-                    tabela.addRow(new Object[]{clienteAtual.getId(),
-                        clienteAtual.getNome(),
-                        clienteAtual.getCpf(),
-                        clienteAtual.getMatricula(),
-                        clienteAtual.getStatus()});
+                    tabela.addRow(new Object[]{
+                    clienteAtual.getId(),
+                    clienteAtual.getNome(),
+                    clienteAtual.getCpf(),
+                    clienteAtual.getMatricula(),
+                    clienteAtual.getStatus()
+                });
+            }
+        } else {
+            // Se houver texto no campo de filtro, realiza a busca com base no critério selecionado
+            String buscaPor = this.buscaCliente.getjComboBoxBuscaClientesPor().getSelectedItem().toString().toLowerCase();
 
+            List<Cliente> listaClientes;
+
+            if (buscaPor.equals("id")) {
+                listaClientes = new ArrayList<>();
+                Cliente cliente = service.ClienteService.carregar(Integer.parseInt(filtro));
+                if (cliente != null) {
+                    listaClientes.add(cliente);
                 }
-
+            } else if (buscaPor.equals("matrícula")) {
+                listaClientes = service.ClienteService.carregar("matricula", filtro);
+            } else {
+                listaClientes = service.ClienteService.carregar(buscaPor, filtro);
             }
 
-        } else if (e.getSource() == this.buscaCliente.getjButtonCarregar()) {
+            for (Cliente clienteAtual : listaClientes) {
+                tabela.addRow(new Object[]{
+                clienteAtual.getId(),
+                clienteAtual.getNome(),
+                clienteAtual.getCpf(),
+                clienteAtual.getMatricula(),
+                clienteAtual.getStatus()
+            });
+        }
+    }
+    }else if (e.getSource() == this.buscaCliente.getjButtonCarregar()) {
             controller.ControllerCadastroCliente.codigo = (int) this.buscaCliente.getjTableDados().
                     getValueAt(this.buscaCliente.getjTableDados().getSelectedRow(), 0);
 

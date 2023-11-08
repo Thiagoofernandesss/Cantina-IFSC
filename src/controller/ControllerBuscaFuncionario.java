@@ -32,32 +32,53 @@ public class ControllerBuscaFuncionario implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.buscaFuncionario.getjButtonFiltrar()){
-            if (!this.buscaFuncionario.getjTextFieldFiltrar().getText().trim().equalsIgnoreCase("")) {
-                List<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
-                
-                if(this.buscaFuncionario.getjComboBoxBuscaFuncionariosPor().getSelectedItem().toString().equalsIgnoreCase("id")) {
-                    listaFuncionarios.add(service.FuncionarioService.carregar(Integer.parseInt(this.buscaFuncionario.getjTextFieldFiltrar().getText())));
-                }else {
-                    listaFuncionarios = service.FuncionarioService.carregar(this.buscaFuncionario.getjComboBoxBuscaFuncionariosPor().getSelectedItem().toString().toLowerCase(),
-                            this.buscaFuncionario.getjTextFieldFiltrar().getText());
-                }
-                
-                //Criando um objeto do tipo table model
-                DefaultTableModel tabela = (DefaultTableModel) this.buscaFuncionario.getjTableDados().getModel();
-                tabela.setRowCount(0);
+        if (e.getSource() == this.buscaFuncionario.getjButtonFiltrar()) {
+            DefaultTableModel tabela = (DefaultTableModel) this.buscaFuncionario.getjTableDados().getModel();
+            tabela.setRowCount(0); // Limpa a tabela
 
+            String filtro = this.buscaFuncionario.getjTextFieldFiltrar().getText().trim();
+
+            if (filtro.isEmpty()) {
+                // Se o campo de filtro estiver vazio, exibe todos os funcionários
+                List<Funcionario> listaFuncionarios = service.FuncionarioService.carregar();
+                
                 for (Funcionario funcionarioAtual : listaFuncionarios) {
-                    tabela.addRow(new Object[]{funcionarioAtual.getId(),
-                        funcionarioAtual.getNome(),
-                        funcionarioAtual.getCpf(),
-                        funcionarioAtual.getRg(),
-                        funcionarioAtual.getUsuario(),
-                        funcionarioAtual.getStatus()});
-
-                }
+                    tabela.addRow(new Object[]{
+                    funcionarioAtual.getId(),
+                    funcionarioAtual.getNome(),
+                    funcionarioAtual.getCpf(),
+                    funcionarioAtual.getRg(),
+                    funcionarioAtual.getUsuario(),
+                    funcionarioAtual.getStatus()
+                });
             }
-        }else if(e.getSource() == this.buscaFuncionario.getjButtonCarregar()){
+        } else {
+            // Se houver texto no campo de filtro, realiza a busca com base no critério selecionado
+            String buscaPor = this.buscaFuncionario.getjComboBoxBuscaFuncionariosPor().getSelectedItem().toString().toLowerCase();
+
+            List<Funcionario> listaFuncionarios;
+            if (buscaPor.equals("id")) {
+                listaFuncionarios = new ArrayList<>();
+                Funcionario funcionario = service.FuncionarioService.carregar(Integer.parseInt(filtro));
+                if (funcionario != null) {
+                    listaFuncionarios.add(funcionario);
+                }
+            } else {
+                listaFuncionarios = service.FuncionarioService.carregar(buscaPor, filtro);
+            }
+
+            for (Funcionario funcionarioAtual : listaFuncionarios) {
+                tabela.addRow(new Object[]{
+                funcionarioAtual.getId(),
+                funcionarioAtual.getNome(),
+                funcionarioAtual.getCpf(),
+                funcionarioAtual.getRg(),
+                funcionarioAtual.getUsuario(),
+                funcionarioAtual.getStatus()
+            });
+        }
+    }
+}else if(e.getSource() == this.buscaFuncionario.getjButtonCarregar()){
             controller.ControllerCadastroFuncionario.codigo = (int) this.buscaFuncionario.getjTableDados().
                     getValueAt(this.buscaFuncionario.getjTableDados().getSelectedRow(), 0);
 

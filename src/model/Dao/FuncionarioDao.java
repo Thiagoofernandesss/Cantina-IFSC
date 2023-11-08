@@ -237,7 +237,7 @@ public class FuncionarioDao implements  InterfaceDao<Funcionario>{
     @Override
     public void update(Funcionario objeto) {
         
-                Connection conexao = ConnectionFactory.getConnection();
+        Connection conexao = ConnectionFactory.getConnection();
         
         String sqlExecutar = "UPDATE funcionario"
                 + " SET "
