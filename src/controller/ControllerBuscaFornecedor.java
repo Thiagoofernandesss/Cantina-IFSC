@@ -40,7 +40,7 @@ public class ControllerBuscaFornecedor implements ActionListener {
 
             String filtro = this.buscaFornecedor.getjTextFieldFiltrar().getText().trim();
 
-            if (!filtro.isEmpty()) {
+            if (filtro.isEmpty()) {
                 List<Fornecedor> listaFornecedor = service.FornecedorService.carregar();
                 
                  for (Fornecedor fornecedorAtual : listaFornecedor) {
@@ -53,7 +53,7 @@ public class ControllerBuscaFornecedor implements ActionListener {
                 });
             }
             }else{
-               String buscaPor = this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedItem().toString();
+               String buscaPor = this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedItem().toString().toLowerCase();
                
                List<Fornecedor> listaFornecedor;
                 if (buscaPor.equals("id")) {
@@ -62,6 +62,10 @@ public class ControllerBuscaFornecedor implements ActionListener {
                     if (fornecedor != null) {
                         listaFornecedor.add(fornecedor);
                     }
+                }else if (buscaPor.equals("razão social")) {
+                    listaFornecedor = service.FornecedorService.carregar("razaoSocial", filtro);
+                }else if (buscaPor.equals("inscrição estadual")) {
+                    listaFornecedor = service.FornecedorService.carregar("inscricaoEstadual", filtro);
                 }else{
                     listaFornecedor = service.FornecedorService.carregar(buscaPor, filtro);
                 }

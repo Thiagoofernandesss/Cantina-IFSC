@@ -76,7 +76,7 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
                 fornecedor.setStatus(rst.getString("forn.status").charAt(0));
                 fornecedor.setComplementoEndereco(rst.getString("forn.complementoEndereco"));
                 fornecedor.setCnpj(rst.getString("forn.cnpj"));
-                fornecedor.setRazaoSocial(rst.getString("forn.inscricaoEstadual"));
+                fornecedor.setInscricaoEstadual(rst.getString("forn.inscricaoEstadual"));
                 fornecedor.setRazaoSocial(rst.getString("forn.razaoSocial"));
                 
                 Endereco endereco = new Endereco();
@@ -135,7 +135,7 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
                 fornecedor.setStatus(rst.getString("forn.status").charAt(0));
                 fornecedor.setComplementoEndereco(rst.getString("forn.complementoEndereco"));
                 fornecedor.setCnpj(rst.getString("forn.cnpj"));
-                fornecedor.setRazaoSocial(rst.getString("forn.inscricaoEstadual"));
+                fornecedor.setInscricaoEstadual(rst.getString("forn.inscricaoEstadual"));
                 fornecedor.setRazaoSocial(rst.getString("forn.razaoSocial"));
                 
                 Endereco endereco = new Endereco();
@@ -195,7 +195,7 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
                 fornecedor.setStatus(rst.getString("forn.status").charAt(0));
                 fornecedor.setComplementoEndereco(rst.getString("forn.complementoEndereco"));
                 fornecedor.setCnpj(rst.getString("forn.cnpj"));
-                fornecedor.setRazaoSocial(rst.getString("forn.inscricaoEstadual"));
+                fornecedor.setInscricaoEstadual(rst.getString("forn.inscricaoEstadual"));
                 fornecedor.setRazaoSocial(rst.getString("forn.razaoSocial"));
                 
                 Endereco endereco = new Endereco();
@@ -258,6 +258,7 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
             pstm.setString(8, objeto.getInscricaoEstadual());
             pstm.setString(9, objeto.getRazaoSocial());
             pstm.setInt(10, objeto.getEndereco().getId());
+            pstm.setInt(11, objeto.getId());
 
             //concatenando com "" p/ transfformar em String
             pstm.execute();

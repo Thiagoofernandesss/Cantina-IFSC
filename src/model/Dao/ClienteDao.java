@@ -235,6 +235,66 @@ public class ClienteDao implements InterfaceDao<Cliente> {
         }
 
     }
+    
+     public Cliente retrieveCPF(String parPK) {
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "select cli.*,e.*, c.*, b.* from cliente cli  "
+                + "left outer join endereco e on cli.endereco_id = e.id "
+                + "left outer join cidade c on e.cidade_id = c.id "
+                + "left outer join bairro b on e.bairro_id = b.id where cli.cpf = ?";
+
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+
+        Cliente cliente = new Cliente();
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, parPK);
+            rst = pstm.executeQuery();
+
+            while (rst.next()) {
+
+                cliente.setId(rst.getInt("cli.id"));
+                cliente.setNome(rst.getString("cli.nome"));
+                cliente.setFone1(rst.getString("cli.fone1"));
+                cliente.setFone2(rst.getString("cli.fone2"));
+                cliente.setEmail(rst.getString("cli.email"));
+                cliente.setStatus(rst.getString("cli.status").charAt(0));
+                cliente.setComplementoEndereco(rst.getString("cli.complementoEndereco"));
+                cliente.setCpf(rst.getString("cli.cpf"));
+                cliente.setRg(rst.getString("cli.rg"));
+                cliente.setMatricula(rst.getString("cli.matricula"));
+                cliente.setDataNascimento(rst.getString("cli.dataNascimento"));
+
+                Endereco endereco = new Endereco();
+                endereco.setId(rst.getInt("e.id"));
+                endereco.setCep(rst.getString("e.cep"));
+                endereco.setLogradouro(rst.getString("e.logradouro"));
+                endereco.setStatus(rst.getString("e.status").charAt(0));
+
+                Cidade cidade = new Cidade();
+                cidade.setId(rst.getInt("cidade_id"));
+                cidade.setUf(rst.getString("c.uf"));
+                cidade.setDescricao(rst.getString("c.descricao"));
+
+                Bairro bairro = new Bairro();
+                bairro.setId(rst.getInt("bairro_id"));
+                bairro.setDescricao(rst.getString("b.descricao"));
+
+                endereco.setBairro(bairro);
+                endereco.setCidade(cidade);
+
+                cliente.setEndereco(endereco);
+
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+            return cliente;
+        }
+    }
 
     @Override
     public void update(Cliente objeto) {
