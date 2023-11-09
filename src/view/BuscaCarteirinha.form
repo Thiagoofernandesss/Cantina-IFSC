@@ -239,13 +239,6 @@
                       <Component id="jButtonFiltrar" min="-2" pref="99" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                          <Component id="jComboBoxCadastraBairro" min="-2" pref="152" max="-2" attributes="0"/>
-                          <EmptySpace pref="242" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -258,13 +251,6 @@
                           <Component id="jComboBoxBuscaCarteirinhaPor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Component id="jComboBoxCadastraBairro" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="8" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -292,28 +278,15 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBoxCadastraBairro">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="ID"/>
-                    <StringItem index="1" value="Descri&#xe7;&#xe3;o"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxBuscaCarteirinhaPor">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
                     <StringItem index="0" value="ID"/>
-                    <StringItem index="1" value="Descri&#xe7;&#xe3;o"/>
+                    <StringItem index="1" value="Nome"/>
                     <StringItem index="2" value="Data Gera&#xe7;&#xe3;o"/>
                     <StringItem index="3" value="Data Cancelamento"/>
-                    <StringItem index="4" value="C&#xf3;d Barra"/>
+                    <StringItem index="4" value="C&#xf3;digo Barra"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -360,7 +333,7 @@
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="0">
                         <Column editable="true" title="ID" type="java.lang.Integer"/>
-                        <Column editable="true" title="CPF" type="java.lang.String"/>
+                        <Column editable="true" title="Nome" type="java.lang.String"/>
                         <Column editable="true" title="Data Gera&#xe7;&#xe3;o" type="java.lang.String"/>
                         <Column editable="true" title="Data Cancelamento" type="java.lang.String"/>
                         <Column editable="true" title="C&#xf3;d Barra" type="java.lang.String"/>

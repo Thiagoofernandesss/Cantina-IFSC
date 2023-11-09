@@ -6,6 +6,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -14,7 +15,7 @@ import view.BuscaFornecedor;
 
 /**
  *
- * @author Thiago
+ * @author Thiago and Gabrieli
  */
 public class ControllerBuscaFornecedor implements ActionListener {
 
@@ -33,37 +34,56 @@ public class ControllerBuscaFornecedor implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == this.buscaFornecedor.getjButtonFiltrar()) {
-            if (!this.buscaFornecedor.getjTextFieldFiltrar().getText().trim().equalsIgnoreCase("")) {
-                List<Fornecedor> listaFornecedores = new ArrayList<Fornecedor>();
+       if (e.getSource() == this.buscaFornecedor.getjButtonFiltrar()) {
+            DefaultTableModel tabela = (DefaultTableModel) this.buscaFornecedor.getjTableDados().getModel();
+            tabela.setRowCount(0); // Limpa a tabela
 
-                if (this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedItem().toString().equalsIgnoreCase("id")) {
-                    listaFornecedores.add(service.FornecedorService.carregar(Integer.parseInt(this.buscaFornecedor.getjTextFieldFiltrar().getText())));
-                }else if(this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedItem().toString().equalsIgnoreCase("Razão Social")){
-                    listaFornecedores = service.FornecedorService.carregar("razaoSocial", this.buscaFornecedor.getjTextFieldFiltrar().getText());
-                }else if(this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedItem().toString().equalsIgnoreCase("Ins. Estadual")){
-                    listaFornecedores = service.FornecedorService.carregar("inscricaoEstadual", this.buscaFornecedor.getjTextFieldFiltrar().getText());
-                }else{
-                    listaFornecedores = service.FornecedorService.carregar(this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedItem().toString().toLowerCase(), 
-                            this.buscaFornecedor.getjTextFieldFiltrar().getText());
-                }
+            String filtro = this.buscaFornecedor.getjTextFieldFiltrar().getText().trim();
 
-                DefaultTableModel tabela = (DefaultTableModel) this.buscaFornecedor.getjTableDados().getModel();
-                tabela.setRowCount(0);
+            if (filtro.isEmpty()) {
+                List<Fornecedor> listaFornecedor = service.FornecedorService.carregar();
                 
-                for (Fornecedor fornecedorAtual : listaFornecedores) {
-                    tabela.addRow(new Object[]{fornecedorAtual.getId(),
-                        fornecedorAtual.getCnpj(),
-                        fornecedorAtual.getRazaoSocial(),
-                        fornecedorAtual.getInscricaoEstadual(),
-                        fornecedorAtual.getStatus()});
-                    
-                }
+                 for (Fornecedor fornecedorAtual : listaFornecedor) {
+                    tabela.addRow(new Object[]{
+                    fornecedorAtual.getId(),
+                    fornecedorAtual.getCnpj(),
+                    fornecedorAtual.getRazaoSocial(),
+                    fornecedorAtual.getInscricaoEstadual(),
+                    fornecedorAtual.getStatus()
+                });
             }
-
-        } else if (e.getSource() == this.buscaFornecedor.getjButtonCarregar()) {
-            controller.ControllerCadastroFornecedor.codigo = (int) this.buscaFornecedor.getjTableDados().
+            }else{
+               String buscaPor = this.buscaFornecedor.getjComboBoxBuscaFornecedoresPor().getSelectedItem().toString().toLowerCase();
+               
+               List<Fornecedor> listaFornecedor;
+                if (buscaPor.equals("id")) {
+                    listaFornecedor =  new ArrayList<>();
+                    Fornecedor fornecedor = service.FornecedorService.carregar(Integer.parseInt(filtro));
+                    if (fornecedor != null) {
+                        listaFornecedor.add(fornecedor);
+                    }
+                }else if (buscaPor.equals("razão social")) {
+                    listaFornecedor = service.FornecedorService.carregar("razaoSocial", filtro);
+                }else if (buscaPor.equals("inscrição estadual")) {
+                    listaFornecedor = service.FornecedorService.carregar("inscricaoEstadual", filtro);
+                }else{
+                    listaFornecedor = service.FornecedorService.carregar(buscaPor, filtro);
+                }
+                
+                 for (Fornecedor fornecedorAtual : listaFornecedor) {
+                    tabela.addRow(new Object[]{
+                    fornecedorAtual.getId(),
+                    fornecedorAtual.getCnpj(),
+                    fornecedorAtual.getRazaoSocial(),
+                    fornecedorAtual.getInscricaoEstadual(),
+                    fornecedorAtual.getStatus()
+                });
+            }
+        }} else if (e.getSource() == this.buscaFornecedor.getjButtonCarregar()) {
+           controller.ControllerCadastroFornecedor.codigo = (int) this.buscaFornecedor.getjTableDados().
                     getValueAt(this.buscaFornecedor.getjTableDados().getSelectedRow(), 0);
+
+            this.buscaFornecedor.dispose();
 
         } else if (e.getSource() == this.buscaFornecedor.getjButtonSair()) {
             this.buscaFornecedor.dispose();

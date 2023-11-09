@@ -8,6 +8,7 @@ package view;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -59,6 +60,14 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
     public void setjComboBoxBuscaCarteirinhaPor(JComboBox<String> jComboBoxBuscaCarteirinhaPor) {
         this.jComboBoxBuscaCarteirinhaPor = jComboBoxBuscaCarteirinhaPor;
     }
+
+    public JTable getjTableDados() {
+        return jTableDados;
+    }
+
+    public void setjTableDados(JTable jTableDados) {
+        this.jTableDados = jTableDados;
+    }
     
     
     
@@ -82,7 +91,6 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         jPanelFiltro = new javax.swing.JPanel();
         jTextFieldFiltrar = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
-        jComboBoxCadastraBairro = new javax.swing.JComboBox<>();
         jComboBoxBuscaCarteirinhaPor = new javax.swing.JComboBox<>();
         jPanelDados2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -172,9 +180,7 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
 
-        jComboBoxCadastraBairro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição" }));
-
-        jComboBoxBuscaCarteirinhaPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Descrição", "Data Geração", "Data Cancelamento", "Cód Barra" }));
+        jComboBoxBuscaCarteirinhaPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nome", "Data Geração", "Data Cancelamento", "Código Barra" }));
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
@@ -188,11 +194,6 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelFiltroLayout.createSequentialGroup()
-                    .addGap(241, 241, 241)
-                    .addComponent(jComboBoxCadastraBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(242, Short.MAX_VALUE)))
         );
         jPanelFiltroLayout.setVerticalGroup(
             jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,11 +204,6 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
                     .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxBuscaCarteirinhaPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelFiltroLayout.createSequentialGroup()
-                    .addGap(8, 8, 8)
-                    .addComponent(jComboBoxCadastraBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(8, Short.MAX_VALUE)))
         );
 
         jPanelDados2.setBackground(new java.awt.Color(228, 228, 228));
@@ -218,7 +214,7 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "CPF", "Data Geração", "Data Cancelamento", "Cód Barra"
+                "ID", "Nome", "Data Geração", "Data Cancelamento", "Cód Barra"
             }
         ) {
             Class[] types = new Class [] {
@@ -345,7 +341,6 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
     private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JComboBox<String> jComboBoxBuscaCarteirinhaPor;
-    private javax.swing.JComboBox<String> jComboBoxCadastraBairro;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBotoes;
     private javax.swing.JPanel jPanelDados2;

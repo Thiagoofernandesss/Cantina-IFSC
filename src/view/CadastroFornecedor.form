@@ -145,10 +145,7 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="jTextFieldBairro" min="-2" pref="123" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="jTextFieldBairro" min="-2" pref="123" max="-2" attributes="0"/>
                                           <Component id="jTextFieldComplementoEndereco" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -182,8 +179,8 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jFormattedTextFieldFone1" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jFormattedTextFieldFone2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldInscricaoEstadual" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jFormattedTextFieldCnpj" alignment="0" pref="123" max="32767" attributes="0"/>
+                                          <Component id="jFormattedTextFieldInsEstadual" alignment="0" pref="123" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -209,14 +206,16 @@
                                   <Component id="jLabelRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelInscricaoEstadual" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldInscricaoEstadual" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jFormattedTextFieldInsEstadual" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelNomeFantasia" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextFieldCnpj" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTextFieldNomeFantasia" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabelNomeFantasia" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jFormattedTextFieldCnpj" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -306,8 +305,6 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Ins. Estadual"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldInscricaoEstadual">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -475,6 +472,13 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Fone"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldInsEstadual">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                  <Format format="##############" subtype="-1" type="5"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>

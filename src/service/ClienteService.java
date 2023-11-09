@@ -24,6 +24,16 @@ public class ClienteService {
         ClienteDao clienteDao = new ClienteDao();
         return clienteDao.retrieve(nomeParametro ,parString);
     }
+    
+    public static Cliente carregarCPF(String parPK) {
+        ClienteDao clienteDao = new ClienteDao();
+        return clienteDao.retrieveCPF(parPK);
+    }
+    
+    public static List<Cliente> carregarPorNomeCliente(String nomeParametro, String parString) {
+        ClienteDao enderecoDao = new ClienteDao();
+        return enderecoDao.retrieve(nomeParametro ,parString);
+    }
 
     public static void atualizar(Cliente objeto) {
         ClienteDao clienteDao = new ClienteDao();

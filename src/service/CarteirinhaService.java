@@ -20,11 +20,15 @@ public class CarteirinhaService {
         return carteirinhaDao.retrieve(parPK);
     }
 
+    public static List<Carteirinha> carregar(String nomeParametro, String parString) {
+        CarteirinhaDao carteirinhaDao = new CarteirinhaDao();
+        return carteirinhaDao.retrieve(nomeParametro, parString);
+    }
+    
     public static List<Carteirinha> carregar(String parString) {
         CarteirinhaDao carteirinhaDao = new CarteirinhaDao();
         return carteirinhaDao.retrieve(parString);
     }
-
     public static void atualizar(Carteirinha objeto) {
         CarteirinhaDao carteirinhaDao = new CarteirinhaDao();
         carteirinhaDao.update(objeto);

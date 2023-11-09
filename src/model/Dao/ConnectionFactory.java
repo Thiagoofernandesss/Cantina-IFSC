@@ -22,7 +22,7 @@ public class ConnectionFactory {
     // Nome de usuário do banco de dados
     private static final String usuario = "root";
     // Senha do banco de dados
-    private static final String senha = "99566532t";
+    private static final String senha = "";
 
     // Método para obter uma conexão com o banco de dados
     public static Connection getConnection() {

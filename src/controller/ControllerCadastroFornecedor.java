@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.bo.Endereco;
 import model.bo.Fornecedor;
+import service.EnderecoService;
 import view.BuscaEndereco;
 import view.BuscaFornecedor;
 import view.CadastroEndereco;
@@ -25,8 +26,6 @@ public class ControllerCadastroFornecedor implements ActionListener, FocusListen
 
     private CadastroFornecedor cadastroFornecedor;
     public static int codigo;
-    
-    public String numeroCep;
 
     public ControllerCadastroFornecedor(CadastroFornecedor cadastroFornecedor) {
         this.cadastroFornecedor = cadastroFornecedor;
@@ -76,16 +75,22 @@ public class ControllerCadastroFornecedor implements ActionListener, FocusListen
 
         } else if (e.getSource() == this.cadastroFornecedor.getjButtonSalvar()) {
             Fornecedor fornecedor = new Fornecedor();
-            fornecedor.setCnpj(this.cadastroFornecedor.getjFormattedTextFieldCnpj().getText());
-            fornecedor.setComplementoEndereco(this.cadastroFornecedor.getjTextFieldComplementoEndereco().getText());
-            fornecedor.setEmail(this.cadastroFornecedor.getjTextFieldEmail().getText());
-            fornecedor.setEndereco(service.EnderecoService.carregar("cep", this.cadastroFornecedor.getjFormattedTextFieldCep().getText() + "").get(0));
+            
+            fornecedor.setNome(this.cadastroFornecedor.getjTextFieldNomeFantasia().getText());
             fornecedor.setFone1(this.cadastroFornecedor.getjFormattedTextFieldFone1().getText());
             fornecedor.setFone2(this.cadastroFornecedor.getjFormattedTextFieldFone2().getText());
-            fornecedor.setInscricaoEstadual(this.cadastroFornecedor.getjTextFieldInscricaoEstadual().getText());
-            fornecedor.setNome(this.cadastroFornecedor.getjTextFieldNomeFantasia().getText());
-            fornecedor.setRazaoSocial(this.cadastroFornecedor.getjTextFieldRazaoSocial().getText());
+            fornecedor.setEmail(this.cadastroFornecedor.getjTextFieldEmail().getText());
             fornecedor.setStatus(this.cadastroFornecedor.getjCheckBoxInativo().isSelected());
+            fornecedor.setCnpj(this.cadastroFornecedor.getjFormattedTextFieldCnpj().getText());
+            fornecedor.setComplementoEndereco(this.cadastroFornecedor.getjTextFieldComplementoEndereco().getText());
+            fornecedor.setComplementoEndereco(this.cadastroFornecedor.getjTextFieldComplementoEndereco().getText());
+            fornecedor.setInscricaoEstadual(this.cadastroFornecedor.getjFormattedTextFieldInsEstadual().getText());
+            fornecedor.setRazaoSocial(this.cadastroFornecedor.getjTextFieldRazaoSocial().getText());
+            
+            
+            Endereco endereco = EnderecoService.carregarCEP(this.cadastroFornecedor.getjFormattedTextFieldCep().getText());
+            
+            fornecedor.setEndereco(endereco);
             
             if (codigo ==0){
                 service.FornecedorService.adicionar(fornecedor);
@@ -101,8 +106,8 @@ public class ControllerCadastroFornecedor implements ActionListener, FocusListen
                 this.cadastroFornecedor.getjTextFieldLogradouro().setEditable(false);
             }else{
                 fornecedor.setId(codigo);
-                service.FornecedorService.atualizar(fornecedor);
                 
+                service.FornecedorService.atualizar(fornecedor);                
                 utilities.Utilities.ativa(true, this.cadastroFornecedor.getjPanelBotoes());
                 utilities.Utilities.limpaComponentes(false, this.cadastroFornecedor.getjPanelDados());
 
@@ -135,15 +140,16 @@ public class ControllerCadastroFornecedor implements ActionListener, FocusListen
                 this.cadastroFornecedor.getjTextFieldRazaoSocial().setText(fornecedor.getRazaoSocial() +"");
                 this.cadastroFornecedor.getjFormattedTextFieldFone1().setText(fornecedor.getFone1() +"");
                 this.cadastroFornecedor.getjFormattedTextFieldFone2().setText(fornecedor.getFone2() +"");
-                this.cadastroFornecedor.getjTextFieldEmail().setText(fornecedor.getEmail());
-                this.cadastroFornecedor.getjTextFieldComplementoEndereco().setText(fornecedor.getComplementoEndereco()+ "");
-                this.cadastroFornecedor.getjFormattedTextFieldCnpj().setText(fornecedor.getCnpj());
-                this.cadastroFornecedor.getjTextFieldInscricaoEstadual().setText(fornecedor.getInscricaoEstadual());
+                this.cadastroFornecedor.getjFormattedTextFieldCep().setText(fornecedor.getEndereco().getCep() + "");
+                this.cadastroFornecedor.getjTextFieldEmail().setText(fornecedor.getEmail() + "");
+                this.cadastroFornecedor.getjFormattedTextFieldCnpj().setText(fornecedor.getCnpj() + "");
+                this.cadastroFornecedor.getjFormattedTextFieldInsEstadual().setText(fornecedor.getInscricaoEstadual() + "");
                 
                 this.cadastroFornecedor.getjTextFieldLogradouro().setText(fornecedor.getEndereco().getLogradouro() +"");
                 this.cadastroFornecedor.getjTextFieldBairro().setText(fornecedor.getEndereco().getBairro().getDescricao()+"");
                 this.cadastroFornecedor.getjTextFieldCidade().setText(fornecedor.getEndereco().getCidade().getDescricao());
-                
+                this.cadastroFornecedor.getjTextFieldComplementoEndereco().setText(fornecedor.getComplementoEndereco()+ "");
+
                 if(fornecedor.getStatus() =='I'){
                     this.cadastroFornecedor.getjCheckBoxInativo().setSelected(true);
                 }
@@ -169,12 +175,13 @@ public class ControllerCadastroFornecedor implements ActionListener, FocusListen
     }
     
     private Endereco getEndByCep(String cep) {
+        Endereco teste = new Endereco();
         for (Endereco enderecoAtual : service.EnderecoService.carregar()) {
             if (enderecoAtual.getCep().equals(cep)) {
-                return enderecoAtual;
+                teste= enderecoAtual;
             }
         }
-        return null;
+        return teste;
     }
 
     private Endereco getEndById(int idEnd) {
@@ -196,7 +203,7 @@ public class ControllerCadastroFornecedor implements ActionListener, FocusListen
     @Override
     public void focusLost(FocusEvent e) {
         if (e.getSource() == this.cadastroFornecedor.getjFormattedTextFieldCep()) {
-            String codigoCEP = (String) this.cadastroFornecedor.getjFormattedTextFieldCep().getText().trim();
+            String codigoCEP = this.cadastroFornecedor.getjFormattedTextFieldCep().getText();
 
             if (codigoCEP.isEmpty()) {
                 this.cadastroFornecedor.getjFormattedTextFieldCep().setText("");
@@ -204,7 +211,7 @@ public class ControllerCadastroFornecedor implements ActionListener, FocusListen
                 this.cadastroFornecedor.getjTextFieldBairro().setText("");
                 this.cadastroFornecedor.getjTextFieldLogradouro().setText("");
             } else {
-                Endereco endereco = getEndByCep(codigoCEP);
+                Endereco endereco = EnderecoService.carregarCEP(codigoCEP);
 
                 if (endereco != null) {
                     this.cadastroFornecedor.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());

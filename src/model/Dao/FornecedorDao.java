@@ -17,15 +17,15 @@ import model.bo.Fornecedor;
 
 /**
  *
- * @author Thiago
+ * @author Thiago and Gabrieli
  */
 public class FornecedorDao implements InterfaceDao<Fornecedor>{
 
     @Override
     public void create(Fornecedor objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO cantinaifsc.cliente(nome,fone1,fone2,email,status,complementoEndereco,"
-                + "cnpj,inscricaoEstadual, razaoSocial,endereco_id) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String sqlExecutar = "INSERT INTO cantinaifsc.fornecedor(nome,fone1,fone2,email,status,complementoEndereco,"
+                + "cnpj,inscricaoEstadual,razaoSocial,endereco_id) VALUES(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstm = null;
 
         try {
@@ -48,16 +48,15 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm);
         }
-        
     }
 
     @Override
     public List<Fornecedor> retrieve() {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "select for.*, e.*, c.*, b.* from fornecedor for  "
-                + "left outer join endereco e on for.endereco_id = e.id "
+         Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "select forn.*, e.*, c.*, b.* from fornecedor forn  "
+                + "left outer join endereco e on forn.endereco_id = e.id "
                 + "left outer join cidade c on e.cidade_id = c.id "
-                + "left outer join bairro b on e.bairro_id = b.id";
+                + "left outer join bairro b on e.bairro_id = b.id"
         ;
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -68,18 +67,18 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
             rst = pstm.executeQuery();
             while (rst.next()) {
                 Fornecedor fornecedor = new Fornecedor();
-
-                fornecedor.setId(rst.getInt("for.id"));
-                fornecedor.setNome(rst.getString("for.nome"));
-                fornecedor.setFone1(rst.getString("for.fone1"));
-                fornecedor.setFone2(rst.getString("for.fone2"));
-                fornecedor.setEmail(rst.getString("for.email"));
-                fornecedor.setStatus(rst.getString("for.status").charAt(0));
-                fornecedor.setComplementoEndereco(rst.getString("for.complementoEndereco"));
-                fornecedor.setCnpj(rst.getString("for.cnpj"));
-                fornecedor.setInscricaoEstadual(rst.getString("for.inscricaoEstadual"));
-                fornecedor.setRazaoSocial(rst.getString("for.razaoSocial"));
-
+                
+                fornecedor.setId(rst.getInt("forn.id"));
+                fornecedor.setNome(rst.getString("forn.nome"));
+                fornecedor.setFone1(rst.getString("forn.fone1"));
+                fornecedor.setFone2(rst.getString("forn.fone2"));
+                fornecedor.setEmail(rst.getString("forn.email"));
+                fornecedor.setStatus(rst.getString("forn.status").charAt(0));
+                fornecedor.setComplementoEndereco(rst.getString("forn.complementoEndereco"));
+                fornecedor.setCnpj(rst.getString("forn.cnpj"));
+                fornecedor.setInscricaoEstadual(rst.getString("forn.inscricaoEstadual"));
+                fornecedor.setRazaoSocial(rst.getString("forn.razaoSocial"));
+                
                 Endereco endereco = new Endereco();
                 endereco.setId(rst.getInt("e.id"));
                 endereco.setCep(rst.getString("e.cep"));
@@ -98,50 +97,47 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
                 endereco.setBairro(bairro);
                 endereco.setCidade(cidade);
                 fornecedor.setEndereco(endereco);
-
+                
                 listaFornecedor.add(fornecedor);
             }
-        } catch (SQLException ex) {
+         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
             return listaFornecedor;
         }
-        
     }
 
     @Override
     public Fornecedor retrieve(int parPK) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "select for.*,e.*, c.*, b.* from fornecedor for  "
-                + "left outer join endereco e on for.endereco_id = e.id "
+                Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "select forn.*,e.*, c.*, b.* from fornecedor forn  "
+                + "left outer join endereco e on forn.endereco_id = e.id "
                 + "left outer join cidade c on e.cidade_id = c.id "
-                + "left outer join bairro b on e.bairro_id = b.id where cli.id = ?";
+                + "left outer join bairro b on e.bairro_id = b.id where forn.id = ?";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
-
+        
         Fornecedor fornecedor = new Fornecedor();
         
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setInt(1, parPK);
             rst = pstm.executeQuery();
-
-            while (rst.next()) {
-
-                fornecedor.setId(rst.getInt("for.id"));
-                fornecedor.setNome(rst.getString("for.nome"));
-                fornecedor.setFone1(rst.getString("for.fone1"));
-                fornecedor.setFone2(rst.getString("for.fone2"));
-                fornecedor.setEmail(rst.getString("for.email"));
-                fornecedor.setStatus(rst.getString("for.status").charAt(0));
-                fornecedor.setComplementoEndereco(rst.getString("for.complementoEndereco"));
-                fornecedor.setCnpj(rst.getString("for.cnpj"));
-                fornecedor.setInscricaoEstadual(rst.getString("for.inscricaoEstadual"));
-                fornecedor.setRazaoSocial(rst.getString("for.razaoSocial"));
+            
+            while (rst.next()) {      
+                fornecedor.setId(rst.getInt("forn.id"));
+                fornecedor.setNome(rst.getString("forn.nome"));
+                fornecedor.setFone1(rst.getString("forn.fone1"));
+                fornecedor.setFone2(rst.getString("forn.fone2"));
+                fornecedor.setEmail(rst.getString("forn.email"));
+                fornecedor.setStatus(rst.getString("forn.status").charAt(0));
+                fornecedor.setComplementoEndereco(rst.getString("forn.complementoEndereco"));
+                fornecedor.setCnpj(rst.getString("forn.cnpj"));
+                fornecedor.setInscricaoEstadual(rst.getString("forn.inscricaoEstadual"));
+                fornecedor.setRazaoSocial(rst.getString("forn.razaoSocial"));
                 
-
                 Endereco endereco = new Endereco();
                 endereco.setId(rst.getInt("e.id"));
                 endereco.setCep(rst.getString("e.cep"));
@@ -159,49 +155,49 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
 
                 endereco.setBairro(bairro);
                 endereco.setCidade(cidade);
-
                 fornecedor.setEndereco(endereco);
-
+                
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
             return fornecedor;
-        }
-        
+        }  
     }
 
     public List<Fornecedor> retrieve(String nomeParametro,String parString) {
         Connection conexao = ConnectionFactory.getConnection();
 
-        String sqlExecutar = "select for.*, e.*, c.*, b.* from fornecedor for  "
-                + "left outer join endereco e on for.endereco_id = e.id "
+        String sqlExecutar = "select forn.*, e.*, c.*, b.* from fornecedor forn  "
+                + "left outer join endereco e on forn.endereco_id = e.id "
                 + "left outer join cidade c on e.cidade_id = c.id "
-                + "left outer join bairro b on e.bairro_id = b.id where for." + nomeParametro + " like ?";
+                + "left outer join bairro b on e.bairro_id = b.id where forn." + nomeParametro + " like ?";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
+        
         List<Fornecedor> listaFornecedor = new ArrayList<>();
         
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1,"%"+ parString +"%");
             rst = pstm.executeQuery();
+            
             while (rst.next()) {
                 Fornecedor fornecedor = new Fornecedor();
-
-                fornecedor.setId(rst.getInt("for.id"));
-                fornecedor.setNome(rst.getString("for.nome"));
-                fornecedor.setFone1(rst.getString("for.fone1"));
-                fornecedor.setFone2(rst.getString("for.fone2"));
-                fornecedor.setEmail(rst.getString("for.email"));
-                fornecedor.setStatus(rst.getString("for.status").charAt(0));
-                fornecedor.setComplementoEndereco(rst.getString("for.complementoEndereco"));
-                fornecedor.setCnpj(rst.getString("for.cnpj"));
-                fornecedor.setInscricaoEstadual(rst.getString("for.inscricaoEstadual"));
-                fornecedor.setRazaoSocial(rst.getString("for.razaoSocial"));
-
+                
+                fornecedor.setId(rst.getInt("forn.id"));
+                fornecedor.setNome(rst.getString("forn.nome"));
+                fornecedor.setFone1(rst.getString("forn.fone1"));
+                fornecedor.setFone2(rst.getString("forn.fone2"));
+                fornecedor.setEmail(rst.getString("forn.email"));
+                fornecedor.setStatus(rst.getString("forn.status").charAt(0));
+                fornecedor.setComplementoEndereco(rst.getString("forn.complementoEndereco"));
+                fornecedor.setCnpj(rst.getString("forn.cnpj"));
+                fornecedor.setInscricaoEstadual(rst.getString("forn.inscricaoEstadual"));
+                fornecedor.setRazaoSocial(rst.getString("forn.razaoSocial"));
+                
                 Endereco endereco = new Endereco();
                 endereco.setId(rst.getInt("e.id"));
                 endereco.setCep(rst.getString("e.cep"));
@@ -218,10 +214,9 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
                 bairro.setDescricao(rst.getString("b.descricao"));
 
                 endereco.setBairro(bairro);
-                endereco.setCidade(cidade);
-
+                endereco.setCidade(cidade);               
                 fornecedor.setEndereco(endereco);
-
+                
                 listaFornecedor.add(fornecedor);
             }
         } catch (SQLException ex) {
@@ -229,15 +224,14 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
             return listaFornecedor;
-        }
-        
+        }    
     }
 
     @Override
     public void update(Fornecedor objeto) {
-        Connection conexao = ConnectionFactory.getConnection();
-
-        String sqlExecutar = "UPDATE fornecedor"
+               Connection conexao = ConnectionFactory.getConnection();
+        
+       String sqlExecutar = "UPDATE fornecedor"
                 + " SET "
                 + "fornecedor.nome = ?, "
                 + "fornecedor.fone1 = ?, "
@@ -245,14 +239,14 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
                 + "fornecedor.email = ?, "
                 + "fornecedor.status = ?, "
                 + "fornecedor.complementoEndereco = ?, "
-                + "fornecedor.cnpj = ?,"
-                + "fornecedor.inscricaoEstadual = ?,"
-                + "fornecedor.razaoSocial = ?,"
-                + "cliente.endereco_id = ? "
-                + "WHERE cliente.id = ?";
+                + "fornecedor.cnpj = ?, "
+                + "fornecedor.inscricaoEstadual = ?, "
+                + "fornecedor.razaoSocial = ?, "
+                + "fornecedor.endereco_id = ? "
+                + "WHERE fornecedor.id = ?";
+       
         PreparedStatement pstm = null;
-        
-         try {
+        try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getNome());
             pstm.setString(2, objeto.getFone1());
@@ -264,14 +258,16 @@ public class FornecedorDao implements InterfaceDao<Fornecedor>{
             pstm.setString(8, objeto.getInscricaoEstadual());
             pstm.setString(9, objeto.getRazaoSocial());
             pstm.setInt(10, objeto.getEndereco().getId());
+            pstm.setInt(11, objeto.getId());
 
             //concatenando com "" p/ transfformar em String
             pstm.execute();
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             ConnectionFactory.closeConnection(conexao, pstm);
-        }
+        } 
     }
 
     @Override

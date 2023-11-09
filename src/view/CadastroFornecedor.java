@@ -135,12 +135,12 @@ public class CadastroFornecedor extends javax.swing.JFrame {
         this.jTextFieldId = jTextFieldId;
     }
 
-    public JTextField getjTextFieldInscricaoEstadual() {
-        return jTextFieldInscricaoEstadual;
+    public JFormattedTextField getjFormattedTextFieldInsEstadual() {
+        return jFormattedTextFieldInsEstadual;
     }
 
-    public void setjTextFieldInscricaoEstadual(JTextField jTextFieldInscricaoEstadual) {
-        this.jTextFieldInscricaoEstadual = jTextFieldInscricaoEstadual;
+    public void setjFormattedTextFieldInsEstadual(JFormattedTextField jFormattedTextFieldInsEstadual) {
+        this.jFormattedTextFieldInsEstadual = jFormattedTextFieldInsEstadual;
     }
 
     public JTextField getjTextFieldLogradouro() {
@@ -196,7 +196,6 @@ public class CadastroFornecedor extends javax.swing.JFrame {
         jTextFieldNomeFantasia = new javax.swing.JTextField();
         jCheckBoxInativo = new javax.swing.JCheckBox();
         jLabelInscricaoEstadual = new javax.swing.JLabel();
-        jTextFieldInscricaoEstadual = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jFormattedTextFieldCnpj = new javax.swing.JFormattedTextField();
         jLabelEmail = new javax.swing.JLabel();
@@ -217,6 +216,7 @@ public class CadastroFornecedor extends javax.swing.JFrame {
         jTextFieldComplementoEndereco = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jFormattedTextFieldInsEstadual = new javax.swing.JFormattedTextField();
         jPanelBotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
@@ -344,6 +344,12 @@ public class CadastroFornecedor extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Fone");
 
+        try {
+            jFormattedTextFieldInsEstadual.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##############")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
         jPanelDadosLayout.setHorizontalGroup(
@@ -380,9 +386,7 @@ public class CadastroFornecedor extends javax.swing.JFrame {
                                     .addComponent(jLabelComplementoEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                        .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldComplementoEndereco)))
                             .addGroup(jPanelDadosLayout.createSequentialGroup()
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,8 +413,8 @@ public class CadastroFornecedor extends javax.swing.JFrame {
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jFormattedTextFieldFone1)
                                     .addComponent(jFormattedTextFieldFone2)
-                                    .addComponent(jTextFieldInscricaoEstadual)
-                                    .addComponent(jFormattedTextFieldCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))))
+                                    .addComponent(jFormattedTextFieldCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                                    .addComponent(jFormattedTextFieldInsEstadual, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))))
                         .addGap(85, 85, 85))))
         );
         jPanelDadosLayout.setVerticalGroup(
@@ -428,13 +432,14 @@ public class CadastroFornecedor extends javax.swing.JFrame {
                             .addComponent(jLabelRazaoSocial)
                             .addComponent(jTextFieldRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelInscricaoEstadual)
-                            .addComponent(jTextFieldInscricaoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jFormattedTextFieldInsEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelNomeFantasia)
-                            .addComponent(jLabel1)
-                            .addComponent(jFormattedTextFieldCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelNomeFantasia)
+                                .addComponent(jLabel1)
+                                .addComponent(jFormattedTextFieldCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelEmail)
@@ -724,6 +729,7 @@ public class CadastroFornecedor extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextFieldCnpj;
     private javax.swing.JFormattedTextField jFormattedTextFieldFone1;
     private javax.swing.JFormattedTextField jFormattedTextFieldFone2;
+    private javax.swing.JFormattedTextField jFormattedTextFieldInsEstadual;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -747,7 +753,6 @@ public class CadastroFornecedor extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldComplementoEndereco;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JTextField jTextFieldInscricaoEstadual;
     private javax.swing.JTextField jTextFieldLogradouro;
     private javax.swing.JTextField jTextFieldNomeFantasia;
     private javax.swing.JTextField jTextFieldRazaoSocial;

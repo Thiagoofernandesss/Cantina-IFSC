@@ -181,7 +181,7 @@ public class BuscaFornecedor extends javax.swing.JDialog {
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
 
-        jComboBoxBuscaFornecedoresPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "CNPJ", "Razão Social", "CEP", "Ins. Estadual", "Status" }));
+        jComboBoxBuscaFornecedoresPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "CNPJ", "Razão Social", "Inscrição Estadual", "Status" }));
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);

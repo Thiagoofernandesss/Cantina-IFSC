@@ -281,13 +281,12 @@
             <Component class="javax.swing.JComboBox" name="jComboBoxBuscaFornecedoresPor">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
+                  <StringArray count="5">
                     <StringItem index="0" value="ID"/>
                     <StringItem index="1" value="CNPJ"/>
                     <StringItem index="2" value="Raz&#xe3;o Social"/>
-                    <StringItem index="3" value="CEP"/>
-                    <StringItem index="4" value="Ins. Estadual"/>
-                    <StringItem index="5" value="Status"/>
+                    <StringItem index="3" value="Inscri&#xe7;&#xe3;o Estadual"/>
+                    <StringItem index="4" value="Status"/>
                   </StringArray>
                 </Property>
               </Properties>
