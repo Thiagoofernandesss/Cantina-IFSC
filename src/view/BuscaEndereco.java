@@ -92,7 +92,7 @@ public class BuscaEndereco extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDados = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("BuscaEndereco");
         setAlwaysOnTop(true);
         setMaximumSize(new java.awt.Dimension(651, 299));
