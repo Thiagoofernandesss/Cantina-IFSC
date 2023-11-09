@@ -42,7 +42,7 @@ public class ControllerCadastroProduto implements ActionListener{
             //Deseligando o ID no braço, PROVISÓRIO
             this.cadastroProduto.getjTextFieldId().setEditable(false);
             //Trazendo proximo id
-            this.cadastroProduto.getjTextFieldId().setText(Integer.toString(Dao.ClasseDados.produtos.size()+1));
+            this.cadastroProduto.getjTextFieldDescricao().requestFocus();
 
         } else if (e.getSource() == this.cadastroProduto.getjButtonSair()) {
             this.cadastroProduto.dispose();
@@ -54,29 +54,16 @@ public class ControllerCadastroProduto implements ActionListener{
         } else if (e.getSource() == this.cadastroProduto.getjButtonSalvar()) {
             
             Produto produto = new Produto();
-            produto.setId(Dao.ClasseDados.produtos.size()+1);
             produto.setDescricao(this.cadastroProduto.getjTextFieldDescricao().getText());
             produto.setCodigoBarra(this.cadastroProduto.getjTextFieldCodigoBarras().getText());            
             produto.setStatus(this.cadastroProduto.getjCheckBoxStatus().isSelected());
-            if(Dao.ClasseDados.produtos.size() < Integer.parseInt(this.cadastroProduto.getjTextFieldId().getText())){
-                Dao.ClasseDados.produtos.add(produto);
-            
-            } else{
-                int id = Integer.parseInt(this.cadastroProduto.getjTextFieldId().getText());
-                
-                for (Produto produtoAtual : Dao.ClasseDados.produtos) {
-                    if(produtoAtual.getId() == id){
-                        produtoAtual.setDescricao(this.cadastroProduto.getjTextFieldDescricao().getText());
-                        produtoAtual.setCodigoBarra(this.cadastroProduto.getjTextFieldCodigoBarras().getText());
-                        produtoAtual.setStatus(this.cadastroProduto.getjCheckBoxStatus().isSelected());
-                        break;
-                    }
-                   
-                }
-            
+
+            if (this.cadastroProduto.getjTextFieldId().getText().equalsIgnoreCase("")) {
+                service.ProdutoService.adicionar(produto);
+            }else{
+                produto.setId(Integer.parseInt(this.cadastroProduto.getjTextFieldId().getText()));
+                service.ProdutoService.atualizar(produto);
             }
-            
-            
             
             utilities.Utilities.ativa(true, cadastroProduto.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, cadastroProduto.getjPanelDados());
@@ -92,7 +79,7 @@ public class ControllerCadastroProduto implements ActionListener{
             
             if(codigo != 0){
                 Produto produto = new Produto();
-                produto = Dao.ClasseDados.produtos.get(codigo - 1);
+                produto = service.ProdutoService.carregar(codigo);
                 
                 utilities.Utilities.ativa(false, cadastroProduto.getjPanelBotoes());
                 utilities.Utilities.limpaComponentes(true, cadastroProduto.getjPanelDados());

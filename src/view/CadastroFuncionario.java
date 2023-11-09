@@ -237,7 +237,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jPanelTitulo = new javax.swing.JPanel();
         jLabelTitulo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CadastroFuncionario");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
