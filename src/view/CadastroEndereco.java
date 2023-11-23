@@ -168,7 +168,7 @@ public class CadastroEndereco extends javax.swing.JFrame {
         jLabelCep.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         try {
-            jFormattedTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##### - ### ")));
+            jFormattedTextFieldCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-### ")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
