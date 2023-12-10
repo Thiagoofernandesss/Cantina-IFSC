@@ -42,9 +42,9 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
         this.cadastroCliente.getjButtonCancelar().addActionListener(this);
         this.cadastroCliente.getjButtonSalvar().addActionListener(this);
         this.cadastroCliente.getjButtonConsultar().addActionListener(this);
-
-        this.cadastroCliente.getjButtonPesquisarCep().addActionListener(this);
+        
         this.cadastroCliente.getjButtonAdicionarCep().addActionListener(this);
+        this.cadastroCliente.getjButtonPesquisarCep().addActionListener(this);   
 
         List<Endereco> listaEnderecos = new ArrayList<>();
 
@@ -213,14 +213,14 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
     }
     
     
-
     public Endereco getEndByCep(String cep) {
+        Endereco teste = new Endereco();
         for (Endereco enderecoAtual : service.EnderecoService.carregar()) {
             if (enderecoAtual.getCep().equals(cep)) {
-                return enderecoAtual;
+                teste= enderecoAtual;
             }
         }
-        return null;
+        return teste;
     }
 
     public Endereco getEndById(int idEnd) {
@@ -243,7 +243,7 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
     @Override
     public void focusLost(FocusEvent e) {
         if (e.getSource() == this.cadastroCliente.getjFormattedTextFieldCEP()) {
-            String codigoCEP = (String) this.cadastroCliente.getjFormattedTextFieldCEP().getText().trim();
+            String codigoCEP = (String) this.cadastroCliente.getjFormattedTextFieldCEP().getText();
 
             if (codigoCEP.isEmpty()) {
                 this.cadastroCliente.getjFormattedTextFieldCEP().setText("");
@@ -251,7 +251,7 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
                 this.cadastroCliente.getjTextFieldBairro().setText("");
                 this.cadastroCliente.getjTextFieldLogradouro().setText("");
             } else {
-                Endereco endereco = getEndByCep(codigoCEP);
+                Endereco endereco = EnderecoService.carregarCEP(codigoCEP);
 
                 if (endereco != null) {
                     this.cadastroCliente.getjTextFieldCidade().setText(endereco.getCidade().getDescricao());

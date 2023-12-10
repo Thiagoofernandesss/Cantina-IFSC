@@ -45,9 +45,9 @@ public class ControllerBuscaCarteirinha implements ActionListener{
                     tabela.addRow(new Object[]{
                     carteirinhaAtual.getId(),
                     carteirinhaAtual.getCliente().getNome(),
-                    carteirinhaAtual.getDataGeracao(),
-                    carteirinhaAtual.getDataCancelamento(),
-                    carteirinhaAtual.getCodigoBarra()
+                    carteirinhaAtual.getCodigoBarra(),
+                    carteirinhaAtual.getDataCancelamento()
+                    
 
                 });
             }
@@ -68,8 +68,6 @@ public class ControllerBuscaCarteirinha implements ActionListener{
                     listaCarteirinha = service.CarteirinhaService.carregar("nome");
                 }else if (buscaPor.equals("data geração")) {
                     listaCarteirinha = service.CarteirinhaService.carregar("dataGeracao", filtro);
-                }else if (buscaPor.equals("data cancelamento")) {
-                    listaCarteirinha = service.CarteirinhaService.carregar("dataCancelamento", filtro);
                 }
                
             if (listaCarteirinha != null) {

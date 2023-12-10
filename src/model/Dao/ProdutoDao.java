@@ -21,14 +21,15 @@ public class ProdutoDao implements InterfaceDao<Produto>{
     @Override
     public void create(Produto objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "INSERT INTO cantinaifsc.produto(descricao,codigoBarra,status) VALUES(?,?,?)";
+        String sqlExecutar = "INSERT INTO cantinaifsc.produto(descricao,codigoBarra,preco,status) VALUES(?,?,?,?)";
         PreparedStatement pstm = null;
                 
         try{
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getDescricao());
             pstm.setString(2, objeto.getCodigoBarra());
-            pstm.setString(3, objeto.getStatus() + "");
+            pstm.setFloat(3, objeto.getPreco());
+            pstm.setString(4, objeto.getStatus() + "");
             
             pstm.execute();
         }catch(SQLException ex) {
@@ -41,7 +42,7 @@ public class ProdutoDao implements InterfaceDao<Produto>{
     @Override
     public List<Produto> retrieve() {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "Select produto.id, produto.descricao, produto.codigoBarra, produto.status from produto";
+        String sqlExecutar = "Select produto.id, produto.descricao, produto.codigoBarra, produto.preco, produto.status from produto";
         PreparedStatement pstm = null;
         ResultSet rst = null;
         List<Produto> listaproduto = new ArrayList<>();
@@ -54,6 +55,7 @@ public class ProdutoDao implements InterfaceDao<Produto>{
                 produto.setId(rst.getInt("id"));
                 produto.setDescricao(rst.getString("descricao"));
                 produto.setCodigoBarra(rst.getString("codigoBarra"));
+                produto.setPreco(rst.getFloat("preco"));
                 produto.setStatus(rst.getString("status").charAt(0));
 
                 listaproduto.add(produto);
@@ -69,7 +71,7 @@ public class ProdutoDao implements InterfaceDao<Produto>{
     @Override
     public Produto retrieve(int parPK) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "Select produto.id, produto.descricao, produto.codigoBarra, produto.status from produto where id= ?";
+        String sqlExecutar = "Select produto.id, produto.descricao, produto.codigoBarra, produto.preco, produto.status from produto where id= ?";
         PreparedStatement pstm = null;
         ResultSet rst = null;
         Produto produtoParPK = new Produto();
@@ -86,6 +88,7 @@ public class ProdutoDao implements InterfaceDao<Produto>{
                 produtoParPK.setId(rst.getInt("id"));
                 produtoParPK.setDescricao(rst.getString("descricao"));
                 produtoParPK.setCodigoBarra(rst.getString("codigoBarra"));
+                produtoParPK.setPreco(rst.getFloat("preco"));
                 produtoParPK.setStatus(rst.getString("status").charAt(0));
             }
 
@@ -100,7 +103,7 @@ public class ProdutoDao implements InterfaceDao<Produto>{
     @Override
     public List<Produto> retrieve(String parString) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "Select produto.id, produto.descricao, produto.codigoBarra, produto.status from produto where descricao like ?";
+        String sqlExecutar = "Select produto.id, produto.descricao, produto.codigoBarra, produto.preco, produto.status from produto where descricao like ?";
         
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -118,6 +121,7 @@ public class ProdutoDao implements InterfaceDao<Produto>{
                 produto.setId(rst.getInt("id"));
                 produto.setDescricao(rst.getString("descricao"));
                 produto.setCodigoBarra(rst.getString("codigoBarra"));
+                produto.setPreco(rst.getFloat("preco"));
                 produto.setStatus(rst.getString("status").charAt(0));
                 listaProduto.add(produto);
             }
@@ -132,7 +136,7 @@ public class ProdutoDao implements InterfaceDao<Produto>{
     
 public List<Produto> retrieve(String nomeParametro, String parString) {
     Connection conexao = ConnectionFactory.getConnection();
-    String sqlExecutar = "SELECT id, descricao, codigoBarra, status FROM produto WHERE " + nomeParametro + " LIKE ?";
+    String sqlExecutar = "SELECT id, descricao, codigoBarra, preco, status FROM produto WHERE " + nomeParametro + " LIKE ?";
 
     PreparedStatement pstm = null;
     ResultSet rst = null;
@@ -149,6 +153,7 @@ public List<Produto> retrieve(String nomeParametro, String parString) {
             produto.setId(rst.getInt("id"));
             produto.setDescricao(rst.getString("descricao"));
             produto.setCodigoBarra(rst.getString("codigoBarra"));
+            produto.setPreco(rst.getFloat("preco"));
             produto.setStatus(rst.getString("status").charAt(0));
             listaProduto.add(produto);
         }
@@ -159,19 +164,52 @@ public List<Produto> retrieve(String nomeParametro, String parString) {
     }
     return listaProduto;
 }
+public Produto retrieveCodigoBarras(String parString) {
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "select * from produto where codigoBarra like ?";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        Produto objeto = new Produto();
+        
+
+        
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, parString+"%");
+            rst = pstm.executeQuery();
+            
+            
+            if(rst.next()){
+    
+                objeto.setId(rst.getInt("id"));
+                objeto.setCodigoBarra(rst.getString("codigoBarra"));
+                objeto.setDescricao(rst.getString("descricao"));
+                objeto.setPreco(rst.getFloat("preco"));
+                objeto.setStatus(rst.getString("status").charAt(0));
+                
+            }
+           
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+            return objeto;
+        }
+    }
 
     @Override
    public void update(Produto objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "UPDATE produto SET descricao = ?, codigoBarra = ?, status = ? WHERE id = ?";
+        String sqlExecutar = "UPDATE produto SET descricao = ?, codigoBarra = ?, preco = ?, status = ? WHERE id = ?";
         PreparedStatement pstm = null;
 
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getDescricao());
             pstm.setString(2, objeto.getCodigoBarra());
-            pstm.setString(3, objeto.getStatus() + "");
-            pstm.setInt(4, objeto.getId());
+            pstm.setFloat(3, objeto.getPreco());
+            pstm.setString(4, objeto.getStatus() + "");
+            pstm.setInt(5, objeto.getId());
             pstm.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

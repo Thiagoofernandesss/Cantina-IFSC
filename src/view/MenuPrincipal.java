@@ -15,6 +15,7 @@ import controller.ControllerCadastroFornecedor;
 import controller.ControllerCadastroFuncionario;
 import controller.ControllerCadastroProduto;
 import controller.ControllerCadastroVenda;
+import controller.ControllerPDV;
 import javax.swing.JOptionPane;
 
 /**
@@ -58,6 +59,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItemSair = new javax.swing.JMenuItem();
         jMenuMovimentos = new javax.swing.JMenu();
+        jMenuItemPDV = new javax.swing.JMenuItem();
         jMenuCaixa = new javax.swing.JMenu();
         jMenuItemPagar = new javax.swing.JMenuItem();
         jMenuItemReceber = new javax.swing.JMenuItem();
@@ -65,7 +67,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuAjuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(710, 622));
         setMinimumSize(new java.awt.Dimension(710, 622));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -187,6 +188,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuMovimentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeMovimento.png"))); // NOI18N
         jMenuMovimentos.setText("Movimentos");
+
+        jMenuItemPDV.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItemPDV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeReceber.png"))); // NOI18N
+        jMenuItemPDV.setText("PDV");
+        jMenuItemPDV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPDVActionPerformed(evt);
+            }
+        });
+        jMenuMovimentos.add(jMenuItemPDV);
 
         jMenuCaixa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeCaixa.png"))); // NOI18N
         jMenuCaixa.setText("Caixa");
@@ -337,6 +348,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cadastroVenda.setVisible(true);
     }//GEN-LAST:event_jMenuItemReceberActionPerformed
 
+    private void jMenuItemPDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPDVActionPerformed
+        // TODO add your handling code here:
+        PontoVenda pontoVenda = new PontoVenda();
+        ControllerPDV controllerPDV = new ControllerPDV(pontoVenda);
+        pontoVenda.setVisible(true);
+    }//GEN-LAST:event_jMenuItemPDVActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -386,6 +404,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemEndereco;
     private javax.swing.JMenuItem jMenuItemFornecedor;
     private javax.swing.JMenuItem jMenuItemFuncionario;
+    private javax.swing.JMenuItem jMenuItemPDV;
     private javax.swing.JMenuItem jMenuItemPagar;
     private javax.swing.JMenuItem jMenuItemProduto;
     private javax.swing.JMenuItem jMenuItemReceber;

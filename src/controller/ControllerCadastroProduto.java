@@ -55,7 +55,8 @@ public class ControllerCadastroProduto implements ActionListener{
             
             Produto produto = new Produto();
             produto.setDescricao(this.cadastroProduto.getjTextFieldDescricao().getText());
-            produto.setCodigoBarra(this.cadastroProduto.getjTextFieldCodigoBarras().getText());            
+            produto.setCodigoBarra(this.cadastroProduto.getjTextFieldCodigoBarras().getText());
+            produto.setPreco(Float.parseFloat(this.cadastroProduto.getjTextFieldPreco().getText()));
             produto.setStatus(this.cadastroProduto.getjCheckBoxStatus().isSelected());
 
             if (this.cadastroProduto.getjTextFieldId().getText().equalsIgnoreCase("")) {
@@ -87,6 +88,7 @@ public class ControllerCadastroProduto implements ActionListener{
                 this.cadastroProduto.getjTextFieldId().setText(produto.getId() + "");
                 this.cadastroProduto.getjTextFieldDescricao().setText(produto.getDescricao() + "");
                 this.cadastroProduto.getjTextFieldCodigoBarras().setText(produto.getCodigoBarra() + "");
+                this.cadastroProduto.getjTextFieldPreco().setText(produto.getPreco() + "");
                 
                 if(produto.getStatus() == 'I'){
                     this.cadastroProduto.getjCheckBoxStatus().setSelected(true);
