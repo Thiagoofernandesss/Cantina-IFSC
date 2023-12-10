@@ -331,11 +331,10 @@
                 <Component class="javax.swing.JTable" name="jTableDados">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="0">
+                      <Table columnCount="4" rowCount="0">
                         <Column editable="true" title="ID" type="java.lang.Integer"/>
                         <Column editable="true" title="Nome" type="java.lang.String"/>
                         <Column editable="true" title="C&#xf3;d Barra" type="java.lang.String"/>
-                        <Column editable="true" title="Data Gera&#xe7;&#xe3;o" type="java.lang.String"/>
                         <Column editable="true" title="Data Cancelamento" type="java.lang.String"/>
                       </Table>
                     </Property>
@@ -352,11 +351,6 @@
                           <Renderer/>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="70" resizable="false">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="60" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>

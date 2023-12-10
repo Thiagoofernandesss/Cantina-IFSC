@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,25 +33,13 @@ import view.PontoVenda;
  * @author gabri
  */
 public class ControllerPDV implements ActionListener, FocusListener{
+       
+    float valorTotalVenda=0;
     
     private PontoVenda pontoVenda;
     private Venda faturacao;
     List<ItemVenda> itensDaTabela = new ArrayList<>();
-    
-    private KeyEventDispatcher atalhos = new KeyEventDispatcher() {
-        @Override
-        public boolean dispatchKeyEvent(KeyEvent e) {
-            if (e.getID() == KeyEvent.KEY_PRESSED) {
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_ENTER:
-                        adicionarItemVenda();
-                        break;
-                }
-            }
-            return false;
-        }
-    };
-
+   
     
     public ControllerPDV(PontoVenda pontoVenda){
         this.pontoVenda = pontoVenda;
@@ -58,6 +47,8 @@ public class ControllerPDV implements ActionListener, FocusListener{
         this.pontoVenda.getjButtonSalvar().addActionListener(this);
         this.pontoVenda.getjButtonSair().addActionListener(this);
         this.pontoVenda.getjButtonCancelar().addActionListener(this);
+        
+        
         
         this.pontoVenda.getjButtonAdicionarCliente().addActionListener(this);
         this.pontoVenda.getjButtonPesquisarCliente().addActionListener(this);
@@ -77,8 +68,22 @@ public class ControllerPDV implements ActionListener, FocusListener{
         List<Produto> listaProduto = new ArrayList<>();
         listaProduto = service.ProdutoService.carregar();
         
-        utilities.Utilities.limpaComponentes(false, this.pontoVenda.getjPanelDados());     
-        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(atalhos);
+        utilities.Utilities.limpaComponentes(false, this.pontoVenda.getjPanelDados());   
+        this.pontoVenda.getjTextFieldFiltrarProduto().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                adicionarItemVenda();
+            }
+        }
+    });
+       this.pontoVenda.getjTextFieldDesconto().addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            aplicarDesconto();
+        }
+    });
+
     }
 
     @Override
@@ -181,7 +186,7 @@ public class ControllerPDV implements ActionListener, FocusListener{
     }
     
     public ItemVenda itemVenda(){
-       int quantidade=0;
+       int quantidade=1;
        ItemVenda itemVenda=new ItemVenda();
        Produto produtoAtual = adicionarProduto();
        itemVenda.setVenda(faturacao);
@@ -189,45 +194,88 @@ public class ControllerPDV implements ActionListener, FocusListener{
        
        if(this.pontoVenda.getjTextFieldFiltrarProduto().getText().contains("X")||this.pontoVenda.getjTextFieldFiltrarProduto().getText().contains("x")){
             int parametroQuantidade=this.pontoVenda.getjTextFieldFiltrarProduto().getText().toUpperCase().indexOf("X");
-            System.out.println(parametroQuantidade);
             quantidade= Integer.parseInt(this.pontoVenda.getjTextFieldFiltrarProduto().getText().substring(0, parametroQuantidade));
+           
        }
        
        itemVenda.setQtdProduto(quantidade);
-       itemVenda.setStatus('A');
-    
+       itemVenda.setStatus('A');  
+        
        return itemVenda; 
     }
     
     public Produto adicionarProduto(){
 
         Produto produtoAtual = new Produto();
-        if(this.pontoVenda.getjTextFieldFiltrarProduto().getText().contains("X")||this.pontoVenda.getjTextFieldFiltrarProduto().getText().contains("x")){
+        if(this.pontoVenda.getjTextFieldFiltrarProduto().getText().toUpperCase().contains("X")){
             int parametroQuantidade=this.pontoVenda.getjTextFieldFiltrarProduto().getText().toUpperCase().indexOf("X");
-
+            
             String codigodebarras=this.pontoVenda.getjTextFieldFiltrarProduto().getText().substring(parametroQuantidade+1);
+            
             produtoAtual=service.ProdutoService.carregarCodigoBarra(codigodebarras);
-
+            
         }else{
             String codigodebarras=this.pontoVenda.getjTextFieldFiltrarProduto().getText();
             produtoAtual=service.ProdutoService.carregarCodigoBarra(codigodebarras);
         }
-
-
+        
+        
         return produtoAtual;
     }
     
-     public void adicionarItemVenda(){
-        
-         DefaultTableModel tabelaItens = (DefaultTableModel) pontoVenda.getjTableDados().getModel();
-        
-        this.pontoVenda.getjTextFieldFiltrarProduto().setText(itemVenda().getProduto().getCodigoBarra());
-        this.pontoVenda.setLabelValorSubtotal(itemVenda().getProduto().getPreco()*itemVenda().getQtdProduto()+"");
-        
-        tabelaItens.addRow(new Object[]{tabelaItens.getRowCount()+1,itemVenda().getProduto().getCodigoBarra(),itemVenda().getProduto().getDescricao(),itemVenda().getQtdProduto(),itemVenda().getProduto().getPreco(),itemVenda().getProduto().getPreco()*itemVenda().getQtdProduto()});
-        
-        itensDaTabela.add(itemVenda());        
-        
+     
+    public void adicionarItemVenda() {
+    DefaultTableModel tabelaItens = (DefaultTableModel) pontoVenda.getjTableDados().getModel();
+
+    Produto produtoAtual = adicionarProduto();
+
+    int quantidade = 1;
+    if (pontoVenda.getjTextFieldFiltrarProduto().getText().toUpperCase().contains("X")) {
+        int parametroQuantidade = pontoVenda.getjTextFieldFiltrarProduto().getText().toUpperCase().indexOf("X");
+        quantidade = Integer.parseInt(pontoVenda.getjTextFieldFiltrarProduto().getText().substring(0, parametroQuantidade));
+    }
+
+    float subtotal = produtoAtual.getPreco() * quantidade;
+
+        tabelaItens.addRow(new Object[]{
+            tabelaItens.getRowCount() + 1,
+            produtoAtual.getCodigoBarra(),
+            produtoAtual.getDescricao(),
+            quantidade,
+            produtoAtual.getPreco(),
+            subtotal
+        });
+
+        ItemVenda itemVenda = new ItemVenda();
+        itemVenda.setVenda(faturacao);
+        itemVenda.setProduto(produtoAtual);
+        itemVenda.setQtdProduto(quantidade);
+        itemVenda.setStatus('A');
+
+        itensDaTabela.add(itemVenda);
+
+        pontoVenda.getjTextFieldFiltrarProduto().setText("");
+        valorTotalVenda += subtotal;
+        pontoVenda.setLabelValorSubtotal(subtotal + "");
+        pontoVenda.setLabelValorTotal(calcularValorTotal() + "");
     }
     
+   private void aplicarDesconto() {
+    float desconto = obterDesconto();
+    pontoVenda.setLabelValorTotal(calcularValorTotal() - desconto + "");  // Atualizar o rótulo de valor total considerando desconto
+}
+    
+   private float calcularValorTotal() {
+    float desconto = obterDesconto();
+    return valorTotalVenda - desconto;
+}
+ private float obterDesconto() {
+    try {
+        String textoDesconto = pontoVenda.getjTextFieldDesconto().getText();
+        return Float.parseFloat(textoDesconto);
+    } catch (NumberFormatException e) {
+        // Trate caso o valor do desconto não seja um número válido
+        return 0; // Ou qualquer valor padrão desejado
+    }
+}
 }

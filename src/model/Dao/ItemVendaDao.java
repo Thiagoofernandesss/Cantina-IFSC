@@ -16,7 +16,7 @@ public class ItemVendaDao implements InterfaceDao<ItemVenda>{
     @Override
     public void create(ItemVenda objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "insert into cantina.venda(qtdProduto, status, venda_id, produto_id, ) values (?, ?, ?, ?)";
+        String sqlExecutar = "insert into cantina.itemvenda(qtdProduto, status, venda_id, produto_id) values (?, ?, ?, ?)";
         
         PreparedStatement pstm = null;
         
@@ -58,6 +58,43 @@ public class ItemVendaDao implements InterfaceDao<ItemVenda>{
     @Override
     public void delete(ItemVenda objeto) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    public List<ItemVenda> totalItemVenda(int parPK) {
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "select * from itemvenda where itemvenda.venda_id=?";
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        List<ItemVenda> listaObjeto = new ArrayList<ItemVenda>();
+        
+
+        
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setInt(1, parPK);
+            rst = pstm.executeQuery();
+            
+            
+            while(rst.next()){
+                
+                ItemVenda objeto = new ItemVenda();
+                
+                objeto.setId(rst.getInt("id"));
+                objeto.setQtdProduto(rst.getInt("qtdProduto"));
+                objeto.setStatus(rst.getString("status").charAt(0));
+                objeto.setProduto(service.ProdutoService.carregar(rst.getInt("produto_id")));
+                objeto.setVenda(service.VendaService.carregar(rst.getInt("venda_id")));
+                listaObjeto.add(objeto);
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+            return listaObjeto;
+        }
     }
     
 }

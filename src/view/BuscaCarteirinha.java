@@ -214,11 +214,11 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Nome", "Cód Barra", "Data Geração", "Data Cancelamento"
+                "ID", "Nome", "Cód Barra", "Data Cancelamento"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -235,8 +235,6 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
             jTableDados.getColumnModel().getColumn(2).setPreferredWidth(70);
             jTableDados.getColumnModel().getColumn(3).setResizable(false);
             jTableDados.getColumnModel().getColumn(3).setPreferredWidth(60);
-            jTableDados.getColumnModel().getColumn(4).setResizable(false);
-            jTableDados.getColumnModel().getColumn(4).setPreferredWidth(60);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);

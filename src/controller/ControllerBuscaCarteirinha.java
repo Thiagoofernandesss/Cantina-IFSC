@@ -83,7 +83,7 @@ public class ControllerBuscaCarteirinha implements ActionListener{
         }
         }}else if(e.getSource() == this.buscaCarteirinha.getjButtonCarregar()){
             controller.ControllerCadastroCarteirinha.codigo = (int) this.buscaCarteirinha.getjTableDados().
-                    getValueAt(this.buscaCarteirinha.getjTableDados().getSelectedRow(), 0);
+            getValueAt(this.buscaCarteirinha.getjTableDados().getSelectedRow(), 0);
             
             this.buscaCarteirinha.dispose();
             
