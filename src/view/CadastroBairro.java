@@ -131,7 +131,7 @@ public class CadastroBairro extends javax.swing.JFrame {
         });
 
         jLabelDescricao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelDescricao.setText("Descricao");
+        jLabelDescricao.setText("Descrição*");
 
         jTextFieldDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

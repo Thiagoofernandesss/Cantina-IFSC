@@ -11,13 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/gabri/Cantina-IFSC/src/service/CaixaService.java</file>
-            <file>file:/C:/Users/gabri/Cantina-IFSC/src/model/Dao/ClienteDao.java</file>
-            <file>file:/C:/Users/gabri/Cantina-IFSC/src/model/Dao/CaixaDao.java</file>
-            <file>file:/C:/Users/gabri/Cantina-IFSC/src/view/Caixa.java</file>
-            <file>file:/C:/Users/gabri/Cantina-IFSC/src/service/EnderecoService.java</file>
-            <file>file:/C:/Users/gabri/Cantina-IFSC/src/service/ClienteService.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

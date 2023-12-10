@@ -32,6 +32,74 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
     public static int codigo;
 
     //public String numeroCEP;
+    
+    FocusListener focusData = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            Utilities.turnCepTextFieldGray(cadastroCliente.getjFormattedTextFieldDataNascimento());
+            
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+                
+            
+             Utilities.turnCepTextFieldRed(cadastroCliente.getjFormattedTextFieldDataNascimento());
+            
+        }
+    };
+    
+    FocusListener focusCep = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            Utilities.turnCepTextFieldGray(cadastroCliente.getjFormattedTextFieldCEP());
+            
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+                
+            
+             Utilities.turnCepTextFieldRed(cadastroCliente.getjFormattedTextFieldCEP());
+            
+        }
+    };
+    
+    FocusListener focusMatricula = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            Utilities.turnTextFieldGray(cadastroCliente.getjTextFieldMatricula());
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            Utilities.turnTextFieldRed(cadastroCliente.getjTextFieldMatricula());
+        }
+    };
+    
+    FocusListener focusCpf = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            Utilities.turnCepTextFieldGray(cadastroCliente.getjFormattedTextFieldCPF());
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            Utilities.turnCpfTextFieldRed(cadastroCliente.getjFormattedTextFieldCPF());
+        }
+    };
+    
+    FocusListener focusNome = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            Utilities.turnTextFieldGray(cadastroCliente.getjTextFieldNome());
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            Utilities.turnTextFieldRed(cadastroCliente.getjTextFieldNome());
+        }
+    };
 
     public ControllerCadastroCliente(CadastroCliente cadastroCliente) {
         this.cadastroCliente = cadastroCliente;
@@ -44,7 +112,13 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
         this.cadastroCliente.getjButtonConsultar().addActionListener(this);
         
         this.cadastroCliente.getjButtonAdicionarCep().addActionListener(this);
-        this.cadastroCliente.getjButtonPesquisarCep().addActionListener(this);   
+        this.cadastroCliente.getjButtonPesquisarCep().addActionListener(this);  
+        
+        this.cadastroCliente.getjFormattedTextFieldCEP().addFocusListener(focusCep);
+        this.cadastroCliente.getjTextFieldMatricula().addFocusListener(focusMatricula);
+        this.cadastroCliente.getjFormattedTextFieldCPF().addFocusListener(focusCpf);
+        this.cadastroCliente.getjTextFieldNome().addFocusListener(focusNome);
+        this.cadastroCliente.getjFormattedTextFieldDataNascimento().addFocusListener(focusData);
 
         List<Endereco> listaEnderecos = new ArrayList<>();
 
@@ -72,7 +146,9 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
             this.cadastroCliente.getjTextFieldBairro().setEditable(false);
             this.cadastroCliente.getjTextFieldLogradouro().setEditable(false);
             this.cadastroCliente.getjTextFieldNome().requestFocus();//Cursor  começando no nome
-
+            
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroCliente.getjFormattedTextFieldCEP());
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroCliente.getjFormattedTextFieldCPF());
         } else if (e.getSource() == this.cadastroCliente.getjButtonSair()) {
             this.cadastroCliente.dispose(); //Ação botão sair
 
@@ -140,6 +216,9 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
                 this.cadastroCliente.getjTextFieldLogradouro().setEditable(false);
 
             }
+            
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroCliente.getjFormattedTextFieldCEP());
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroCliente.getjFormattedTextFieldCPF());
 
         } else if (e.getSource() == this.cadastroCliente.getjButtonConsultar()) {
             codigo = 0;
@@ -203,12 +282,16 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
         } else if (e.getSource() == this.cadastroCliente.getjButtonPesquisarCep()) {
 
             buscarCep();
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroCliente.getjFormattedTextFieldCEP());
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroCliente.getjFormattedTextFieldCPF());
 
         } else if (e.getSource() == this.cadastroCliente.getjButtonAdicionarCep()) {
             CadastroEndereco cadastroEndereco = new CadastroEndereco();
             ControllerCadastroEndereco controllerCadastroEndereco = new ControllerCadastroEndereco(cadastroEndereco);
             cadastroEndereco.setVisible(true);
-
+            
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroCliente.getjFormattedTextFieldCEP());
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroCliente.getjFormattedTextFieldCPF());
         }
     }
     

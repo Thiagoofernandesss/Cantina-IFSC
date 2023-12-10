@@ -4,18 +4,162 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author gabri
  */
-public class Caixa extends javax.swing.JFrame {
+public class CadastroCaixa extends javax.swing.JFrame {
 
     /**
-     * Creates new form AberturaCaixa
+     * Creates new form CadastroCaixa
      */
-    public Caixa() {
+    public CadastroCaixa() {
         initComponents();
     }
+
+    public JButton getjButtonAdicionarFuncionario() {
+        return jButtonAdicionarFuncionario;
+    }
+
+    public void setjButtonAdicionarFuncionario(JButton jButtonAdicionarFuncionario) {
+        this.jButtonAdicionarFuncionario = jButtonAdicionarFuncionario;
+    }
+
+    public JButton getjButtonCancelar() {
+        return jButtonCancelar;
+    }
+
+    public void setjButtonCancelar(JButton jButtonCancelar) {
+        this.jButtonCancelar = jButtonCancelar;
+    }
+
+    public JButton getjButtonConsultar() {
+        return jButtonConsultar;
+    }
+
+    public void setjButtonConsultar(JButton jButtonConsultar) {
+        this.jButtonConsultar = jButtonConsultar;
+    }
+
+    public JButton getjButtonNovo() {
+        return jButtonNovo;
+    }
+
+    public void setjButtonNovo(JButton jButtonNovo) {
+        this.jButtonNovo = jButtonNovo;
+    }
+
+    public JButton getjButtonPesquisarFuncionario() {
+        return jButtonPesquisarFuncionario;
+    }
+
+    public void setjButtonPesquisarFuncionario(JButton jButtonPesquisarFuncionario) {
+        this.jButtonPesquisarFuncionario = jButtonPesquisarFuncionario;
+    }
+
+    public JButton getjButtonSair() {
+        return jButtonSair;
+    }
+
+    public void setjButtonSair(JButton jButtonSair) {
+        this.jButtonSair = jButtonSair;
+    }
+
+    public JButton getjButtonSalvar() {
+        return jButtonSalvar;
+    }
+
+    public void setjButtonSalvar(JButton jButtonSalvar) {
+        this.jButtonSalvar = jButtonSalvar;
+    }
+
+    public JCheckBox getjCheckBoxStatusCaixa() {
+        return jCheckBoxStatusCaixa;
+    }
+
+    public void setjCheckBoxStatusCaixa(JCheckBox jCheckBoxStatusCaixa) {
+        this.jCheckBoxStatusCaixa = jCheckBoxStatusCaixa;
+    }
+
+    public JFormattedTextField getjFTFDataAbertura() {
+        return jFTFDataAbertura;
+    }
+
+    public void setjFTFDataAbertura(JFormattedTextField jFTFDataAbertura) {
+        this.jFTFDataAbertura = jFTFDataAbertura;
+    }
+
+    public JFormattedTextField getjFTFDataFechamento() {
+        return jFTFDataFechamento;
+    }
+
+    public void setjFTFDataFechamento(JFormattedTextField jFTFDataFechamento) {
+        this.jFTFDataFechamento = jFTFDataFechamento;
+    }
+
+    public JTextField getjFTFSaldoFinal() {
+        return jFTFSaldoFinal;
+    }
+
+    public void setjFTFSaldoFinal(JTextField jFTFTSaldoFinal) {
+        this.jFTFSaldoFinal = jFTFTSaldoFinal;
+    }
+
+    public JTextField getjFTFTSaldoInicial() {
+        return jFTFTSaldoInicial;
+    }
+
+    public void setjFTFTSaldoInicial(JTextField jFTFTSaldoInicial) {
+        this.jFTFTSaldoInicial = jFTFTSaldoInicial;
+    }
+
+    public JPanel getjPanelBotoes() {
+        return jPanelBotoes;
+    }
+
+    public void setjPanelBotoes(JPanel jPanelBotoes) {
+        this.jPanelBotoes = jPanelBotoes;
+    }
+
+    public JPanel getjPanelDados() {
+        return jPanelDados;
+    }
+
+    public void setjPanelDados(JPanel jPanelDados) {
+        this.jPanelDados = jPanelDados;
+    }
+
+    public JTextField getjTextFieldFiltrarFuncionario() {
+        return jTextFieldFiltrarFuncionario;
+    }
+
+    public void setjTextFieldFiltrarFuncionario(JTextField jTextFieldFiltrarFuncionario) {
+        this.jTextFieldFiltrarFuncionario = jTextFieldFiltrarFuncionario;
+    }
+
+    public JTextField getjTextFieldNumCaixa() {
+        return jTextFieldNumCaixa;
+    }
+
+    public void setjTextFieldNumCaixa(JTextField jTextFieldNumCaixa) {
+        this.jTextFieldNumCaixa = jTextFieldNumCaixa;
+    }
+
+    public JTextField getjTextFieldObservacao() {
+        return jTextFieldObservacao;
+    }
+
+    public void setjTextFieldObservacao(JTextField jTextFieldObservacao) {
+        this.jTextFieldObservacao = jTextFieldObservacao;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,11 +186,11 @@ public class Caixa extends javax.swing.JFrame {
         jLabelDataFechamento = new javax.swing.JLabel();
         jFTFDataFechamento = new javax.swing.JFormattedTextField();
         jLabelSaldoInicial = new javax.swing.JLabel();
-        jFTFTSaldoInicial = new javax.swing.JFormattedTextField();
         jLabelSaldoFinal = new javax.swing.JLabel();
-        jFTFSaldoFinal = new javax.swing.JFormattedTextField();
         jLabelObservacao = new javax.swing.JLabel();
         jTextFieldObservacao = new javax.swing.JTextField();
+        jFTFTSaldoInicial = new javax.swing.JTextField();
+        jFTFSaldoFinal = new javax.swing.JTextField();
         jPanelBotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
@@ -54,7 +198,7 @@ public class Caixa extends javax.swing.JFrame {
         jButtonConsultar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanelFundo.setBackground(new java.awt.Color(147, 216, 67));
         jPanelFundo.setMaximumSize(new java.awt.Dimension(950, 645));
@@ -147,25 +291,8 @@ public class Caixa extends javax.swing.JFrame {
         jLabelSaldoInicial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelSaldoInicial.setText("Saldo Inicial R$:");
 
-        try {
-            jFTFTSaldoInicial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###,##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        jFTFTSaldoInicial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFTFTSaldoInicialActionPerformed(evt);
-            }
-        });
-
         jLabelSaldoFinal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelSaldoFinal.setText("Saldo Final R$:");
-
-        try {
-            jFTFSaldoFinal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###,##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
 
         jLabelObservacao.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelObservacao.setText("Observação");
@@ -175,6 +302,12 @@ public class Caixa extends javax.swing.JFrame {
                 jTextFieldObservacaoActionPerformed(evt);
             }
         });
+
+        jFTFTSaldoInicial.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFTFTSaldoInicial.setText("0.00");
+
+        jFTFSaldoFinal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFTFSaldoFinal.setText("0.00");
 
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
@@ -202,10 +335,10 @@ public class Caixa extends javax.swing.JFrame {
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabelSaldoInicial)
                                     .addComponent(jLabelSaldoFinal))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFTFSaldoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFTFTSaldoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jFTFTSaldoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFTFSaldoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanelDadosLayout.createSequentialGroup()
                                     .addComponent(jLabelNomeFuncionario)
@@ -242,14 +375,14 @@ public class Caixa extends javax.swing.JFrame {
                     .addComponent(jLabelDataAbertura)
                     .addComponent(jFTFDataAbertura, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSaldoInicial)
-                    .addComponent(jFTFSaldoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFTFTSaldoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDataFechamento)
                     .addComponent(jFTFDataFechamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSaldoFinal)
-                    .addComponent(jFTFTSaldoInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                    .addComponent(jFTFSaldoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jLabelObservacao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -377,7 +510,7 @@ public class Caixa extends javax.swing.JFrame {
             .addGroup(jPanelFundoLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanelDados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanelDados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 605, Short.MAX_VALUE)
                     .addComponent(jPanelBotoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -402,10 +535,11 @@ public class Caixa extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 465, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldNumCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumCaixaActionPerformed
@@ -416,31 +550,24 @@ public class Caixa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxStatusCaixaActionPerformed
 
-    private void jTextFieldObservacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldObservacaoActionPerformed
-
-    private void jFTFTSaldoInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFTSaldoInicialActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFTFTSaldoInicialActionPerformed
-
     private void jTextFieldFiltrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFiltrarFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFiltrarFuncionarioActionPerformed
 
+    private void jTextFieldObservacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldObservacaoActionPerformed
+
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jButtonNovoActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
@@ -468,21 +595,20 @@ public class Caixa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Caixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Caixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Caixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Caixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Caixa().setVisible(true);
+                new CadastroCaixa().setVisible(true);
             }
         });
     }
@@ -498,8 +624,8 @@ public class Caixa extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxStatusCaixa;
     private javax.swing.JFormattedTextField jFTFDataAbertura;
     private javax.swing.JFormattedTextField jFTFDataFechamento;
-    private javax.swing.JFormattedTextField jFTFSaldoFinal;
-    private javax.swing.JFormattedTextField jFTFTSaldoInicial;
+    private javax.swing.JTextField jFTFSaldoFinal;
+    private javax.swing.JTextField jFTFTSaldoInicial;
     private javax.swing.JLabel jLabelDataAbertura;
     private javax.swing.JLabel jLabelDataFechamento;
     private javax.swing.JLabel jLabelNomeFuncionario;

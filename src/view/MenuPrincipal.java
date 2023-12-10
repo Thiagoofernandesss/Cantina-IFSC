@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.ControllerCadastraCaixa;
 import controller.ControllerCadastroBairro;
 import controller.ControllerCadastroCarteirinha;
 import controller.ControllerCadastroCidade;
@@ -63,6 +64,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuCaixa = new javax.swing.JMenu();
         jMenuItemPagar = new javax.swing.JMenuItem();
         jMenuItemReceber = new javax.swing.JMenuItem();
+        jMenuItemAbertura = new javax.swing.JMenuItem();
         jMenuRelatorios = new javax.swing.JMenu();
         jMenuAjuda = new javax.swing.JMenu();
 
@@ -222,6 +224,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenuCaixa.add(jMenuItemReceber);
 
+        jMenuItemAbertura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItemAbertura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/iconeReceber.png"))); // NOI18N
+        jMenuItemAbertura.setText("Abrir/Fechar Caixa");
+        jMenuItemAbertura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAberturaActionPerformed(evt);
+            }
+        });
+        jMenuCaixa.add(jMenuItemAbertura);
+
         jMenuMovimentos.add(jMenuCaixa);
 
         jMenuBar1.add(jMenuMovimentos);
@@ -355,6 +367,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pontoVenda.setVisible(true);
     }//GEN-LAST:event_jMenuItemPDVActionPerformed
 
+    private void jMenuItemAberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAberturaActionPerformed
+        CadastroCaixa cadastroCaixa = new CadastroCaixa();
+        ControllerCadastraCaixa controllerCadastraCaixa = new ControllerCadastraCaixa(cadastroCaixa);
+        cadastroCaixa.setVisible(true);
+    }//GEN-LAST:event_jMenuItemAberturaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -397,6 +415,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCadastros;
     private javax.swing.JMenu jMenuCaixa;
+    private javax.swing.JMenuItem jMenuItemAbertura;
     private javax.swing.JMenuItem jMenuItemBairro;
     private javax.swing.JMenuItem jMenuItemCarteirinha;
     private javax.swing.JMenuItem jMenuItemCidade;

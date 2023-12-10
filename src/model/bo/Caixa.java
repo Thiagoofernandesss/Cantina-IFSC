@@ -102,6 +102,15 @@ public class Caixa {
     public void setStatus(char status) {
         this.status = status;
     }
+    
+    public void setStatu(boolean statusInformado) {
+        if(statusInformado == false){
+            this.status = 'A';
+        } else{
+            this.status = 'I';
+    }
+        
+   }
 
     @Override
     public String toString() {
