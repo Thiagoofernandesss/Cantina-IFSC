@@ -43,8 +43,8 @@ public class CaixaDao implements InterfaceDao<Caixa>{
     @Override
     public List<Caixa> retrieve() {
        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "select caixa.*, func.* from caixa caixa  "
-                + "left outer join endereco func on caixa.Funcionario_id = func.id";
+        String sqlExecutar = "select caixa.*, func.* from caixa caixa "+ 
+                "left outer join funcionario func on caixa.Funcionario_id = func.id";
         PreparedStatement pstm = null;
         ResultSet rst = null;
         List<Caixa> listaCaixa = new ArrayList<>();
@@ -60,7 +60,7 @@ public class CaixaDao implements InterfaceDao<Caixa>{
                 caixa.setDataHoraFechamento(rst.getString("caixa.dataHoraFechamento"));
                 caixa.setValorAbertura(rst.getFloat("caixa.valorAbertura"));
                 caixa.setValorFechamento(rst.getFloat("caixa.valorFechamento"));
-                caixa.setStatus(rst.getString("cli.status").charAt(0));
+                caixa.setStatus(rst.getString("caixa.status").charAt(0));
                 
                 Funcionario funcionario = new Funcionario();
                 funcionario.setId(rst.getInt("func.id"));
@@ -83,7 +83,7 @@ public class CaixaDao implements InterfaceDao<Caixa>{
     public Caixa retrieve(int parPK) {
         Connection conexao = ConnectionFactory.getConnection();
         String sqlExecutar = "select caixa.*, func.* from caixa caixa  "
-                + "left outer join endereco func on caixa.Funcionario_id = func.id where caixa.id = ?";
+                + "left outer join funcionario func on caixa.Funcionario_id = func.id where caixa.id = ?";
         PreparedStatement pstm = null;
         ResultSet rst = null;
         
@@ -100,7 +100,7 @@ public class CaixaDao implements InterfaceDao<Caixa>{
                 caixa.setDataHoraFechamento(rst.getString("caixa.dataHoraFechamento"));
                 caixa.setValorAbertura(rst.getFloat("caixa.valorAbertura"));
                 caixa.setValorFechamento(rst.getFloat("caixa.valorFechamento"));
-                caixa.setStatus(rst.getString("cli.status").charAt(0));
+                caixa.setStatus(rst.getString("caixa.status").charAt(0));
                 
                 Funcionario funcionario = new Funcionario();
                 funcionario.setId(rst.getInt("func.id"));
@@ -119,8 +119,8 @@ public class CaixaDao implements InterfaceDao<Caixa>{
     
     public List<Caixa> retrieve(String nomeParametro, String parString) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "select caixa.*, func.* from caixa caixa  "
-                + "left outer join endereco func on caixa.Funcionario_id = func.id where caixa." + nomeParametro + " like ?";
+        String sqlExecutar = "select caixa.*, func.* from caixa caixa "
+                + "left outer join funcionario func on caixa.Funcionario_id = func.id where caixa." + nomeParametro + " like ?";
         PreparedStatement pstm = null;
         ResultSet rst = null;
         List<Caixa> listaCaixa = new ArrayList<>();
@@ -137,7 +137,7 @@ public class CaixaDao implements InterfaceDao<Caixa>{
                 caixa.setDataHoraFechamento(rst.getString("caixa.dataHoraFechamento"));
                 caixa.setValorAbertura(rst.getFloat("caixa.valorAbertura"));
                 caixa.setValorFechamento(rst.getFloat("caixa.valorFechamento"));
-                caixa.setStatus(rst.getString("cli.status").charAt(0));
+                caixa.setStatus(rst.getString("caixa.status").charAt(0));
                 
                 Funcionario funcionario = new Funcionario();
                 funcionario.setId(rst.getInt("func.id"));
@@ -155,6 +155,7 @@ public class CaixaDao implements InterfaceDao<Caixa>{
             return listaCaixa;
         }
     }
+    
 
     @Override
     public void update(Caixa objeto) {

@@ -97,16 +97,18 @@ public class ControllerCadastraCaixa implements ActionListener{
                 // Lida com erros de formatação da data, se necessário
             }
             
-            Funcionario funcionario = FuncionarioService.carregar(Integer.parseInt(this.cadastroCaixa.getjTextFieldFiltrarFuncionario().getText()));
+            Funcionario funcionario = FuncionarioService.carregarFuncionario(this.cadastroCaixa.getjTextFieldFiltrarFuncionario().getText());
 
             caixa.setFuncionario(funcionario);
 
             if (codigo == 0) {
                 service.CaixaService.adicionar(caixa);
-                utilities.Utilities.ativa(true, this.cadastroCaixa.getjPanelBotoes());
-                utilities.Utilities.limpaComponentes(false, this.cadastroCaixa.getjPanelDados());
+                utilities.Utilities.ativa(true, cadastroCaixa.getjPanelBotoes());
+                utilities.Utilities.limpaComponentes(false, cadastroCaixa.getjPanelDados());
 
-                this.cadastroCaixa.getjTextFieldNumCaixa().setEditable(false); //Desligando id no braço, provisório
+                this.cadastroCaixa.getjTextFieldNumCaixa().setEditable(false);
+                this.cadastroCaixa.getjTextFieldFiltrarFuncionario().setEditable(false);
+
             } else {
                 caixa.setId(codigo);
 
@@ -114,7 +116,8 @@ public class ControllerCadastraCaixa implements ActionListener{
                 utilities.Utilities.ativa(true, this.cadastroCaixa.getjPanelBotoes());
                 utilities.Utilities.limpaComponentes(false, this.cadastroCaixa.getjPanelDados());
 
-                this.cadastroCaixa.getjTextFieldNumCaixa().setEditable(false); //Desligando id no braço, provisório
+                this.cadastroCaixa.getjTextFieldNumCaixa().setEditable(false);
+                this.cadastroCaixa.getjTextFieldFiltrarFuncionario().setEditable(false);
 
             }
 

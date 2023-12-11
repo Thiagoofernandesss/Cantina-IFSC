@@ -217,7 +217,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelDataAbertura" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFTFDataAbertura" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="jFTFDataAbertura" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelSaldoInicial" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jFTFTSaldoInicial" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>

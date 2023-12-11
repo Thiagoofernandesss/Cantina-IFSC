@@ -168,15 +168,14 @@ public class PontoVenda extends javax.swing.JFrame {
         this.labelValorTotal.setText(labelValorTotal);
     }
 
-
-    public JTextField getjTextFieldTroco() {
+    public JLabel getjTextFieldTroco() {
         return jTextFieldTroco;
     }
 
-    public void setjTextFieldTroco(JTextField jTextFieldTroco) {
+    public void setjTextFieldTroco(JLabel jTextFieldTroco) {
         this.jTextFieldTroco = jTextFieldTroco;
     }
-
+    
     public JTextField getjTextFieldValorRecebido() {
         return jTextFieldValorRecebido;
     }
@@ -261,10 +260,11 @@ public class PontoVenda extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDados = new javax.swing.JTable();
         jPanelTroco = new javax.swing.JPanel();
-        jTextFieldTroco = new javax.swing.JTextField();
         jLabelValorRecebido = new javax.swing.JLabel();
         jTextFieldValorRecebido = new javax.swing.JTextField();
         jLabelTroco = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jTextFieldTroco = new javax.swing.JLabel();
         jPanelTotalVenda = new javax.swing.JPanel();
         jLabelTotalVenda = new javax.swing.JLabel();
         jTextFieldDesconto = new javax.swing.JTextField();
@@ -507,19 +507,26 @@ public class PontoVenda extends javax.swing.JFrame {
         jPanelTroco.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTroco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextFieldTroco.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextFieldTroco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldTroco.setText("R$ 0,00");
-
         jLabelValorRecebido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelValorRecebido.setText("Valor Recebido R$:");
 
         jTextFieldValorRecebido.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextFieldValorRecebido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldValorRecebido.setText("R$ 0,00");
+        jTextFieldValorRecebido.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextFieldValorRecebido.setText("0.00");
+        jTextFieldValorRecebido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldValorRecebidoActionPerformed(evt);
+            }
+        });
 
         jLabelTroco.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelTroco.setText("Troco R$:");
+        jLabelTroco.setText("Troco:");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel13.setText("R$");
+
+        jTextFieldTroco.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTextFieldTroco.setText("0.00");
 
         javax.swing.GroupLayout jPanelTrocoLayout = new javax.swing.GroupLayout(jPanelTroco);
         jPanelTroco.setLayout(jPanelTrocoLayout);
@@ -529,10 +536,12 @@ public class PontoVenda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelTrocoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTrocoLayout.createSequentialGroup()
-                        .addGap(0, 4, Short.MAX_VALUE)
+                        .addGap(0, 61, Short.MAX_VALUE)
                         .addComponent(jLabelTroco)
-                        .addGap(85, 85, 85)
-                        .addComponent(jTextFieldTroco, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(141, 141, 141)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldTroco))
                     .addGroup(jPanelTrocoLayout.createSequentialGroup()
                         .addComponent(jLabelValorRecebido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -547,27 +556,29 @@ public class PontoVenda extends javax.swing.JFrame {
                     .addComponent(jLabelValorRecebido)
                     .addComponent(jTextFieldValorRecebido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanelTrocoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTroco)
-                    .addComponent(jTextFieldTroco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelTrocoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTrocoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldTroco)
+                        .addComponent(jLabel13))
+                    .addComponent(jLabelTroco))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jPanelTotalVenda.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTotalVenda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabelTotalVenda.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabelTotalVenda.setText("Total R$:");
+        jLabelTotalVenda.setText("Total:");
 
         jTextFieldDesconto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextFieldDesconto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldDesconto.setText("R$ 0,00");
+        jTextFieldDesconto.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextFieldDesconto.setText("0.00");
 
         jLabelSubtotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelSubtotal.setText("Subtotal:");
 
         jLabelDescontos.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelDescontos.setText("Descontos:");
+        jLabelDescontos.setText("Descontos R$:");
 
         labelValorSubtotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelValorSubtotal.setText("0.00");
@@ -741,7 +752,7 @@ public class PontoVenda extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -785,6 +796,10 @@ public class PontoVenda extends javax.swing.JFrame {
     private void jTextFieldStatusCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStatusCaixaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldStatusCaixaActionPerformed
+
+    private void jTextFieldValorRecebidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorRecebidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldValorRecebidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -834,6 +849,7 @@ public class PontoVenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabelDescontos;
     private javax.swing.JLabel jLabelNomeCliente;
     private javax.swing.JLabel jLabelNomeFuncionario;
@@ -860,7 +876,7 @@ public class PontoVenda extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldFiltrarProduto;
     private javax.swing.JTextField jTextFieldNumCaixa;
     private javax.swing.JTextField jTextFieldStatusCaixa;
-    private javax.swing.JTextField jTextFieldTroco;
+    private javax.swing.JLabel jTextFieldTroco;
     private javax.swing.JTextField jTextFieldValorRecebido;
     private javax.swing.JLabel labelValorSubtotal;
     private javax.swing.JLabel labelValorTotal;
