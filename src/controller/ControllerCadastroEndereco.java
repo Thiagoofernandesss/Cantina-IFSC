@@ -116,9 +116,10 @@ public class ControllerCadastroEndereco implements ActionListener {
             Endereco endereco = new Endereco();
 
             endereco.setLogradouro(this.cadastroEndereco.getjTextFieldLogradouro().getText());
-            endereco.setCep(this.cadastroEndereco.getjFormattedTextFieldCep().getText());
+            endereco.setCep(this.cadastroEndereco.getjFormattedTextFieldCep().getText().trim());
             endereco.setStatus(this.cadastroEndereco.getjCheckBoxStatus().isSelected());
 
+            
             endereco.setBairro(service.BairroService.carregar("" + this.cadastroEndereco.getjComboBoxBairro().getSelectedItem()).get(0));
             endereco.setCidade(service.CidadeService.carregar("descricao", this.cadastroEndereco.getjComboBoxCidade().getSelectedItem() + "").get(0));
 
