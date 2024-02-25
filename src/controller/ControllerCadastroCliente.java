@@ -327,6 +327,7 @@ public class ControllerCadastroCliente implements ActionListener, FocusListener 
     public void focusLost(FocusEvent e) {
         if (e.getSource() == this.cadastroCliente.getjFormattedTextFieldCEP()) {
             String codigoCEP = (String) this.cadastroCliente.getjFormattedTextFieldCEP().getText();
+            System.out.println(codigoCEP);
 
             if (codigoCEP.isEmpty()) {
                 this.cadastroCliente.getjFormattedTextFieldCEP().setText("");
