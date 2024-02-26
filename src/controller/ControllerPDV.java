@@ -34,7 +34,7 @@ import view.PontoVenda;
  */
 public class ControllerPDV implements ActionListener, FocusListener {
 
-    float valorTotalVenda = 0, valorEmDinheiro = 0;
+    float valorTotalVenda, valorEmDinheiro = 0;
     private PontoVenda pontoVenda;
     private Venda faturacao;
     List<ItemVenda> itensDaTabela = new ArrayList<>();
@@ -100,6 +100,17 @@ public class ControllerPDV implements ActionListener, FocusListener {
             utilities.Utilities.limpaComponentes(false, this.pontoVenda.getjPanelDados());
             utilities.Utilities.limpaComponentes(true, this.pontoVenda.getjPanelFiltro());
             utilities.Utilities.limpaComponentes(true, this.pontoVenda.getjPanelTroco());
+            
+            DefaultTableModel tabelaItens = (DefaultTableModel) pontoVenda.getjTableDados().getModel();
+            this.itensDaTabela.clear();
+            tabelaItens.setRowCount(0);
+            
+            
+            //this.pontoVenda.getValorTotalVenda().setText("0.00");
+            this.pontoVenda.setLabelValorSubtotal("0.00");
+            this.pontoVenda.setLabelValorTotal("0.00");
+            //this.pontoVenda.setLabelValorUnitarioItem("0.00");
+            //this.pontoVenda.getTroco().setText("0.00");
 
         } else if (e.getSource() == this.pontoVenda.getjButtonSalvar()) {
             //produzir
@@ -271,13 +282,12 @@ public class ControllerPDV implements ActionListener, FocusListener {
 
     private void aplicarDesconto() {
         try {
-            float desconto = obterDesconto();
-            float valorTotal = calcularValorTotal();
+           double valorDesconto = Double.parseDouble(this.pontoVenda.getjTextFieldDesconto().getText());
+           
+           double desconto = calcularValorTotal()-valorDesconto;
 
-            float valorComDesconto = valorTotal - desconto;
-
-            if (valorComDesconto >= 0) {
-                pontoVenda.setLabelValorTotal(String.valueOf(valorComDesconto));
+            if (desconto >= 0) {
+                pontoVenda.setLabelValorTotal(String.valueOf(desconto));
             } else {
                 // Trate o caso em que o desconto é maior que o valor total
                 pontoVenda.setLabelValorTotal("0");
