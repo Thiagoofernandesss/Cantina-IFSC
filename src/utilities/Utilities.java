@@ -99,6 +99,8 @@ public class Utilities {
         return verify;
     }
     
+    
+    
     public static boolean isFormattedDataEmpty(JFormattedTextField... campos){
         
         boolean verify = false;
