@@ -34,14 +34,28 @@ public class ControllerBuscaBairro implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+ public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.buscaBairro.getjButtonFiltrar()) {
-            if (this.buscaBairro.getjTextFieldFiltrar().getText().trim().equalsIgnoreCase("")) {
-                JOptionPane.showMessageDialog(null, "Atenção! \n opção de filtro vazia");
-                this.buscaBairro.getjTextFieldFiltrar().requestFocus();
+            DefaultTableModel tabela = (DefaultTableModel) this.buscaBairro.getjTableDados().getModel();
+            tabela.setRowCount(0);
+
+            String filtro = this.buscaBairro.getjTextFieldFiltrar().getText().trim();
+
+            if (filtro.isEmpty()) {
+                List<Bairro> listaBairros = service.BairroService.carregar();
+
+                for (Bairro bairroAtual : listaBairros) {
+                    tabela.addRow(new Object[]{
+                        bairroAtual.getId(),
+                        bairroAtual.getDescricao()
+
+                    });
+
+                }
 
             } else {
                 List<Bairro> listaBairros = new ArrayList<Bairro>();
+                String buscaPor = this.buscaBairro.getjComboBoxBuscaBairroPor().getSelectedItem().toString();
 
                 if (this.buscaBairro.getjComboBoxBuscaBairroPor().getSelectedIndex() == 0) {
                     listaBairros.add(BairroService.carregar(Integer.parseInt(this.buscaBairro.getjTextFieldFiltrar().getText())));
@@ -52,7 +66,6 @@ public class ControllerBuscaBairro implements ActionListener {
                 }
 
                 //Criando um objeto do tipo TableModel
-                DefaultTableModel tabela = (DefaultTableModel) this.buscaBairro.getjTableDados().getModel();
                 tabela.setRowCount(0);
                 for (Bairro bairroAtual : listaBairros) {
                     tabela.addRow(new Object[]{bairroAtual.getId(),

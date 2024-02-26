@@ -13,11 +13,11 @@ import java.time.format.DateTimeFormatter;
 public class Caixa {
 
     private int id;
-    private DateTimeFormatter dataHoraAbertura;
-    private DateTimeFormatter dataHoraFechamento;
+    private String dataHoraAbertura;
+    private String dataHoraFechamento;
     private float valorAbertura;
     private float valorFechamento;
-    private String observaccao;
+    private String observacao;
     private char status;
     
     private Funcionario funcionario;
@@ -25,22 +25,22 @@ public class Caixa {
     public Caixa() {
     }
 
-    public Caixa(int id, DateTimeFormatter dataHoraAbertura, DateTimeFormatter dataHoraFechamento, float valorAbertura, float valorFechamento, String observaccao, char status, Funcionario funcionario) {
+    public Caixa(int id, String dataHoraAbertura, String dataHoraFechamento, float valorAbertura, float valorFechamento, String observaccao, char status, Funcionario funcionario) {
         this.id = id;
         this.dataHoraAbertura = dataHoraAbertura;
         this.dataHoraFechamento = dataHoraFechamento;
         this.valorAbertura = valorAbertura;
         this.valorFechamento = valorFechamento;
-        this.observaccao = observaccao;
+        this.observacao = observaccao;
         this.status = status;
         this.funcionario = funcionario;
     }
 
-    public DateTimeFormatter getDataHoraAbertura() {
+    public String getDataHoraAbertura() {
         return dataHoraAbertura;
     }
 
-    public void setDataHoraAbertura(DateTimeFormatter dataHoraAbertura) {
+    public void setDataHoraAbertura(String dataHoraAbertura) {
         this.dataHoraAbertura = dataHoraAbertura;
     }
 
@@ -58,11 +58,8 @@ public class Caixa {
         return id;
     }
 
-    public DateTimeFormatter getDataHoraAbbertura() {
-        return dataHoraAbertura;
-    }
 
-    public DateTimeFormatter getDataHoraFechamento() {
+    public String getDataHoraFechamento() {
         return dataHoraFechamento;
     }
 
@@ -75,7 +72,7 @@ public class Caixa {
     }
 
     public String getObservaccao() {
-        return observaccao;
+        return observacao;
     }
 
     public char getStatus() {
@@ -86,11 +83,7 @@ public class Caixa {
         this.id = id;
     }
 
-    public void setDataHoraAbbertura(DateTimeFormatter dataHoraAbbertura) {
-        this.dataHoraAbertura = dataHoraAbbertura;
-    }
-
-    public void setDataHoraFechamento(DateTimeFormatter dataHoraFechamento) {
+    public void setDataHoraFechamento(String dataHoraFechamento) {
         this.dataHoraFechamento = dataHoraFechamento;
     }
 
@@ -103,17 +96,26 @@ public class Caixa {
     }
 
     public void setObservaccao(String observaccao) {
-        this.observaccao = observaccao;
+        this.observacao = observaccao;
     }
 
     public void setStatus(char status) {
         this.status = status;
     }
+    
+    public void setStatu(boolean statusInformado) {
+        if(statusInformado == false){
+            this.status = 'A';
+        } else{
+            this.status = 'I';
+    }
+        
+   }
 
     @Override
     public String toString() {
         return this.getId() + ", " 
-                + this.getDataHoraAbbertura() + ", " 
+                + this.getDataHoraAbertura() + ", " 
                 + this.getDataHoraFechamento() + ", " 
                 + this.getValorAbertura() + ", " 
                 + this.getValorFechamento() + ", " 

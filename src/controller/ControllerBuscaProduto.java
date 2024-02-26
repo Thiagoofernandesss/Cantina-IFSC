@@ -49,6 +49,7 @@ DefaultTableModel tabela = (DefaultTableModel) this.buscaProduto.getjTableDados(
                 produtoAtual.getId(),
                 produtoAtual.getDescricao(),
                 produtoAtual.getCodigoBarra(),
+                produtoAtual.getPreco(),
                 produtoAtual.getStatus()
             });
         }
@@ -72,6 +73,7 @@ DefaultTableModel tabela = (DefaultTableModel) this.buscaProduto.getjTableDados(
                 produtoAtual.getId(),
                 produtoAtual.getDescricao(),
                 produtoAtual.getCodigoBarra(),
+                produtoAtual.getPreco(),
                 produtoAtual.getStatus()
             });
         }

@@ -24,6 +24,11 @@ public class FuncionarioService {
         FuncionarioDao funcionarioDao = new FuncionarioDao();
         return funcionarioDao.retrieve(nomeParametro, parString);
     }
+    
+    public static Funcionario carregarFuncionario(String parPK) {
+        FuncionarioDao funcionarioDao = new FuncionarioDao();
+        return funcionarioDao.retrieveNome(parPK);
+    }
 
     public static void atualizar(Funcionario objeto) {
         FuncionarioDao funcionarioDao = new FuncionarioDao();

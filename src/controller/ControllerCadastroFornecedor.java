@@ -13,6 +13,7 @@ import java.util.List;
 import model.bo.Endereco;
 import model.bo.Fornecedor;
 import service.EnderecoService;
+import utilities.Utilities;
 import view.BuscaEndereco;
 import view.BuscaFornecedor;
 import view.CadastroEndereco;
@@ -26,6 +27,44 @@ public class ControllerCadastroFornecedor implements ActionListener, FocusListen
 
     private CadastroFornecedor cadastroFornecedor;
     public static int codigo;
+    
+    FocusListener focusCep = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            Utilities.turnCepTextFieldGray(cadastroFornecedor.getjFormattedTextFieldCep());
+            
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            Utilities.turnCepTextFieldRed(cadastroFornecedor.getjFormattedTextFieldCep());
+        }
+    };
+    
+    FocusListener focusMatricula = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            Utilities.turnTextFieldGray(cadastroFornecedor.getjFormattedTextFieldInsEstadual());
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            Utilities.turnTextFieldRed(cadastroFornecedor.getjFormattedTextFieldInsEstadual());
+        }
+    };
+    
+    FocusListener focusCpf = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            Utilities.turnCepTextFieldGray(cadastroFornecedor.getjFormattedTextFieldCnpj());
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            Utilities.turnCepTextFieldRed(cadastroFornecedor.getjFormattedTextFieldCnpj());
+        }
+    };
+  
 
     public ControllerCadastroFornecedor(CadastroFornecedor cadastroFornecedor) {
         this.cadastroFornecedor = cadastroFornecedor;
@@ -35,6 +74,10 @@ public class ControllerCadastroFornecedor implements ActionListener, FocusListen
         this.cadastroFornecedor.getjButtonCancelar().addActionListener(this);
         this.cadastroFornecedor.getjButtonSalvar().addActionListener(this);
         this.cadastroFornecedor.getjButtonConsultar().addActionListener(this);
+        
+        this.cadastroFornecedor.getjFormattedTextFieldCnpj().addFocusListener(focusCpf);
+        this.cadastroFornecedor.getjFormattedTextFieldCep().addFocusListener(focusCep);
+        this.cadastroFornecedor.getjFormattedTextFieldInsEstadual().addFocusListener(focusMatricula);
 
         this.cadastroFornecedor.getjButtonPesquisarCep().addActionListener(this);
         this.cadastroFornecedor.getjButtonAdcionarCep().addActionListener(this);

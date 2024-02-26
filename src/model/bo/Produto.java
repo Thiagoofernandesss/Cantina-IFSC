@@ -14,14 +14,16 @@ public class Produto {
     private String descricao;
     private String codigoBarra;
     private char status;
-
+    private float preco;
+    
     public Produto() {
     }
 
-    public Produto(int id, String descricao, String codigoBarra, char status) {
+    public Produto(int id, String descricao, String codigoBarra, char status, float preco) {
         this.id = id;
         this.descricao = descricao;
         this.codigoBarra = codigoBarra;
+        this.preco=preco;
         this.status = status;
     }
 
@@ -57,6 +59,13 @@ public class Produto {
         this.status = status;    
     }
     
+    public void setPreco(float preco) {
+        this.preco = preco;
+    }
+
+    public float getPreco() {
+        return preco;
+    }
 
     
     public void setStatus(boolean statusInformado){
@@ -78,8 +87,9 @@ public class Produto {
     public String toString() {
         return this.getId() + ", " 
                 + this.getDescricao() + ", " 
-                + this.getCodigoBarra() 
-                + ", " + this.getStatus();
+                + this.getCodigoBarra() + ", "
+                + this.getStatus() + ", "
+                +this.getPreco();
 
     }
 

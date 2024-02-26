@@ -233,6 +233,65 @@ public class FuncionarioDao implements  InterfaceDao<Funcionario>{
             return listaFuncionarios;
         }
     }
+    
+    public Funcionario retrieveNome(String parPK) {
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "select fun.*,e.*, c.*, b.* from funcionario fun  "
+                + "left outer join endereco e on fun.endereco_id = e.id "
+                + "left outer join cidade c on e.cidade_id = c.id "
+                + "left outer join bairro b on e.bairro_id = b.id where fun.nome = ?";
+
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+        
+        Funcionario funcionario = new Funcionario();
+        
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setString(1, parPK);
+            rst = pstm.executeQuery();
+            
+            while (rst.next()) {
+                
+                funcionario.setId(rst.getInt("fun.id"));
+                funcionario.setNome(rst.getString("fun.nome"));
+                funcionario.setFone1(rst.getString("fun.fone1"));
+                funcionario.setFone2(rst.getString("fun.fone2"));
+                funcionario.setEmail(rst.getString("fun.email"));
+                funcionario.setStatus(rst.getString("fun.status").charAt(0));
+                funcionario.setComplementoEndereco(rst.getString("fun.complementoEndereco"));
+                funcionario.setCpf(rst.getString("fun.cpf"));
+                funcionario.setRg(rst.getString("fun.rg"));
+                funcionario.setUsuario("fun.usuario");
+                funcionario.setSenha("fun.senha");
+                
+                Endereco endereco = new Endereco();
+                endereco.setId(rst.getInt("e.id"));
+                endereco.setCep(rst.getString("e.cep"));
+                endereco.setLogradouro(rst.getString("e.logradouro"));
+                endereco.setStatus(rst.getString("e.status").charAt(0));
+
+                Cidade cidade = new Cidade();
+                cidade.setId(rst.getInt("cidade_id"));
+                cidade.setUf(rst.getString("c.uf"));
+                cidade.setDescricao(rst.getString("c.descricao"));
+
+                Bairro bairro = new Bairro();
+                bairro.setId(rst.getInt("bairro_id"));
+                bairro.setDescricao(rst.getString("b.descricao"));
+
+                endereco.setBairro(bairro);
+                endereco.setCidade(cidade);
+                funcionario.setEndereco(endereco);
+                
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            ConnectionFactory.closeConnection(conexao, pstm, rst);
+            return funcionario;
+        }
+    }
 
     @Override
     public void update(Funcionario objeto) {

@@ -22,7 +22,7 @@ public class CarteirinhaDao implements InterfaceDao<Carteirinha>{
 
     @Override
     public void create(Carteirinha objeto) {
-        Connection conexao = ConnectionFactory.getConnection();
+         Connection conexao = ConnectionFactory.getConnection();
         String sqlExecutar = "INSERT INTO cantinaifsc.carteirinha(codigoBarra,dataGeracao,dataCancelamento,cliente_id)"+
                 "VALUES (?, ?, ?, ?)";
         PreparedStatement pstm = null;
@@ -83,7 +83,7 @@ public class CarteirinhaDao implements InterfaceDao<Carteirinha>{
 
     @Override
     public Carteirinha retrieve(int parPK) {
-        Connection conexao = ConnectionFactory.getConnection();
+         Connection conexao = ConnectionFactory.getConnection();
         String sqlExecutar = "select cart.*, b.* from carteirinha cart " +
         "left outer join cliente b on cart.cliente_id = b.id where cart.id = ?";
         
@@ -218,8 +218,8 @@ public class CarteirinhaDao implements InterfaceDao<Carteirinha>{
         String sqlExecutar = "UPDATE carteirinha"
                 + " SET "
                 + "carteirinha.codigoBarra = ?, "
-                + "carteirinha.codigoBarra = ?, "
-                + "carteirinha.codigoBarra = ?, "
+                + "carteirinha.dataGeracao = ?, "
+                + "carteirinha.dataCancelamento = ?, "
                 + "carteirinha.cliente_id = ? "
                 + "WHERE carteirinha.id = ?";
         PreparedStatement pstm = null;

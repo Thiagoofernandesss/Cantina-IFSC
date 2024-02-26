@@ -266,13 +266,13 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jLabelNome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNome.setText("Nome");
+        jLabelNome.setText("Nome*");
         jLabelNome.setMaximumSize(new java.awt.Dimension(13, 16));
         jLabelNome.setMinimumSize(new java.awt.Dimension(13, 16));
 
         jLabelCPF.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelCPF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCPF.setText("CPF");
+        jLabelCPF.setText("CPF*");
         jLabelCPF.setMaximumSize(new java.awt.Dimension(13, 16));
         jLabelCPF.setMinimumSize(new java.awt.Dimension(13, 16));
 
@@ -304,7 +304,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jLabelNascimento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelNascimento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNascimento.setText("DN");
+        jLabelNascimento.setText("DN*");
         jLabelNascimento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabelNascimento.setMaximumSize(new java.awt.Dimension(13, 16));
         jLabelNascimento.setMinimumSize(new java.awt.Dimension(13, 16));
@@ -328,7 +328,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jLabelMatricula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelMatricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelMatricula.setText("Matrícula");
+        jLabelMatricula.setText("Matrícula*");
         jLabelMatricula.setMaximumSize(new java.awt.Dimension(13, 16));
         jLabelMatricula.setMinimumSize(new java.awt.Dimension(13, 16));
 
@@ -367,7 +367,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jLabelCep.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelCep.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCep.setText("CEP");
+        jLabelCep.setText("CEP*");
         jLabelCep.setMaximumSize(new java.awt.Dimension(13, 16));
         jLabelCep.setMinimumSize(new java.awt.Dimension(13, 16));
 
@@ -376,7 +376,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldCEP.setText("     -   ");
 
         jButtonPesquisarCep.setText("...");
         jButtonPesquisarCep.addActionListener(new java.awt.event.ActionListener() {
@@ -687,11 +686,12 @@ public class CadastroCliente extends javax.swing.JFrame {
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 610, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanelDados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelFundoLayout.setVerticalGroup(
             jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -709,7 +709,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

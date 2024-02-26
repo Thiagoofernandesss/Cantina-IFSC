@@ -33,6 +33,11 @@ public class ProdutoService {
         return produtoDao.retrieve(parString);
     }
     
+    public static Produto carregarCodigoBarra(String parString) {
+        ProdutoDao objetoDAO = new ProdutoDao();
+        return objetoDAO.retrieveCodigoBarras(parString);
+    }
+    
      public static List<Produto> carregar(String nomeParametro, String parString) {
         ProdutoDao produtoDao = new ProdutoDao();
         return produtoDao.retrieve(nomeParametro, parString);

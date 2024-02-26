@@ -190,9 +190,9 @@ public class BuscaProduto extends javax.swing.JDialog {
                 .addComponent(jComboBoxBuscaProdutoPor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanelFiltroLayout.setVerticalGroup(
             jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +213,7 @@ public class BuscaProduto extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Descrição", "Código de Barras", "Status"
+                "ID", "Descrição", "Código de Barras", "Preço", "Status"
             }
         ));
         jScrollPane1.setViewportView(jTableDados);
@@ -227,9 +227,9 @@ public class BuscaProduto extends javax.swing.JDialog {
             jTableDados.getColumnModel().getColumn(2).setMinWidth(200);
             jTableDados.getColumnModel().getColumn(2).setPreferredWidth(200);
             jTableDados.getColumnModel().getColumn(2).setMaxWidth(200);
-            jTableDados.getColumnModel().getColumn(3).setMinWidth(70);
-            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(70);
-            jTableDados.getColumnModel().getColumn(3).setMaxWidth(70);
+            jTableDados.getColumnModel().getColumn(4).setMinWidth(70);
+            jTableDados.getColumnModel().getColumn(4).setPreferredWidth(70);
+            jTableDados.getColumnModel().getColumn(4).setMaxWidth(70);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
@@ -274,9 +274,7 @@ public class BuscaProduto extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

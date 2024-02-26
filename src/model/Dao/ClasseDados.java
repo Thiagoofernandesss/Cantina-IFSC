@@ -152,13 +152,13 @@ public class ClasseDados {
         carteirinhas.add(carteirinha3);
         
         //Produtos
-        Produto produto1 = new Produto(1, "Rigoles", "123456987", 'I');
-        Produto produto2 = new Produto(2, "Pastel", "123456998", 'A');
-        Produto produto3 = new Produto(3, "Coxinha", "123456998", 'A');
+        //Produto produto1 = new Produto(1, "Rigoles", "123456987", 'I');
+        //Produto produto2 = new Produto(2, "Pastel", "123456998", 'A');
+        // produto3 = new Produto(3, "Coxinha", "123456998", 'A');
         
-        produtos.add(produto1);
-        produtos.add(produto2);
-        produtos.add(produto3);
+       // produtos.add(produto1);
+        //produtos.add(produto2);
+        //produtos.add(produto3);
         
         //Compras
         Compra compra1 = new Compra(1, 10, DateTimeFormatter.ISO_LOCAL_DATE, 0, 'S', 'A', "", fornecedor1);
@@ -170,13 +170,13 @@ public class ClasseDados {
         compras.add(compra3);
         
         //Vendas
-        Venda venda1 = new Venda(1, DateTimeFormatter.ISO_LOCAL_DATE, 0, 'S', "", 'A', carteirinha1, funcionario1);
-        Venda venda2 = new Venda(2, DateTimeFormatter.ISO_LOCAL_DATE, 0, 'S', "", 'A', carteirinha2, funcionario2);
-        Venda venda3 = new Venda(3, DateTimeFormatter.ISO_LOCAL_DATE, 0, 'S', "", 'A', carteirinha3, funcionario3);
+        //Venda venda1 = new Venda(1, DateTimeFormatter.ISO_LOCAL_DATE, 0, 'S', "", 'A', carteirinha1, funcionario1);
+       // Venda venda2 = new Venda(2, DateTimeFormatter.ISO_LOCAL_DATE, 0, 'S', "", 'A', carteirinha2, funcionario2);
+        // venda3 = new Venda(3, DateTimeFormatter.ISO_LOCAL_DATE, 0, 'S', "", 'A', carteirinha3, funcionario3);
         
-        vendas.add(venda1);
-        vendas.add(venda2);
-        vendas.add(venda3);
+        //vendas.add(venda1);
+       // vendas.add(venda2);
+       // vendas.add(venda3);
         
         //Contas
         

@@ -15,12 +15,12 @@ import javax.swing.JTextField;
  *
  * @author aluno
  */
-public class BuscaCarteirinha extends javax.swing.JDialog {
+public class BuscaCaixa extends javax.swing.JDialog {
 
     /**
      * Creates new form TemplateBusca2023
      */
-    public BuscaCarteirinha(java.awt.Frame parent, boolean modal) {
+    public BuscaCaixa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -53,23 +53,19 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         this.jTextFieldFiltrar = jTextFieldFiltrar;
     }
 
-    public JComboBox<String> getjComboBoxBuscaCarteirinhaPor() {
-        return jComboBoxBuscaCarteirinhaPor;
+    public JComboBox<String> getjComboBoxBuscaCaixaPor() {
+        return jComboBoxBuscaBairroPor;
     }
 
-    public void setjComboBoxBuscaCarteirinhaPor(JComboBox<String> jComboBoxBuscaCarteirinhaPor) {
-        this.jComboBoxBuscaCarteirinhaPor = jComboBoxBuscaCarteirinhaPor;
+    public void setjComboBoxBuscaBairroPor(JComboBox<String> jComboBoxBuscaBairroPor) {
+        this.jComboBoxBuscaBairroPor = jComboBoxBuscaBairroPor;
     }
+    
+    
 
     public JTable getjTableDados() {
         return jTableDados;
     }
-
-    public void setjTableDados(JTable jTableDados) {
-        this.jTableDados = jTableDados;
-    }
-    
-    
     
     
 
@@ -91,12 +87,13 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         jPanelFiltro = new javax.swing.JPanel();
         jTextFieldFiltrar = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
-        jComboBoxBuscaCarteirinhaPor = new javax.swing.JComboBox<>();
+        jComboBoxBuscaBairroPor = new javax.swing.JComboBox<>();
         jPanelDados2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDados = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("BuscaBairro");
         setAlwaysOnTop(true);
         setResizable(false);
 
@@ -105,11 +102,11 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         jPanelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabelTitulo.setBackground(new java.awt.Color(235, 235, 235));
+        jLabelTitulo.setBackground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitulo.setForeground(new java.awt.Color(78, 124, 0));
         jLabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitulo.setText("Carteirinhas");
+        jLabelTitulo.setText("Caixas");
 
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
@@ -138,6 +135,8 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         jButtonCarregar.setText("Carregar");
         jButtonCarregar.setActionCommand("0");
         jButtonCarregar.setBorder(null);
+        jButtonCarregar.setMaximumSize(new java.awt.Dimension(99, 26));
+        jButtonCarregar.setMinimumSize(new java.awt.Dimension(99, 26));
 
         jButtonSair.setBackground(new java.awt.Color(255, 210, 210));
         jButtonSair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -148,6 +147,11 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         jButtonSair.setBorder(null);
         jButtonSair.setMaximumSize(new java.awt.Dimension(99, 26));
         jButtonSair.setMinimumSize(new java.awt.Dimension(99, 26));
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelBotoesLayout = new javax.swing.GroupLayout(jPanelBotoes);
         jPanelBotoes.setLayout(jPanelBotoesLayout);
@@ -170,7 +174,7 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelFiltro.setBackground(new java.awt.Color(235, 235, 235));
+        jPanelFiltro.setBackground(new java.awt.Color(228, 228, 228));
         jPanelFiltro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonFiltrar.setBackground(new java.awt.Color(152, 211, 255));
@@ -179,8 +183,10 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         jButtonFiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Icones/IconeFiltrar.png"))); // NOI18N
         jButtonFiltrar.setText("Filtrar");
         jButtonFiltrar.setBorder(null);
+        jButtonFiltrar.setMaximumSize(new java.awt.Dimension(99, 26));
+        jButtonFiltrar.setMinimumSize(new java.awt.Dimension(99, 26));
 
-        jComboBoxBuscaCarteirinhaPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nome", "Data Geração", "Data Cancelamento", "Código Barra" }));
+        jComboBoxBuscaBairroPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Observação", "Status" }));
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
@@ -188,7 +194,7 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
             jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFiltroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBoxBuscaCarteirinhaPor, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxBuscaBairroPor, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -202,39 +208,36 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
                 .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxBuscaCarteirinhaPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxBuscaBairroPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelDados2.setBackground(new java.awt.Color(228, 228, 228));
         jPanelDados2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jTableDados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jTableDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nome", "Cód Barra", "Data Cancelamento"
+                "ID", "Observação", "Funcionário", "Status"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTableDados);
         if (jTableDados.getColumnModel().getColumnCount() > 0) {
-            jTableDados.getColumnModel().getColumn(0).setResizable(false);
-            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(50);
-            jTableDados.getColumnModel().getColumn(1).setResizable(false);
-            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(80);
-            jTableDados.getColumnModel().getColumn(2).setResizable(false);
-            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(70);
-            jTableDados.getColumnModel().getColumn(3).setResizable(false);
-            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(60);
+            jTableDados.getColumnModel().getColumn(0).setPreferredWidth(12);
+            jTableDados.getColumnModel().getColumn(1).setPreferredWidth(200);
+            jTableDados.getColumnModel().getColumn(2).setPreferredWidth(200);
+            jTableDados.getColumnModel().getColumn(3).setPreferredWidth(20);
         }
 
         javax.swing.GroupLayout jPanelDados2Layout = new javax.swing.GroupLayout(jPanelDados2);
@@ -268,9 +271,9 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
                 .addComponent(jPanelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelDados2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -279,9 +282,7 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,6 +291,10 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,7 +327,7 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                BuscaCarteirinha dialog = new BuscaCarteirinha(new javax.swing.JFrame(), true);
+                BuscaCaixa dialog = new BuscaCaixa(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -338,7 +343,7 @@ public class BuscaCarteirinha extends javax.swing.JDialog {
     private javax.swing.JButton jButtonCarregar;
     private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBoxBuscaCarteirinhaPor;
+    private javax.swing.JComboBox<String> jComboBoxBuscaBairroPor;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBotoes;
     private javax.swing.JPanel jPanelDados2;

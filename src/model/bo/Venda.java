@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 public class Venda {
 
     private int id;
-    private DateTimeFormatter dataHoraVenda;
+    private String datahoravenda;
     private float valorDesconto;
     private char flagTipoDesconto;
     private String observacao;
@@ -26,9 +26,9 @@ public class Venda {
     }
 
 
-    public Venda(int id, DateTimeFormatter dataHoraVenda, float valorDesconto, char flagTipoDesconto, String observacao, char status, Carteirinha carteirinha, Funcionario funcionario) {
+    public Venda(int id, String dataHoraVenda, float valorDesconto, char flagTipoDesconto, String observacao, char status, Carteirinha carteirinha, Funcionario funcionario) {
         this.id = id;
-        this.dataHoraVenda = dataHoraVenda;
+        this.datahoravenda = dataHoraVenda;
         this.valorDesconto = valorDesconto;
         this.flagTipoDesconto = flagTipoDesconto;
         this.observacao = observacao;
@@ -58,8 +58,8 @@ public class Venda {
         return id;
     }
 
-    public DateTimeFormatter getDataHoraVenda() {
-        return dataHoraVenda;
+    public String getDataHoraVenda() {
+        return datahoravenda;
     }
 
     public float getValorDesconto() {
@@ -82,8 +82,8 @@ public class Venda {
         this.id = id;
     }
 
-    public void setDataHoraVenda(DateTimeFormatter dataHoraVenda) {
-        this.dataHoraVenda = dataHoraVenda;
+    public void setDataHoraVenda(String dataHoraVenda) {
+        this.datahoravenda = dataHoraVenda;
     }
 
     public void setValorDesconto(float valorDesconto) {

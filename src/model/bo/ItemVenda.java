@@ -4,6 +4,8 @@
  */
 package model.bo;
 
+import view.PontoVenda;
+
 /**
  *
  * @author Thiago
@@ -11,7 +13,7 @@ package model.bo;
 public class ItemVenda {
 
     private int id;
-    private float qtdProduto;
+    private int qtdProduto;
     private float valorUnitario;
     private char status;
     
@@ -22,10 +24,9 @@ public class ItemVenda {
     public ItemVenda() {
     }
 
-    public ItemVenda(int id, float qtdProduto, float valorUnitario, char status, Venda venda, Produto produto) {
+    public ItemVenda(int id, int qtdProduto, float valorUnitario, char status, Venda venda, Produto produto) {
         this.id = id;
         this.qtdProduto = qtdProduto;
-        this.valorUnitario = valorUnitario;
         this.status = status;
         this.venda = venda;
         this.produto = produto;
@@ -53,7 +54,7 @@ public class ItemVenda {
         return id;
     }
 
-    public float getQtdProduto() {
+    public int getQtdProduto() {
         return qtdProduto;
     }
 
@@ -69,7 +70,7 @@ public class ItemVenda {
         this.id = id;
     }
 
-    public void setQtdProduto(float qtdProduto) {
+    public void setQtdProduto(int qtdProduto) {
         this.qtdProduto = qtdProduto;
     }
 
@@ -85,7 +86,6 @@ public class ItemVenda {
     public String toString() {
         return this.getId() + ", " 
                 + this.getQtdProduto() + ", " 
-                + this.getValorUnitario() + ", " 
                 + this.getStatus() + ", "
                 + this.venda.getId() + ", "
                 + this.produto.getId() + ", "

@@ -6,8 +6,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import javax.swing.WindowConstants;
 import model.bo.Cidade;
+import utilities.Utilities;
 import view.BuscaCidade;
 import view.CadastroCidade;
 
@@ -28,11 +31,28 @@ public class ControllerCadastroCidade implements ActionListener {
         this.cadastroCidade.getjButtonConsultar().addActionListener(this);
         this.cadastroCidade.getjButtonSair().addActionListener(this);
         this.cadastroCidade.getjButtonSalvar().addActionListener(this);
+        
+        this.cadastroCidade.getjTextFieldDescricao().addFocusListener(focus);
 
         utilities.Utilities.ativa(true, this.cadastroCidade.getjPanelBotoes());
         utilities.Utilities.limpaComponentes(false, this.cadastroCidade.getjPanelDados());
 
     }
+    
+    FocusListener focus = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            
+            cadastroCidade.getjTextFieldDescricao().requestFocus();  
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            
+            Utilities.turnTextFieldRed(cadastroCidade.getjTextFieldDescricao());
+        }
+    };
+   
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -41,7 +61,6 @@ public class ControllerCadastroCidade implements ActionListener {
             utilities.Utilities.limpaComponentes(true, this.cadastroCidade.getjPanelDados());
             //Desligando o ID no braço (Provisório)
             this.cadastroCidade.getjTextFieldId().setEditable(false);
-            this.cadastroCidade.getjTextFieldDescricao().requestFocus();
 
         } else if (e.getSource() == this.cadastroCidade.getjButtonSair()) {
             this.cadastroCidade.dispose();
@@ -50,6 +69,7 @@ public class ControllerCadastroCidade implements ActionListener {
         } else if (e.getSource() == this.cadastroCidade.getjButtonCancelar()) {
             utilities.Utilities.ativa(true, this.cadastroCidade.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, this.cadastroCidade.getjPanelDados());
+            utilities.Utilities.turnTextFieldGray(this.cadastroCidade.getjTextFieldDescricao());
 
         } else if (e.getSource() == this.cadastroCidade.getjButtonSalvar()) {
             
@@ -65,7 +85,8 @@ public class ControllerCadastroCidade implements ActionListener {
             }
             utilities.Utilities.ativa(true, cadastroCidade.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, cadastroCidade.getjPanelDados());
-
+            utilities.Utilities.turnTextFieldGray(this.cadastroCidade.getjTextFieldDescricao());
+            
         } else if(e.getSource() == this.cadastroCidade.getjButtonConsultar()){
             codigo=0;
             

@@ -151,7 +151,7 @@ public class CadastroCidade extends javax.swing.JFrame {
         });
 
         jLabelDescricao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelDescricao.setText("Descricão");
+        jLabelDescricao.setText("Descrição *");
 
         jLabelUf.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelUf.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -175,7 +175,7 @@ public class CadastroCidade extends javax.swing.JFrame {
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxUf, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
         jPanelDadosLayout.setVerticalGroup(
             jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

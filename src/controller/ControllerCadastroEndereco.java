@@ -8,11 +8,13 @@ import Dao.ClasseDados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.ArrayList;
 import java.util.List;
 import model.bo.Bairro;
 import model.bo.Cidade;
 import model.bo.Endereco;
+import utilities.Utilities;
 import view.BuscaBairro;
 import view.BuscaCidade;
 import view.BuscaEndereco;
@@ -39,6 +41,9 @@ public class ControllerCadastroEndereco implements ActionListener {
         this.cadastroEndereco.getjButtonCancelar().addActionListener(this);
         this.cadastroEndereco.getjButtonSalvar().addActionListener(this);
         this.cadastroEndereco.getjButtonConsultar().addActionListener(this);
+        
+        this.cadastroEndereco.getjTextFieldLogradouro().addFocusListener(focusLogradouro);
+        this.cadastroEndereco.getjFormattedTextFieldCep().addFocusListener(focusCep);
 
         List<Cidade> listaCidades = new ArrayList<Cidade>();
         List<Bairro> listaBairros = new ArrayList<Bairro>();
@@ -61,6 +66,33 @@ public class ControllerCadastroEndereco implements ActionListener {
         utilities.Utilities.ativa(true, this.cadastroEndereco.getjPanelBotoes());
         utilities.Utilities.limpaComponentes(false, this.cadastroEndereco.getjPanelDados());
     }
+    
+    FocusListener focusLogradouro = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            
+            Utilities.turnTextFieldGray(cadastroEndereco.getjTextFieldLogradouro());  
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            
+            Utilities.turnTextFieldRed(cadastroEndereco.getjTextFieldLogradouro());
+        }
+    };
+    FocusListener focusCep = new FocusListener() {
+        @Override
+        public void focusGained(FocusEvent e) {
+            
+            Utilities.turnCepTextFieldGray(cadastroEndereco.getjFormattedTextFieldCep());
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            
+            Utilities.turnCepTextFieldRed(cadastroEndereco.getjFormattedTextFieldCep());
+        }
+    };
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -77,15 +109,17 @@ public class ControllerCadastroEndereco implements ActionListener {
             //Ação botão cancelar
             utilities.Utilities.ativa(true, this.cadastroEndereco.getjPanelBotoes());
             utilities.Utilities.limpaComponentes(false, this.cadastroEndereco.getjPanelDados());
-
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroEndereco.getjFormattedTextFieldCep());
+            utilities.Utilities.turnTextFieldGray(this.cadastroEndereco.getjTextFieldLogradouro());
         } else if (e.getSource() == this.cadastroEndereco.getjButtonSalvar()) {
             //Ação botão salvar
             Endereco endereco = new Endereco();
 
             endereco.setLogradouro(this.cadastroEndereco.getjTextFieldLogradouro().getText());
-            endereco.setCep(this.cadastroEndereco.getjFormattedTextFieldCep().getText());
+            endereco.setCep(this.cadastroEndereco.getjFormattedTextFieldCep().getText().trim());
             endereco.setStatus(this.cadastroEndereco.getjCheckBoxStatus().isSelected());
 
+            
             endereco.setBairro(service.BairroService.carregar("" + this.cadastroEndereco.getjComboBoxBairro().getSelectedItem()).get(0));
             endereco.setCidade(service.CidadeService.carregar("descricao", this.cadastroEndereco.getjComboBoxCidade().getSelectedItem() + "").get(0));
 
@@ -102,7 +136,9 @@ public class ControllerCadastroEndereco implements ActionListener {
                 service.EnderecoService.atualizar(endereco);
                 utilities.Utilities.ativa(true, this.cadastroEndereco.getjPanelBotoes());
                 utilities.Utilities.limpaComponentes(false, this.cadastroEndereco.getjPanelDados());
-
+                utilities.Utilities.turnCepTextFieldGray(this.cadastroEndereco.getjFormattedTextFieldCep());
+                utilities.Utilities.turnTextFieldGray(this.cadastroEndereco.getjTextFieldLogradouro());
+                
                 this.cadastroEndereco.getjTextFieldId().setEditable(false);
 
             }
@@ -133,7 +169,9 @@ public class ControllerCadastroEndereco implements ActionListener {
                 this.cadastroEndereco.getjComboBoxCidade().setSelectedItem(endereco.getCidade().getDescricao());
 
                 this.cadastroEndereco.getjTextFieldId().setEnabled(false);
-
+                
+            utilities.Utilities.turnCepTextFieldGray(this.cadastroEndereco.getjFormattedTextFieldCep());
+            utilities.Utilities.turnTextFieldGray(this.cadastroEndereco.getjTextFieldLogradouro());
             }
 
         }

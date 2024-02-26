@@ -33,27 +33,17 @@ public class ControllerBuscaCidade implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.buscaCidade.getjButtonFiltrar()) {
-            if (!this.buscaCidade.getjTextFieldFiltrar().getText().trim().equals("")) {
-                List<Cidade> lisraCidades = new ArrayList<Cidade>();
+     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == this.buscaCidade.getjButtonFiltrar()) {        
+            DefaultTableModel tabela = (DefaultTableModel) this.buscaCidade.getjTableDados().getModel();
+            tabela.setRowCount(0);
 
-                if (this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString().equalsIgnoreCase("id")) {
-                    lisraCidades.add(service.CidadeService.carregar(Integer.parseInt(this.buscaCidade.getjTextFieldFiltrar().getText())));
-                } else if (this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString().equalsIgnoreCase("descrição")) {
-                    lisraCidades = service.CidadeService.carregar("cidade.descricao", this.buscaCidade.getjTextFieldFiltrar().getText());
-                } else if (this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString().equalsIgnoreCase("uf")) {
-                    lisraCidades = service.CidadeService.carregar("cidade.uf", this.buscaCidade.getjTextFieldFiltrar().getText());
-                } else {
-                    lisraCidades = service.CidadeService.carregar(this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString(),
-                            this.buscaCidade.getjTextFieldFiltrar().getText());
-                }
+            String filtro = this.buscaCidade.getjTextFieldFiltrar().getText().trim();
 
-                //Criar um objeto do tipo TableModel
-                DefaultTableModel tabela = (DefaultTableModel) this.buscaCidade.getjTableDados().getModel();
-                tabela.setRowCount(0);
+            if (filtro.isEmpty()) {
+                List<Cidade> listaCidades = service.CidadeService.carregar();
 
-                for (Cidade cidadeatual : lisraCidades) {
+                for (Cidade cidadeatual : listaCidades) {
                     tabela.addRow(new Object[]{cidadeatual.getId(),
                         cidadeatual.getDescricao(),
                         cidadeatual.getUf()
@@ -62,8 +52,26 @@ public class ControllerBuscaCidade implements ActionListener {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Atenção!\nOpção de Filtro Vazia...");
-                this.buscaCidade.getjTextFieldFiltrar().requestFocus();
+                List<Cidade> listaCidades = new ArrayList<Cidade>();
+
+                if (this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString().equalsIgnoreCase("id")) {
+                    listaCidades.add(service.CidadeService.carregar(Integer.parseInt(this.buscaCidade.getjTextFieldFiltrar().getText())));
+                } else if (this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString().equalsIgnoreCase("descrição")) {
+                    listaCidades = service.CidadeService.carregar("cidade.descricao", this.buscaCidade.getjTextFieldFiltrar().getText());
+                } else if (this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString().equalsIgnoreCase("uf")) {
+                    listaCidades = service.CidadeService.carregar("cidade.uf", this.buscaCidade.getjTextFieldFiltrar().getText());
+                } else {
+                    listaCidades = service.CidadeService.carregar(this.buscaCidade.getjComboBoxBuscaCidadesPor().getSelectedItem().toString(),
+                            this.buscaCidade.getjTextFieldFiltrar().getText());
+                }
+
+                for (Cidade cidadeatual : listaCidades) {
+                    tabela.addRow(new Object[]{cidadeatual.getId(),
+                        cidadeatual.getDescricao(),
+                        cidadeatual.getUf()
+                    });
+
+                }
 
             }
 
@@ -76,5 +84,6 @@ public class ControllerBuscaCidade implements ActionListener {
             this.buscaCidade.dispose();
         }
     }
+
 
 }
